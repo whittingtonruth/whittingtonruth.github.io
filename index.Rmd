@@ -21,7 +21,7 @@ library(rgdal)
 summarydata <- "./DataSummaries"
 allplotchar <- read.csv("./DataSummaries/RawData/PlotCharacterization.csv", stringsAsFactors = F)
 allheader <- readRDS(paste("./DataSummaries/TallFiles", "header.Rdata", sep = "/"))
-allmetricsall <- read.csv(paste(summarydata, "ALL_AllMetrics.csv", sep = "/"), stringsAsFactors = F)
+allmetricsall <- read.csv(paste(summarydata, "Indicators.csv", sep = "/"), stringsAsFactors = F)
 
 alldata <- left_join(allheader%>%
                        select(PlotID:FieldOffice), 
@@ -111,7 +111,7 @@ knitr::kable(PlotLayoutbyState, format = "html", row.names = F, caption = "Lenti
 
 Metric calculations have been completed for all sites sampled in 2020 across all methods and are now available on the BLM National AIM Sharepoint. Also available are site summaries, placing calculated metrics along side photos and descriptive information provided by the crew. Metrics provided reflect the types of information that can be calculated from AIM data, however, the Riparian and Wetland AIM Team is still working to understand what these metrics could indicate about the sites sampled. A thorough review of all data collected during the pilot phase of the Riparian and Wetland AIM program is ongoing. Until more information can be provided about the interpretation of the data, this document can be used to understand the distribution of the metrics calculated across all the sites sampled during the 2020 season. __Because sample designs did not follow a statistically rigorous sampling order, these distributions cannot be used to extrapolate trends across riparian wetland areas on BLM lands, but rather to understand the range of values from this specific set of sites we sampled. __
 
-For the purposes of metric calculations, the species list used and the classifications found in that species list are based on a national list, first exported directly from USDA Plants. This means that duration, growth habit, and native/non-native status classifications were performed at a national level. Noxious designations and C-Values were determined at the state level, and included all noxious classifications based on the Administrative State. Importantly, Oregon noxious species and C-values have not yet been incorporated into the species list. Wetland Indicator Statuses were determined based on the Level III Ecoregion in which the plot was located. 
+For the purposes of metric calculations, the species list used and the classifications found in that species list are based on a national list, first exported directly from USDA Plants. This means that duration, growth habit, and native/non-native status classifications were performed at a national level. Noxious designations and C-Values were determined at the state level, and included all noxious classifications based on the Administrative State. Importantly, Oregon noxious species and C-values have not yet been incorporated into the species list. Wetland Indicator Statuses were determined based on the USACE Wetland Region in which the plot was located. 
 
 ## Community Metrics {.tabset .tabset-fade .tabset-pills}
 
@@ -209,46 +209,130 @@ wetlandtypecommplot
 
 ## Cover Metrics {.tabset .tabset-fade .tabset-pills}
 
-Cover metrics are calculated from LPI pin drops and can either show absolute cover (i.e. the proportion of the plot covered by a given plant or plant group) or relative cover (i.e. the proportion of the vascular species hits made up by a given plant or plant group). Two sets of boxplots are shown here, grouping the data either by Administrative State, or Wetland Type. 
+Cover metrics are calculated from LPI pin drops and can either show absolute cover (i.e. the proportion of the plot covered by a given plant or plant group) or relative cover (i.e. the proportion of the vascular species hits made up by a given plant or plant group). Covers calculated as absolute cover are similar to covers calculated from the Terrestrial AIM program. Both Absolute and Relative covers were calculated for the 2020 data, as shown below in two sets of graphs, as we explore what these metrics may indicate. For each type of cover, the data were grouped either by Administrative State, or Wetland Type.
 
-### Cover Metrics by Administrative State
+### Absolute Cover Metrics by Administrative State
 
 Use the dropdown box to select the cover metric you wish to explore and click on the graph as needed to zoom in.
-```{r adminstate x percent foliar cover, echo = F, warning=F, out.width="100%"}
-items <- list(list(label = "PercentFoliarCover", 
-                   args = list(list(visible = c(T, F, F, F, F, F, F, F, F, F, F, F, F)))),
-              list(label = "PercentBasalCover", 
-                   args = list(list(visible = c(F, T, F, F, F, F, F, F, F, F, F, F, F)))),
-              list(label = "TotalAbsoluteCover", 
-                   args = list(list(visible = c(F, F, T, F, F, F, F, F, F, F, F, F, F)))),
-              list(label = "RelativeNativeCover", 
-                   args = list(list(visible = c(F, F, F, T, F, F, F, F, F, F, F, F, F)))),
+```{r adminstate x absolute cover, echo = F, warning=F, out.width="100%"}
+absitems <- list(list(label = "TotalFoliarCover", 
+                   args = list(list(visible = c(T, F, F, F, F, F, F, F, F, F, F, F)))),
+              list(label = "TotalBasalCover", 
+                   args = list(list(visible = c(F, T, F, F, F, F, F, F, F, F, F, F)))),
+              list(label = "Absolute Native", 
+                   args = list(list(visible = c(F, F, T, F, F, F, F, F, F, F, F, F)))),
               list(label = "Absolute Noxious", 
-                   args = list(list(visible = c(F, F, F, F, T, F, F, F, F, F, F, F, F)))),
+                   args = list(list(visible = c(F, F, F, T, F, F, F, F, F, F, F, F)))),
+              list(label = "Absolute Hydrophyte", 
+                   args = list(list(visible = c(F, F, F, F, T, F, F, F, F, F, F, F)))),
+              list(label = "Absolute HydroFAC", 
+                   args = list(list(visible = c(F, F, F, F, F, T, F, F, F, F, F, F)))),
+              list(label = "Absolute Forb", 
+                   args = list(list(visible = c(F, F, F, F, F, F, T, F, F, F, F, F)))),
+              list(label = "Absolute Graminoid", 
+                   args = list(list(visible = c(F, F, F, F, F, F, F, T, F, F, F, F)))),
+              list(label = "Absolute Shrub", 
+                   args = list(list(visible = c(F, F, F, F, F, F, F, F, T, F, F, F)))),
+              list(label = "Absolute Tree", 
+                   args = list(list(visible = c(F, F, F, F, F, F, F, F, F, T, F, F)))),
+              list(label = "Absolute Annual", 
+                   args = list(list(visible = c(F, F, F, F, F, F, F, F, F, F, T, F)))),
+              list(label = "Absolute Perennial", 
+                   args = list(list(visible = c(F, F, F, F, F, F, F, F, F, F, F, T))))
+)
+
+stateabscoverplot <- ggplotly(ggplot(alldata) +
+    geom_boxplot(aes(y = TotalFoliarCover, x = AdminState))+
+    geom_boxplot(aes(y = TotalBasalCover, x = AdminState))+
+      geom_boxplot(aes(y = AbsoluteNativeCover, x = AdminState))+
+      geom_boxplot(aes(y = AbsoluteNoxiousCover, x = AdminState))+
+      geom_boxplot(aes(y = AbsoluteHydrophyteCover, x = AdminState))+
+      geom_boxplot(aes(y = AbsoluteHydroFACCover, x = AdminState))+
+      geom_boxplot(aes(y = AbsoluteForbCover, x = AdminState))+
+      geom_boxplot(aes(y = AbsoluteGraminoidCover, x = AdminState))+
+      geom_boxplot(aes(y = AbsoluteShrubCover, x = AdminState))+
+      geom_boxplot(aes(y = AbsoluteTreeCover, x = AdminState))+
+      geom_boxplot(aes(y = AbsoluteAnnualCover, x = AdminState))+
+      geom_boxplot(aes(y = AbsolutePerennialCover, x = AdminState))+
+    xlab("Administrative State") + ylab("Percent Absolute Cover") + 
+      scale_y_continuous(n.breaks = 20) + 
+    theme_bw() + theme(panel.border = element_blank(), panel.grid.major = element_blank(),
+panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"), axis.text = element_text(size = 12, color = "black"), text = element_text(size = 16)))%>%
+  layout(
+    yaxis = list(range = c(0, 120)),
+    boxmode = "group",
+    showlegend = T, 
+    updatemenus = list(list(buttons = absitems, yanchor = 'bottom', font = list(size = 12)))
+  )%>%
+  style(visible = "legendonly")
+
+stateabscoverplot
+```
+
+### Absolute Cover Metrics by Wetland Type
+
+Use the dropdown box to select the cover metric you wish to explore and click on the graph as needed to zoom in.
+```{r wetland type x absolute cover, echo = F, warning=F, out.width="100%"}
+wetlandtypeabscoverplot <- ggplotly(ggplot(alldata) +
+    geom_boxplot(aes(y = TotalFoliarCover, x = WetlandType))+
+    geom_boxplot(aes(y = TotalBasalCover, x = WetlandType))+
+      geom_boxplot(aes(y = AbsoluteNativeCover, x = WetlandType))+
+      geom_boxplot(aes(y = AbsoluteNoxiousCover, x = WetlandType))+
+      geom_boxplot(aes(y = AbsoluteHydrophyteCover, x = WetlandType))+
+      geom_boxplot(aes(y = AbsoluteHydroFACCover, x = WetlandType))+
+      geom_boxplot(aes(y = AbsoluteForbCover, x = WetlandType))+
+      geom_boxplot(aes(y = AbsoluteGraminoidCover, x = WetlandType))+
+      geom_boxplot(aes(y = AbsoluteShrubCover, x = WetlandType))+
+      geom_boxplot(aes(y = AbsoluteTreeCover, x = WetlandType))+
+      geom_boxplot(aes(y = AbsoluteAnnualCover, x = WetlandType))+
+      geom_boxplot(aes(y = AbsolutePerennialCover, x = WetlandType))+
+    xlab("General Wetland Type") + ylab("Percent Absolute Cover") + 
+      scale_y_continuous(n.breaks = 20) + 
+    theme_bw() + theme(panel.border = element_blank(), panel.grid.major = element_blank(),
+panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"), axis.text = element_text(size = 12, color = "black"), text = element_text(size = 16), axis.text.x = element_text(angle = 25)))%>%
+  layout(
+    yaxis = list(range = c(0, 120)),
+    boxmode = "group",
+    showlegend = T, 
+    updatemenus = list(list(buttons = absitems, yanchor = 'bottom', font = list(size = 12)))
+  )%>%
+  style(visible = "legendonly")
+
+wetlandtypeabscoverplot
+```
+
+### Relative Cover Metrics by Administrative State
+
+Use the dropdown box to select the cover metric you wish to explore and click on the graph as needed to zoom in.
+```{r adminstate x relative cover, echo = F, warning=F, out.width="100%"}
+items <- list(list(label = "TotalAbsoluteCover", 
+                   args = list(list(visible = c(T, F, F, F, F, F, F, F, F, F, F)))),
+              list(label = "Relative Native", 
+                   args = list(list(visible = c(F, T, F, F, F, F, F, F, F, F, F)))),
+              list(label = "Relative Noxious", 
+                   args = list(list(visible = c(F, F, T, F, F, F, F, F, F, F, F)))),
               list(label = "Relative Hydrophyte", 
-                   args = list(list(visible = c(F, F, F, F, F, T, F, F, F, F, F, F, F)))),
+                   args = list(list(visible = c(F, F, F, T, F, F, F, F, F, F, F)))),
               list(label = "Relative HydroFAC", 
-                   args = list(list(visible = c(F, F, F, F, F, F, T, F, F, F, F, F, F)))),
+                   args = list(list(visible = c(F, F, F, F, T, F, F, F, F, F, F)))),
               list(label = "Relative Forb", 
-                   args = list(list(visible = c(F, F, F, F, F, F, F, T, F, F, F, F, F)))),
+                   args = list(list(visible = c(F, F, F, F, F, T, F, F, F, F, F)))),
               list(label = "Relative Graminoid", 
-                   args = list(list(visible = c(F, F, F, F, F, F, F, F, T, F, F, F, F)))),
+                   args = list(list(visible = c(F, F, F, F, F, F, T, F, F, F, F)))),
               list(label = "Relative Shrub", 
-                   args = list(list(visible = c(F, F, F, F, F, F, F, F, F, T, F, F, F)))),
+                   args = list(list(visible = c(F, F, F, F, F, F, F, T, F, F, F)))),
               list(label = "Relative Tree", 
-                   args = list(list(visible = c(F, F, F, F, F, F, F, F, F, F, T, F, F)))),
+                   args = list(list(visible = c(F, F, F, F, F, F, F, F, T, F, F)))),
               list(label = "Relative Annual", 
-                   args = list(list(visible = c(F, F, F, F, F, F, F, F, F, F, F, T, F)))),
+                   args = list(list(visible = c(F, F, F, F, F, F, F, F, F, T, F)))),
               list(label = "Relative Perennial", 
-                   args = list(list(visible = c(F, F, F, F, F, F, F, F, F, F, F, F, T))))
+                   args = list(list(visible = c(F, F, F, F, F, F, F, F, F, F, T))))
 )
 
 statecoverplot <- ggplotly(ggplot(alldata) +
-    geom_boxplot(aes(y = PercentFoliarCover, x = AdminState))+
-    geom_boxplot(aes(y = PercentBasalCover, x = AdminState))+
       geom_boxplot(aes(y = TotalAbsoluteCover, x = AdminState))+
       geom_boxplot(aes(y = RelativeNativeCover, x = AdminState))+
-      geom_boxplot(aes(y = AbsoluteNoxiousCover, x = AdminState))+
+      geom_boxplot(aes(y = RelativeNoxiousCover, x = AdminState))+
       geom_boxplot(aes(y = RelativeHydrophyteCover, x = AdminState))+
       geom_boxplot(aes(y = RelativeHydroFACCover, x = AdminState))+
       geom_boxplot(aes(y = RelativeForbCover, x = AdminState))+
@@ -257,7 +341,7 @@ statecoverplot <- ggplotly(ggplot(alldata) +
       geom_boxplot(aes(y = RelativeTreeCover, x = AdminState))+
       geom_boxplot(aes(y = RelativeAnnualCover, x = AdminState))+
       geom_boxplot(aes(y = RelativePerennialCover, x = AdminState))+
-    xlab("Administrative State") + ylab("Percent Cover") + 
+    xlab("Administrative State") + ylab("Percent Relative Cover") + 
       scale_y_continuous(n.breaks = 20) + 
     theme_bw() + theme(panel.border = element_blank(), panel.grid.major = element_blank(),
 panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"), axis.text = element_text(size = 12, color = "black"), text = element_text(size = 16)))%>%
@@ -272,16 +356,14 @@ panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"), 
 statecoverplot
 ```
 
-### Cover Metrics by Wetland Type
+### Relative Cover Metrics by Wetland Type
 
 Use the dropdown box to select the cover metric you wish to explore and click on the graph as needed to zoom in.
-```{r wetland type x percent foliar cover, echo = F, warning=F, out.width="100%"}
+```{r wetland type x relative cover, echo = F, warning=F, out.width="100%"}
 wetlandtypecoverplot <- ggplotly(ggplot(alldata) +
-    geom_boxplot(aes(y = PercentFoliarCover, x = WetlandType))+
-    geom_boxplot(aes(y = PercentBasalCover, x = WetlandType))+
       geom_boxplot(aes(y = TotalAbsoluteCover, x = WetlandType))+
       geom_boxplot(aes(y = RelativeNativeCover, x = WetlandType))+
-      geom_boxplot(aes(y = AbsoluteNoxiousCover, x = WetlandType))+
+      geom_boxplot(aes(y = RelativeNoxiousCover, x = WetlandType))+
       geom_boxplot(aes(y = RelativeHydrophyteCover, x = WetlandType))+
       geom_boxplot(aes(y = RelativeHydroFACCover, x = WetlandType))+
       geom_boxplot(aes(y = RelativeForbCover, x = WetlandType))+
@@ -290,7 +372,7 @@ wetlandtypecoverplot <- ggplotly(ggplot(alldata) +
       geom_boxplot(aes(y = RelativeTreeCover, x = WetlandType))+
       geom_boxplot(aes(y = RelativeAnnualCover, x = WetlandType))+
       geom_boxplot(aes(y = RelativePerennialCover, x = WetlandType))+
-    xlab("General Wetland Type") + ylab("Percent Cover") + 
+    xlab("General Wetland Type") + ylab("Percent Relative Cover") + 
       scale_y_continuous(n.breaks = 20) + 
     theme_bw() + theme(panel.border = element_blank(), panel.grid.major = element_blank(),
 panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"), axis.text = element_text(size = 12, color = "black"), text = element_text(size = 16), axis.text.x = element_text(angle = 25)))%>%
@@ -303,6 +385,71 @@ panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"), 
   style(visible = "legendonly")
 
 wetlandtypecoverplot
+```
+
+### Non-Plant Cover Metrics by Administrative State
+
+Use the dropdown box to select the cover metric you wish to explore and click on the graph as needed to zoom in.
+```{r adminstate x ground cover, echo = F, warning=F, out.width="100%"}
+grounditems <- list(list(label = "Total Litter Thatch", 
+                   args = list(list(visible = c(T, F, F, F, F, F)))),
+              list(label = "Total Moss Cover", 
+                   args = list(list(visible = c(F, T, F, F, F, F)))),
+              list(label = "Total Rock Cover", 
+                   args = list(list(visible = c(F, F, T, F, F, F)))),
+              list(label = "Total Water Cover", 
+                   args = list(list(visible = c(F, F, F, T, F, F)))),
+              list(label = "Bare Soil Cover", 
+                   args = list(list(visible = c(F, F, F, F, T, F)))),
+              list(label = "Bare Organic Material Cover", 
+                   args = list(list(visible = c(F, F, F, F, F, T))))
+)
+
+stategroundcoverplot <- ggplotly(ggplot(alldata) +
+      geom_boxplot(aes(y = TotalLitterThatchCover, x = AdminState))+
+      geom_boxplot(aes(y = TotalMossCover, x = AdminState))+
+      geom_boxplot(aes(y = TotalRockCover, x = AdminState))+
+      geom_boxplot(aes(y = TotalWaterCover, x = AdminState))+
+      geom_boxplot(aes(y = BareSoilCover, x = AdminState))+
+      geom_boxplot(aes(y = BareOrganicMaterialCover, x = AdminState))+
+    xlab("Administrative State") + ylab("Percent Cover") + 
+      scale_y_continuous(n.breaks = 20) + 
+    theme_bw() + theme(panel.border = element_blank(), panel.grid.major = element_blank(),
+panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"), axis.text = element_text(size = 12, color = "black"), text = element_text(size = 16)))%>%
+  layout(
+    yaxis = list(range = c(0, 120)),
+    boxmode = "group",
+    showlegend = T, 
+    updatemenus = list(list(buttons = grounditems, yanchor = 'bottom', font = list(size = 12)))
+  )%>%
+  style(visible = "legendonly")
+
+stategroundcoverplot
+```
+
+### Non-Plant Cover Metrics by Wetland Type
+
+Use the dropdown box to select the cover metric you wish to explore and click on the graph as needed to zoom in.
+```{r wetland type x non-plant cover, echo = F, warning=F, out.width="100%"}
+wetlandtypegroundcoverplot <- ggplotly(ggplot(alldata) +
+      geom_boxplot(aes(y = TotalLitterThatchCover, x = WetlandType))+
+      geom_boxplot(aes(y = TotalMossCover, x = WetlandType))+
+      geom_boxplot(aes(y = TotalRockCover, x = WetlandType))+
+      geom_boxplot(aes(y = TotalWaterCover, x = WetlandType))+
+      geom_boxplot(aes(y = BareSoilCover, x = WetlandType))+
+    xlab("General Wetland Type") + ylab("Percent Cover") + 
+      scale_y_continuous(n.breaks = 20) + 
+    theme_bw() + theme(panel.border = element_blank(), panel.grid.major = element_blank(),
+panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"), axis.text = element_text(size = 12, color = "black"), text = element_text(size = 16), axis.text.x = element_text(angle = 25)))%>%
+  layout(
+    yaxis = list(range = c(0, 120)),
+    boxmode = "group",
+    showlegend = T, 
+    updatemenus = list(list(buttons = grounditems, yanchor = 'bottom', font = list(size = 12)))
+  )%>%
+  style(visible = "legendonly")
+
+wetlandtypegroundcoverplot
 ```
 
 ## Height Metrics {.tabset .tabset-fade .tabset-pills}
@@ -365,75 +512,9 @@ panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"), 
 wetlandtypeheightplot
 ```
 
-## Annual Use Metrics {.tabset .tabset-fade .tabset-pills}
-
-Annual use and woody use data was collected every 2.5 m on each transect. Soil alteration was determined as the presence or absence of an alteration (e.g., hoof print, foot print, or wheel track) intercepting one or more of five lines within a 42 by 50 cm quadrat. Stubble height was measured as the average leaf height of a tuft of graminoids located within a 15-cm radius circular area placed along the transect. For each tuft, technicians indicated a dominant graminoid species and whether 25% or more of the leaves had been grazed. Woody use was determined on the first individual of each riparian woody species encountered within a 2-m by 2.5-m quadrat on the transect. Use is placed into one of 5 categories corresponding to midpoints on an even scale from 0 to 100%. Individuals with over 50% of this year’s growth above 1.5 m were counted as NA or Not Available.
-
-### Annual Use Metrics by State
-
-Use the dropdown box to select the cover metric you wish to explore and click on the graph as needed to zoom in.
-```{r annual use by adminstate, echo = F, warning=F, out.width="100%"}
-useclassitems <- list(list(label = "Average Soil Alteration", 
-                   args = list(list(visible = c(T, F, F, F, F)))),
-              list(label = "Average Stubble Height (cm)", 
-                   args = list(list(visible = c(F, T, F, F, F)))),
-              list(label = "Percent Grazed Graminoids", 
-                   args = list(list(visible = c(F, F, T, F, F)))),
-              list(label = "Percent Woody Not Available", 
-                   args = list(list(visible = c(F, F, F, T, F)))),
-              list(label = "Average Woody Use Class", 
-                   args = list(list(visible = c(F, F, F, F, T))))
-)
-
-stateuseplot <- ggplotly(ggplot(alldata) +
-                              geom_boxplot(aes(y = AvgSoilAlteration, x = AdminState))+
-                              geom_boxplot(aes(y = AvgStubbleHeight, x = AdminState))+
-                              geom_boxplot(aes(y = PctGrazed, x = AdminState))+
-                              geom_boxplot(aes(y = PctWoodyNotAvailable, x = AdminState))+
-                              geom_boxplot(aes(y = AvgWoodyUseClass, x = AdminState))+
-                              xlab("Administrative State") + ylab("Annual Use Metric") + 
-                              scale_y_continuous(n.breaks = 40) + 
-                              theme_bw() + theme(panel.border = element_blank(), panel.grid.major = element_blank(),
-panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"), axis.text = element_text(size = 12, color = "black"), text = element_text(size = 16)))%>%
-  layout(
-    yaxis = list(range = c(0, 120)),
-    boxmode = "group",
-    showlegend = T, 
-    updatemenus = list(list(buttons = useclassitems, yanchor = 'bottom', font = list(size = 12)))
-  )%>%
-  style(visible = "legendonly")
-
-stateuseplot
-```
-
-### Annual Use Metrics by Wetland Type
-
-Use the dropdown box to select the cover metric you wish to explore and click on the graph as needed to zoom in.
-```{r annual use by Wetland Type, echo = F, warning=F, out.width="100%"}
-wetlandtypeuseplot <- ggplotly(ggplot(alldata) +
-                              geom_boxplot(aes(y = AvgSoilAlteration, x = WetlandType))+
-                              geom_boxplot(aes(y = AvgStubbleHeight, x = WetlandType))+
-                              geom_boxplot(aes(y = PctGrazed, x = WetlandType))+
-                              geom_boxplot(aes(y = PctWoodyNotAvailable, x = WetlandType))+
-                              geom_boxplot(aes(y = AvgWoodyUseClass, x = WetlandType))+
-                              xlab("Administrative State") + ylab("Annual Use Metric") + 
-                              scale_y_continuous(n.breaks = 40) + 
-                              theme_bw() + theme(panel.border = element_blank(), panel.grid.major = element_blank(),
-panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"), axis.text = element_text(size = 12, color = "black"), text = element_text(size = 16), axis.text.x = element_text(angle = 25)))%>%
-  layout(
-    yaxis = list(range = c(0, 120)),
-    boxmode = "group",
-    showlegend = T, 
-    updatemenus = list(list(buttons = useclassitems, yanchor = 'bottom', font = list(size = 12)))
-  )%>%
-  style(visible = "legendonly")
-
-wetlandtypeuseplot
-```
-
 ## Hummocks Metrics {.tabset .tabset-fade .tabset-pills}
 
-Data collection on hummocks is intended to characterize the physical structure of hummocks within the plot and to help detect changes due to livestock use, erosion, hydrologic modification, and/or changes in the biotic community over time. Hummock methods are a contingent method, and only occur in a small portion of Riparian and Wetland AIM plots. In 2020, 19 sites had one or more hummocks measured along transects. 
+Data collection on hummocks is intended to characterize the physical structure of hummocks within the plot and to help detect changes due to livestock use, erosion, hydrologic modification, and/or changes in the biotic community over time. Hummock methods are a contingent method, and only occur in a small portion of Riparian and Wetland AIM plots. In 2020, 19 sites had one or more hummocks measured along transects. Boxplots shown demonstrate the distribution of each metric within the sites where at least one hummock was measured. 
 
 ### Hummocks Metrics by State
 
@@ -472,7 +553,7 @@ panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"), 
 statehummockplot
 ```
 
-### Annual Use Metrics by Wetland Type
+### Hummocks Metrics by Wetland Type
 
 Use the dropdown box to select the cover metric you wish to explore and click on the graph as needed to zoom in.
 ```{r hummocks by Wetland Type, echo = F, warning=F, out.width="100%"}
