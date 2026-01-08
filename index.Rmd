@@ -1,5 +1,5 @@
 ---
-title: "Riparian and Wetland AIM 2020 Pilot Season Summary"
+title: "Ruth Whittington's GitHub Page"
 output: 
   html_document:
     self_contained: no
@@ -7,4 +7,7 @@ output:
     toc: true
     toc_float: true
 ---
-Blah blah blah
+I'm Ruth Whittington and I have a website. 
+
+Here are other places you can go: 
+[Fluvial Geomorphology Notebook](FluvialGeomorphologyNotebook.html)
