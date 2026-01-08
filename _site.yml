@@ -1,0 +1,13 @@
+name: "Ruth Whittington's Website" 
+navbar: 
+  title: "Ruth Whittington's Website" 
+  left: 
+    - text: "Home" 
+      href: index.html 
+    - text: "Fluvial Geomorphology" 
+      href: FluvialGeomorphologyNotebook.html 
+      
+output_dir: "docs" 
+output: 
+  html_document: 
+    theme: cosmo
