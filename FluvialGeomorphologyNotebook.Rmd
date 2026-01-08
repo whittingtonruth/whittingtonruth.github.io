@@ -1,0 +1,8 @@
+---
+title: "Fluvial Geomorphology: Ruth Whittington's Field Notebook"
+output: html_document
+date: "2026-01-08"
+---
+
+# Introduction
+I'm a wetland ecologist just trying to figure out how to create a website. 
