@@ -1,5 +1,5 @@
 ---
-title: "Ruth Whittington's GitHub Page"
+title: "Ruth Whittington"
 output: 
   html_document:
     self_contained: no
