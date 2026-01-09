@@ -11,3 +11,5 @@ I'm Ruth Whittington and I have a website.
 
 Here are other places you can go: 
 [Fluvial Geomorphology Notebook](FluvialGeomorphologyNotebook.html)
+
+[Module Exercises](ModuleExercises.html)

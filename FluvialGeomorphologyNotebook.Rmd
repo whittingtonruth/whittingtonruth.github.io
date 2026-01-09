@@ -1,5 +1,5 @@
 ---
-title: "Fluvial Geomorphology: Ruth Whittington's Field Notebook"
+title: "Fluvial Geomorphology: Field Notebook"
 output: 
   html_document:
     self_contained: no
@@ -12,5 +12,5 @@ output:
 # Introduction
 I'm a wetland ecologist just trying to figure out how to create a website. 
 
-# Module 1: 
+# Module 1: Geomorphic Analysis of River Systems
 Now I need to find a river closer to home. 
