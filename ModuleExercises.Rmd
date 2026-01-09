@@ -14,8 +14,6 @@ library(ggplot2)
 
 # Module 1: Field Observations from the Clark Fork River
 
-![The Clark Fork River is closeby. Unfortunately, with darkness arriving nightly around 5:15, I wasn't able to go out and look at the stream during daylight hours. Sigh, I'll just have to dream of the summer days.](images/Notebook/ClarkFork_SummerPhotoUpstream.jpg)
-
 For this first assignment, I chose to look digitally at a spot on the Clark Fork River where I regularly take my dog for swimming during the summer. This spot overlooks the Clark Fork River in Missoula just before the Bitterroot River runs into it. For my river analysis, I'll try and break it into the same four steps. 
 
 ## 1. Locate geomorphic landforms. 
@@ -24,14 +22,11 @@ From imagery, I first noted a few things: In-Channel point bars/islands, some si
 
 ![Landforms located! ](images/Notebook/Module1_RiverAnalysisLandforms.jpg)
 
-I also pulled up a couple photos I took over the summer. I can particularly see the bank on the north side of the river which slowly transitions from an erosional bank with nearly undercut banks into a depositional bank with low slope into the river. 
+I also pulled up a couple photos I took over the summer. I can particularly see the bank on the north side of the river which slowly transitions from an erosional bank with nearly undercut banks into a depositional bank with low slope into the river. See below my photos from this summer - the first one looking upstream to the east and the second one looking downstream to the west. In the upstream photo, in the foreground is a point bar of an island in the imagery. The side channel flows in a funky pattern here as the slow moving water from the side channel hits the fast moving water of the mainstem. 
 
-```{r, echo = F, caption = "The Clark Fork from the starred location in the imagery. The photo on the left is looking downstream to the west. The photo on the right is looking upstream. These photos particularly highlight the transition of the bank."}
-p1 <- ggdraw() + draw_image("./images/Notebook/ClarkFork_SummerPhotoUpstream.jpg")
-p2 <- ggdraw() + draw_image("./images/Notebook/ClarkFork_SummerPhotoDownstream.jpg")
+![Photo looking upstream to the east. ](./images/Notebook/ClarkFork_SummerPhotoUpstream.jpg)
 
-plot_grid(p1, p2)
-```
+![Photo looking downstream to the west.](./images/Notebook/ClarkFork_SummerPhotoDownstream.jpg)
 
 ## 2. Understand process-form linkages
 
