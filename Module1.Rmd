@@ -1,5 +1,5 @@
 ---
-title: "Assignments"
+title: "Module 1"
 output: 
   html_document:
     self_contained: no
@@ -12,7 +12,7 @@ library(cowplot)
 library(ggplot2)
 ```
 
-# Module 1: Field Observations from the Clark Fork River
+#Field Observations from the Clark Fork River
 
 For this first assignment, I chose to look digitally at a spot on the Clark Fork River where I regularly take my dog for swimming during the summer. This spot overlooks the Clark Fork River in Missoula just before the Bitterroot River runs into it. For my river analysis, I'll try and break it into the same four steps. 
 
