@@ -1,5 +1,5 @@
 ---
-title: "Module 1"
+title: "Module 1: Field Observations from the Clark Fork River"
 output: 
   html_document:
     self_contained: no
@@ -12,11 +12,9 @@ library(cowplot)
 library(ggplot2)
 ```
 
-#Field Observations from the Clark Fork River
-
 For this first assignment, I chose to look digitally at a spot on the Clark Fork River where I regularly take my dog for swimming during the summer. This spot overlooks the Clark Fork River in Missoula just before the Bitterroot River runs into it. For my river analysis, I'll try and break it into the same four steps. 
 
-## 1. Locate geomorphic landforms. 
+# 1. Locate geomorphic landforms. 
 
 From imagery, I first noted a few things: In-Channel point bars/islands, some side channels in what is a very braided channel. Some Overflow channels and sloughs. The river in the imagery was full to the brim, with even older sloughs filled up with water. 
 
@@ -28,7 +26,7 @@ I also pulled up a couple photos I took over the summer. I can particularly see 
 
 ![Photo looking downstream to the west.](./images/Notebook/ClarkFork_SummerPhotoDownstream.jpg)
 
-## 2. Understand process-form linkages
+# 2. Understand process-form linkages
 
 Looking at that same imagery, I can start to think through the connections beginning to form the features I'm seeing:
 - During high flow events, side and overflow channels are created as the higher force water can't be contained by the mainstem channel. The erosional forces excavating some of the material out, leaving them lower, and more able to flood during smaller events. 
@@ -36,11 +34,11 @@ Looking at that same imagery, I can start to think through the connections begin
 - As the river winds around the bend it simultaneously erodes the southern bank and leaves sediment behind on the inside of the curve. 
 - the back side of islands accumulate sediment as the water slows on the downstream side. 
 
-## 3. Consider the controls and boundaries
+# 3. Consider the controls and boundaries
 
 - Houses and settlements are not far from the floodplain, so some human prevention is surely going on. 
 - This area doesn't have a high slope. Even with a lot of water moving through, it only has so much force. 
 
-## 4. Place it into context
+# 4. Place it into context
 
 This section of the Clark Fork is just before the Bitterroot River flows into it from the south. Before coming here, the river comes into the Missoula valley through a narrow canyon before opening up into this wider floodplain. This river then flows north - it narrows again into a thin floodplain winding through mountainous terrain. This section is likely a slightly lower slope than where it came from, allowing the river to take it's time winding through this valley.
