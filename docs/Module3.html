@@ -357,8 +357,18 @@ div.tocify {
 
 <div id="introduction" class="section level1" number="1">
 <h1><span class="header-section-number">1</span> Introduction</h1>
+<p>Below is information on catchment-level controls on two watersheds: Logan River in northeastern Utah, and the Gold Creek-Blackfoot River Watershed just east of Missoula, Montana.</p>
 <div id="methods" class="section level2" number="1.1">
 <h2><span class="header-section-number">1.1</span> Methods</h2>
+<p>For each watershed, I used various layers contained in the geopackage of the Riverscapes project, including PRISM climate data, geology layers, LANDFIRE vegetation descriptions and ecoregions as defined by the US EPA. When calculating Morphometrics, the following measurement methods were used:</p>
+<p><strong>Catchment Length</strong>: I ensured the project was in UTM projection, then used the measurement tool to measure a straight line from the mainstem beginning to the catchment mouth.</p>
+<p><strong>Catchment Area</strong>: I used the area in the attribute table of the Watershed layer.</p>
+<p><strong>Catchment Perimeter</strong>: I calculated a perimeter for the watershed layer.</p>
+<p><strong>Circularity Ratio</strong>: This is defined in my book as Catchment Area divided by the Area of a circle with the same circumference as the watershed perimeter. The area of a circle can be calculated from perimeter as circumference squared, divided by 4 pi.</p>
+<p><strong>Form Factor</strong>: This calculation is defined as the catchment area divided by catchment length squared.</p>
+<p><strong>Catchment relief</strong>: I used the maximum elevation in the project DEM minus the minimum elevation in the DEM, located at the catchment mouth.</p>
+<p><strong>Relief Ratio</strong>: Catchment relief divided by catchment length, both in meters.</p>
+<p><strong>Drainage Density</strong>: This was calculated as the total stream length from the attribute table of the drainage network (note this included Perennial, Intermittent and Ephemeral drainages), divided by the catchment area.</p>
 </div>
 </div>
 <div id="logan-river-watershed-1601020303" class="section level1" number="2">
@@ -424,7 +434,7 @@ Where A is the height difference between the profile at mid-distance and a strai
 </tr>
 <tr class="even">
 <td align="left">Catchment Area</td>
-<td align="left">646.6 km (646,600,000 sq m)</td>
+<td align="left">646.6 sq km (646,600,000 sq m)</td>
 </tr>
 <tr class="odd">
 <td align="left">Catchment Perimeter Length</td>
@@ -432,19 +442,19 @@ Where A is the height difference between the profile at mid-distance and a strai
 </tr>
 <tr class="even">
 <td align="left">Circularity Ratio</td>
-<td align="left">0.273</td>
+<td align="left">646.6 / ((172.4^2)/(4pi)) = 0.273</td>
 </tr>
 <tr class="odd">
 <td align="left">Form Factor</td>
-<td align="left">0.342</td>
+<td align="left">646.6 / (43.5^2) = 0.342</td>
 </tr>
 <tr class="even">
 <td align="left">Catchment Relief</td>
-<td align="left">1697 m</td>
+<td align="left">3041 - 1344 = 1697 m</td>
 </tr>
 <tr class="odd">
 <td align="left">Relief Ratio</td>
-<td align="left">0.039</td>
+<td align="left">1697 / 43485 = 0.039</td>
 </tr>
 <tr class="even">
 <td align="left">Drainage Density</td>
@@ -482,8 +492,8 @@ Where A is the height difference between the profile at mid-distance and a strai
 <div id="dominant-vegetative-communities-1" class="section level3" number="3.1.3">
 <h3><span class="header-section-number">3.1.3</span> Dominant Vegetative Communities</h3>
 <p>The major dominant vegetative communities include Northern Rocky Mountain Dry-Mesic Mixed Conifer forest, Lodgepole pine forest at the highest elevations, and mixed montane shrubland, particularly on slopes with a southern aspect. The Union Creek subcatchment also has a large amount of Ponderosa Pine woodland and savanna in the center, surrounding large amounts of crop and hayfields in the area closest to Union Creek. Along the Blackfoot River, Ponderosa Pine woodland and savannah dominates the north slopes, while more mixed montane conifer forest is found on the southern slopes.</p>
-<p>In summary, the watershed has some strong differences between the two subbasins contained within it @ref(fig:Differences gold creek)).</p>
 <p><img src="images/Module3/CombinedGoldCreekMaps.jpg" /><!-- --></p>
+<p>In summary, the watershed has some strong differences between the two subbasins contained within it @ref(fig:Differences_gold_creek)).</p>
 </div>
 <div id="physiographic-setting-1" class="section level3" number="3.1.4">
 <h3><span class="header-section-number">3.1.4</span> Physiographic Setting</h3>
@@ -509,7 +519,7 @@ Where A is the height difference between the profile at mid-distance and a strai
 <div id="catchment-morphometrics-1" class="section level2" number="3.3">
 <h2><span class="header-section-number">3.3</span> Catchment morphometrics</h2>
 <table>
-<caption>(#tab:morphometrics gold creek)Catchment morphometrics for Gold Creek-Blackfoot watershed.</caption>
+<caption>(#tab:morphometrics_gold_creek)Catchment morphometrics for Gold Creek-Blackfoot watershed.</caption>
 <thead>
 <tr class="header">
 <th align="left">Morphometric</th>
@@ -531,19 +541,19 @@ Where A is the height difference between the profile at mid-distance and a strai
 </tr>
 <tr class="even">
 <td align="left">Circularity Ratio</td>
-<td align="left">0.271</td>
+<td align="left">582.4 / (164.3^2/4pi) = 0.271</td>
 </tr>
 <tr class="odd">
 <td align="left">Form Factor</td>
-<td align="left">0.97</td>
+<td align="left">582.4 / (24.4^2) = 0.98</td>
 </tr>
 <tr class="even">
 <td align="left">Catchment Relief</td>
-<td align="left">1340 m</td>
+<td align="left">2330 - 990 = 1340 m</td>
 </tr>
 <tr class="odd">
 <td align="left">Relief Ratio</td>
-<td align="left">0.055</td>
+<td align="left">1340 / 24397 = 0.055</td>
 </tr>
 <tr class="even">
 <td align="left">Drainage Density</td>

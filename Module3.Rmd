@@ -10,7 +10,27 @@ output:
 
 # Introduction
 
+Below is information on catchment-level controls on two watersheds: Logan River in northeastern Utah, and the Gold Creek-Blackfoot River Watershed just east of Missoula, Montana. 
+
 ## Methods
+
+For each watershed, I used various layers contained in the geopackage of the Riverscapes project, including PRISM climate data, geology layers, LANDFIRE vegetation descriptions and ecoregions as defined by the US EPA. When calculating Morphometrics, the following measurement methods were used: 
+
+**Catchment Length**: I ensured the project was in UTM projection, then used the measurement tool to measure a straight line from the mainstem beginning to the catchment mouth. 
+
+**Catchment Area**: I used the area in the attribute table of the Watershed layer. 
+
+**Catchment Perimeter**: I calculated a perimeter for the watershed layer. 
+
+**Circularity Ratio**: This is defined in my book as Catchment Area divided by the Area of a circle with the same circumference as the watershed perimeter. The area of a circle can be calculated from perimeter as circumference squared, divided by 4 pi. 
+
+**Form Factor**: This calculation is defined as the catchment area divided by catchment length squared. 
+
+**Catchment relief**: I used the maximum elevation in the project DEM minus the minimum elevation in the DEM, located at the catchment mouth. 
+
+**Relief Ratio**: Catchment relief divided by catchment length, both in meters. 
+
+**Drainage Density**: This was calculated as the total stream length from the attribute table of the drainage network (note this included Perennial, Intermittent and Ephemeral drainages), divided by the catchment area. 
 
 # Logan River Watershed: 1601020303
 
@@ -65,12 +85,12 @@ loganmorph <- data.frame("Morphometric" = c("Catchment Length (m)",
                               "Drainage Density", 
                               "Drainage Pattern"),
            "Value" = c("43.5 km (43,485 m))", 
-                              "646.6 km (646,600,000 sq m)", 
+                              "646.6 sq km (646,600,000 sq m)", 
                               "172.4 km (172,403 m)", 
-                              "0.273", 
-                              "0.342", 
-                              "1697 m", 
-                              "0.039", 
+                              "646.6 / ((172.4^2)/(4pi)) = 0.273", 
+                              "646.6 / (43.5^2) = 0.342", 
+                              "3041 - 1344 = 1697 m", 
+                              "1697 / 43485 = 0.039", 
                               "810 km / 646.6 km^2 = 1.25 km km^-2", 
                               "Dendritic"))
 
@@ -102,9 +122,7 @@ The geology of the watershed is fairly consistent throughout, with metamorphic p
 
 The major dominant vegetative communities include Northern Rocky Mountain Dry-Mesic Mixed Conifer forest, Lodgepole pine forest at the highest elevations, and mixed montane shrubland, particularly on slopes with a southern aspect. The Union Creek subcatchment  also has a large amount of Ponderosa Pine woodland and savanna in the center, surrounding large amounts of crop and hayfields in the area closest to Union Creek. Along the Blackfoot River, Ponderosa Pine woodland and savannah dominates the north slopes, while more mixed montane conifer forest is found on the southern slopes. 
 
-In summary, the watershed has some strong differences between the two subbasins contained within it \@ref(fig:Differences gold creek)). 
-
-```{r Differences gold creek, echo=F, message=F, warning=F, fig.caption = "The two subcatchments within the Gold Creek-Blackfoot Catchment have strong differences between their annual precipitation (b) and dominant vegetation (c). Hillshade also shown (a) for reference. "}
+```{r Differences_gold_creek, echo=F, message=F, warning=F, fig.caption = "The two subcatchments within the Gold Creek-Blackfoot Catchment have strong differences between their annual precipitation (b) and dominant vegetation (c). Hillshade also shown (a) for reference. "}
 library(cowplot)
 library(ggplot2)
 
@@ -118,6 +136,7 @@ ggsave("./images/Module3/CombinedGoldCreekMaps.jpg", threemaps, units = "in", he
 knitr::include_graphics("./images/Module3/CombinedGoldCreekMaps.jpg")
 ```
 
+In summary, the watershed has some strong differences between the two subbasins contained within it \@ref(fig:Differences_gold_creek)). 
 
 ### Physiographic Setting
 
@@ -139,7 +158,7 @@ There are a series of knickpoints along the profile. In the Blackfoot River sect
 
 ## Catchment morphometrics
 
-```{r morphometrics gold creek, echo=F, tab.cap = "Catchment morphometrics for Gold Creek-Blackfoot watershed. "}
+```{r morphometrics_gold_creek, echo=F, tab.cap = "Catchment morphometrics for Gold Creek-Blackfoot watershed. "}
 goldcreekmorph <- data.frame("Morphometric" = c("Catchment Length", 
                               "Catchment Area", 
                               "Catchment Perimeter Length", 
@@ -152,10 +171,10 @@ goldcreekmorph <- data.frame("Morphometric" = c("Catchment Length",
            "Value" = c("24.4 km (24,397 m)", 
                               "582.4 sq km (582,400,000 sq m)", 
                               "164.3 km (164,292 m)", 
-                              "0.271", 
-                              "0.97", 
-                              "1340 m", 
-                              "0.055", 
+                              "582.4 / (164.3^2/4pi) = 0.271", 
+                              "582.4 / (24.4^2) = 0.98", 
+                              "2330 - 990 = 1340 m", 
+                              "1340 / 24397 = 0.055", 
                               "= 849 km / 582 km^2 = 1.46 km km^-2", 
                               "Dendritic"))
 
