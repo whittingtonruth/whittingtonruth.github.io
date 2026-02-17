@@ -14,3 +14,7 @@ I'm a wetland ecologist just trying to figure out how to create a website.
 
 # Module 1: Geomorphic Analysis of River Systems
 Now I need to find a river closer to home. 
+
+# Module 4: Hydrology Bingo! 
+
+Here's where I'll take notes on observed processes. 

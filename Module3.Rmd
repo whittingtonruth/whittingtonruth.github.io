@@ -154,7 +154,9 @@ Concavity is calculated as:
 Concavity = 2A / H
 Where A is the height difference between the profile at mid-distance and a straight line joining the end points of the profile and H is the total fall of the longitudinal profile. In this case, A would be around 300 m, and H is 790 m. Concavity equals 0.759. 
 
-There are a series of knickpoints along the profile. In the Blackfoot River section, there used to be a series of dams in this area to support the local mill in Bonner, MT, but those were removed  in 2007. I can't tell where precisely they all used to be, but there are a few knickpoints in this section that are likely due to mills and dams on this stretch. Higher up, there's a knickpoint that coincides with a road crossing. Potentially that road crossing is limiting some flow. Higher still, there are a few more knickpoints, but the origin is less clear. I wonder if the hard rock parent material results in a few knickpoints where the rock is extra hard to erode. 
+There are a series of knickpoints along the profile. In the Blackfoot River section, there used to be a series of dams in this area to support the local mill in Bonner, MT, but those were removed  in 2007. I can't tell where precisely they all used to be, but there are a few knickpoints in this section that are likely due to mills and dams on this stretch. Higher up, there's a knickpoint that coincides with a road crossing. Potentially that road crossing is limiting some flow. Higher still, there are a few more knickpoints, but the origin is less clear. I wonder if the hard rock parent material results in a few knickpoints where the rock is extra hard to erode.
+
+![Profile of the Gold Creek-Blackfoot River Watershed with knickpoints labelled with a potential explanation..  ](./images/Module3/GoldCreekProfile_withknickpoints.png){#fig:GoldCreekProfileKnickpoints}
 
 ## Catchment morphometrics
 
