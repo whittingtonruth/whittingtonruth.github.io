@@ -17,7 +17,7 @@ For this module, I chose to focus on the Lolo Creek watershed, located south and
 Basic characteristics calculated manually, such as average elevation, slope, and average temperature precipitation, all came out very close to the numbers provided by the basin characteristics from the catchment delineation tool. Average elevation calculated across the watershed was 1591 m or 5220 ft (basin characteristic: 5223 ft). Average slope was 14.7°, or 36.5% according to the catchment tool. 62% of the catchment had a slope above 30% and 22% was above 50% slope. Average annual precipitation was 947 mm, and average mean temperature was 4.48 °C (39°F from the tool).
 
 ```{r LoloPrecip, echo = F, fig.cap="Annual precipitation in the Lolo Creek watershed. ", fig.id = "LoloPrecip", warning=F, out.width="70%", fig.align="center"}
-
+knitr::include_graphics("./images/Module4/LoloAnnualPrecip.jpg")
 ```
 
 Based on this information and what I've observed driving up to Lolo pass to go skiing, I would expect the hydrology to be highly driven by snowfall and then melt, largely occurring in the highest elevation areas of the watershed. There's a fairly clear divide in the precipitation (Fig. \@ref(fig:LoloPrecip)), with the valley getting 500 mm per year and the highest portions of the watershed with 3 times that much. With a fairly high slope across the watershed, and underlying geology dominated by harder, less permeable rocks, I imagine there's a lot of runoff in this watershed.

@@ -17,11 +17,13 @@ Now I need to find a river closer to home.
 
 # Module 4: Hydrology Bingo! 
 
-Here's where I'll take notes on observed processes. Below is the bingo board I've chosen (Fig. \@ref(fig:bingoblank)).
 
-```{r bingocardblank, echo = F, fig.cap="Ruth's selected bingo card!", fig.id="bingoblank"}
+
+```{r bingocardblank, echo = F, fig.cap="Ruth's selected bingo card!", fig.id="bingoblank", out.width = "100%"}
 knitr::include_graphics('./images/Notebook/BINGOcard.png')
 ```
+
+Here's where I'll take notes on observed processes. Below is the bingo board I've chosen (Fig. \@ref(fig:bingoblank)).
 
 ## Infiltration Excess Overland Flow
 
