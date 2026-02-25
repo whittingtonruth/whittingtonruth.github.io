@@ -33,6 +33,7 @@ On my recent trip to Las Torres del Paine in Chile, I saw infiltration excess ov
 knitr::include_graphics('./images/Notebook/InfiltrationExcessOverlandFlow.jpg')
 ```
 
+
 ```{r infiltrationexcessvid, echo = F, fig.cap="See how the snowmelt runs off the rocks at the base of Las Torres. It's unable to penetrate into the granite, so it runs off instead. ", warning=F, fig.align='center'}
 library(voice)
 embed_video(src = "./images/Notebook/LasTorresVideo.mp4", type = "mp4")
@@ -46,7 +47,8 @@ Evaporation is the process by which water changes phases into a gas, and is take
 knitr::include_graphics('./images/Notebook/Waveaction.jpg')
 ```
 
-```{r evaporationvid, echo = F, fig.cap="See how the snowmelt runs off the rocks at the base of Las Torres. It's unable to penetrate into the granite, so it runs off instead. ", warning=F, fig.align='center'}
+
+```{r evaporationvid, echo = F, fig.cap="Watch the wind whip up water droplets into the air. Some of these likely evaporate into water vapor. ", warning=F, fig.align='center'}
 library(voice)
 embed_video(src = "./images/Notebook/WindyDay.mp4", type = "mp4")
 ```
