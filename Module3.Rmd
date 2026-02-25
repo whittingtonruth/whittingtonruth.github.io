@@ -35,8 +35,9 @@ For each watershed, I used various layers contained in the geopackage of the Riv
 # Logan River Watershed: 1601020303
 
 The Logan River Watershed is located in the Wasatch Mountains on the border of Utah and Idaho, just west of Bear Lake in Utah. It starts in the forested mountains and descends into the city of Logan, UT (Fig. \@ref(fig:LoganLocation)). 
-
-![The Logan River Watershed. ](./images/Module3/Location Map Logan River.jpg){#fig:LoganLocation}
+```{r LoganLocation, fig.cap="The Logan River Watershed.", echo=F, out.width="70%", fig.align='center'}
+knitr::include_graphics("./images/Module3/Location Map Logan River.jpg")
+```
 
 ## Watershed description
 
@@ -55,12 +56,15 @@ The majority of the watershed is made up of closed- and open-canopy, forested ar
 ### Physiographic Setting
 
 The majority of the watershed is located in the Wasatch and Uinta Mountains Level III ecoregion, which is part of the Northwestern Forests Level 1 ecoregion. The outlet of the river then descends down the foothills into the Malad and Cache Valley ecoregion within the North American Deserts Level I ecoregion (Fig. \@ref(fig:LoganEcoregions)).
-
-![Level IV Ecoregions of the Logan River Watershed. ](./images/Module3/Ecoregions Logan River.jpg){#fig:LoganEcoregions}
+```{r LoganEcoregions, fig.cap="Level IV Ecoregions of the Logan River Watershed. ", echo=F, out.width="70%", fig.align='center'}
+knitr::include_graphics("./images/Module3/Ecoregions Logan River.jpg")
+```
 
 ## Longitudinal Profile
 
-![Profile of the Logan River. The x axis shows distance in meters, while the y axis shows elevation.  ](./images/Module3/LoganProfile.png){#fig:LoganProfile}
+```{r LoganProfile, fig.cap="Profile of the Logan River. The x axis shows distance in meters, while the y axis shows elevation.", echo=F, out.width="70%", fig.align='center'}
+knitr::include_graphics("./images/Module3/LoganProfile.png")
+```
 
 Above is the profile of the mainstem Logan River Fig. \@ref(fig:LoganProfile)). The Logan River base control today is the Cutler Reservoir at 1,344 m or 4,409 ft. 13,000 years ago, the base control would have been Lake Bonneville, then at an elevation of 1,494 m or 4,901 ft. The length of the mainstem Logan River is about 84 km. 
 
@@ -70,7 +74,9 @@ Where A is the height difference between the profile at mid-distance and a strai
 
 There are a series of knickpoints that show up in the river profile. Working from the top of the watershed down, I first observed a few valleys with large beaver dam complexes that may be causing a few bumps in the profile. The larger knickpoint I observed coincided with a distinct change to the geology where unconsolidated glacial deposits show up, leading me to guess a glacier was present in this spot at one point. For the rest of the profile, beaver dams or the Third Dam, a hydroelectric dam, explain knickpoints. There's one section that seems to level out a little, and coincides with a particularly sinuous section of the river and a change in the geology from Glacial deposits to Limestone, but I'm not totally sure what's happening here or if it's a knickpoint. See my knickpoints labelled in the profile below.
 
-![Profile of the Logan River with knickpoints labelled with a potential explanation..  ](./images/Module3/LoganProfile_withknickpoints.png){#fig:LoganProfileKnickpoints}
+```{r LoganProfileKnickpoints, fig.cap="Profile of the Logan River with knickpoints labelled with a potential explanation.", echo=F, out.width="70%", fig.align='center'}
+knitr::include_graphics("./images/Module3/LoganProfile_withknickpoints.png")
+```
 
 ## Catchment morphometrics
 
@@ -106,7 +112,9 @@ Logan River is a 4th order stream. Looking at other streams in the watershed, Te
 
 The Gold Creek-Blackfoot River Watershed is located in Western Montana, just east of Missoula. This location is upstream of where the Blackfoot River joins the Clark Fork to enter the Missoula valley through Hell Gate Canyon.  (Fig. \@ref(fig:GoldCreekLocation)). The watershed has an odd shape, with two lobes, or subcatchments, each feeding into the Blackfoot River. The northern lobe contains Gold Creek and all its tributaries, and the southern lobe contains Union Creek. 
 
-![The Gold Creek-Blackfoot River Watershed. ](./images/Module3/GoldCreekLocation.jpg){#fig:GoldCreekLocation}
+```{r GoldCreekLocation, fig.cap="The Gold Creek-Blackfoot River Watershed. ", echo=F, out.width="70%", fig.align='center'}
+knitr::include_graphics("./images/Module3/GoldCreekLocation.jpg")
+```
 
 ## Watershed description
 
@@ -122,7 +130,7 @@ The geology of the watershed is fairly consistent throughout, with metamorphic p
 
 The major dominant vegetative communities include Northern Rocky Mountain Dry-Mesic Mixed Conifer forest, Lodgepole pine forest at the highest elevations, and mixed montane shrubland, particularly on slopes with a southern aspect. The Union Creek subcatchment  also has a large amount of Ponderosa Pine woodland and savanna in the center, surrounding large amounts of crop and hayfields in the area closest to Union Creek. Along the Blackfoot River, Ponderosa Pine woodland and savannah dominates the north slopes, while more mixed montane conifer forest is found on the southern slopes. 
 
-```{r Differences_gold_creek, echo=F, message=F, warning=F, fig.caption = "The two subcatchments within the Gold Creek-Blackfoot Catchment have strong differences between their annual precipitation (b) and dominant vegetation (c). Hillshade also shown (a) for reference. "}
+```{r DiffGoldCreek, echo=F, message=F, warning=F, fig.caption = "The two subcatchments within the Gold Creek-Blackfoot Catchment have strong differences between their annual precipitation (b) and dominant vegetation (c). Hillshade also shown (a) for reference. "}
 library(cowplot)
 library(ggplot2)
 
@@ -136,17 +144,21 @@ ggsave("./images/Module3/CombinedGoldCreekMaps.jpg", threemaps, units = "in", he
 knitr::include_graphics("./images/Module3/CombinedGoldCreekMaps.jpg")
 ```
 
-In summary, the watershed has some strong differences between the two subbasins contained within it \@ref(fig:Differences_gold_creek)). 
+In summary, the watershed has some strong differences between the two subbasins contained within it \@ref(fig:DiffGoldCreek)). 
 
 ### Physiographic Setting
 
 The entirety of the watershed is within the Middle Rockies level III ecoregion, predominately in the Rattlesnake-Blackfoot-SouthSwan-Northern Garnet-Sapphire Mountains Level IV ecoregion, with a small inclusion of the Southern Garnet Sedimentary-Volcanic Mountains (Fig. \@ref(fig:GoldCreekEcoregions)).
 
-![Level IV Ecoregions of the Gold Creek-Blackfoot Watershed. ](./images/Module3/Ecoregions Gold Creek.jpg){#fig:GoldCreekEcoregions}
+```{r GoldCreekEcoregions, fig.cap="Level IV Ecoregions of the Gold Creek-Blackfoot Watershed. ", echo=F, out.width="70%", fig.align='center'}
+knitr::include_graphics("./images/Module3/Ecoregions Gold Creek.jpg")
+```
 
 ## Longitudinal profile
 
-![Profile of the Gold Creek-Blackfoot River Watershed. The x axis shows distance in meters, while the y axis shows elevation.  ](./images/Module3/GoldCreekProfile.png){#fig:GoldCreekProfile}
+```{r GoldCreekProfile, fig.cap="Profile of the Gold Creek-Blackfoot River Watershed. The x axis shows distance in meters, while the y axis shows elevation.", echo=F, out.width="70%", fig.align='center'}
+knitr::include_graphics("./images/Module3/GoldCreekProfile.png")
+```
 
 Above is the profile of Gold Creek and it's junction with the Blackfoot River just before flowing into the Clark Fork River (Fig. \@ref(fig:GoldCreekProfile)). The base control of Gold Creek occurs at it's junction with the Blackfoot River at around 1051 m. This watershed shows another baselevel control at the mouth of the Blackfoot River, at an elevation of 990 m. This baselevel is controlled by the Clark Fork River. The length of the Gold Creek-Blackfoot River section is 46 km. 
 
@@ -156,7 +168,9 @@ Where A is the height difference between the profile at mid-distance and a strai
 
 There are a series of knickpoints along the profile. In the Blackfoot River section, there used to be a series of dams in this area to support the local mill in Bonner, MT, but those were removed  in 2007. I can't tell where precisely they all used to be, but there are a few knickpoints in this section that are likely due to mills and dams on this stretch. Higher up, there's a knickpoint that coincides with a road crossing. Potentially that road crossing is limiting some flow. Higher still, there are a few more knickpoints, but the origin is less clear. I wonder if the hard rock parent material results in a few knickpoints where the rock is extra hard to erode. Another point that Jordan pointed out is the big change in slope at 8 km: I looked into this an this coincides with a geology change from quartzite dominated (super hard) to metasiltstone and argillite dominated parent material. This likely facilitates the change here from a steep sloped narrow drainage to a more gentle slope with a wider floodplain. 
 
-![Profile of the Gold Creek-Blackfoot River Watershed with knickpoints labelled with a potential explanation..  ](./images/Module3/GoldCreekProfile_withknickpoints.png){#fig:GoldCreekProfileKnickpoints}
+```{r GoldCreekProfileKnickpoints, fig.cap="Profile of the Gold Creek-Blackfoot River Watershed with knickpoints labelled with a potential explanation.", echo=F, out.width="70%", fig.align='center'}
+knitr::include_graphics("./images/Module3/GoldCreekProfile_withknickpoints.png")
+```
 
 ## Catchment morphometrics
 
