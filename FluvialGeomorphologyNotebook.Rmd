@@ -17,4 +17,34 @@ Now I need to find a river closer to home.
 
 # Module 4: Hydrology Bingo! 
 
-Here's where I'll take notes on observed processes. 
+Here's where I'll take notes on observed processes. Below is the bingo board I've chosen (Fig. \@ref(fig:bingoblank)).
+
+```{r bingocardblank, echo = F, fig.cap="Ruth's selected bingo card!", fig.id="bingoblank"}
+knitr::include_graphics('./images/Notebook/BINGOcard.png')
+```
+
+## Infiltration Excess Overland Flow
+
+On my recent trip to Las Torres del Paine in Chile, I saw infiltration excess overland flow at the base of Las Torres themselves. Infiltration excess overland flow happens when the precipitation rate (in this case snowmelt) is occurring faster than the infiltration capacity of the soil or bedrock, causing water to runoff that surface.  In this photo and a video, see how the water flowing from the snowmelt leaves trails along the granite (Fig. \@ref(fig:excesstorres)). Granite is not a very porous rock and the slope is steep. I imagine very little infiltration is happening here. 
+
+```{r infiltrationexcess, echo = F, fig.cap="See how the snowmelt runs off the rocks at the base of Las Torres. It's unable to penetrate into the granite, so it runs off instead. ", fig.id="excesstorres"}
+knitr::include_graphics('./images/Notebook/InfiltrationExcessOverlandFlow.jpg')
+```
+
+```{r infiltrationexcessvid, echo = F, fig.cap="See how the snowmelt runs off the rocks at the base of Las Torres. It's unable to penetrate into the granite, so it runs off instead. ", warning=F, fig.align='center'}
+library(voice)
+embed_video(src = "./images/Notebook/LasTorresVideo.mp4", type = "mp4")
+```
+
+## Evaporation
+
+Evaporation is the process by which water changes phases into a gas, and is taken up into the air and transported elsewhere. On my recent trip to Patagonia, we had some sunny days that likely resulted in evaporation from the large lakes up into the atmosphere. On one particularly windy day, I could see clouds of water being taken up into the air (Fig. \@ref(fig:excesstorres)). The wind was also resulting in a lot of waves along the edges of this lake. While what I can see in the photo below is actually still water droplets, wind evens like this also likely result in some water actually changing into a gas, as the surface area of the water increases. 
+
+```{r evaporation, echo = F, fig.cap="See how the snowmelt runs off the rocks at the base of Las Torres. It's unable to penetrate into the granite, so it runs off instead. ", fig.id="waves"}
+knitr::include_graphics('./images/Notebook/Waveaction.jpg')
+```
+
+```{r evaporationvid, echo = F, fig.cap="See how the snowmelt runs off the rocks at the base of Las Torres. It's unable to penetrate into the granite, so it runs off instead. ", warning=F, fig.align='center'}
+library(voice)
+embed_video(src = "./images/Notebook/WindyDay.mp4", type = "mp4")
+```

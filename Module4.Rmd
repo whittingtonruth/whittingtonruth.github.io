@@ -16,7 +16,9 @@ For this module, I chose to focus on the Lolo Creek watershed, located south and
 
 Basic characteristics calculated manually, such as average elevation, slope, and average temperature precipitation, all came out very close to the numbers provided by the basin characteristics from the catchment delineation tool. Average elevation calculated across the watershed was 1591 m or 5220 ft (basin characteristic: 5223 ft). Average slope was 14.7°, or 36.5% according to the catchment tool. 62% of the catchment had a slope above 30% and 22% was above 50% slope. Average annual precipitation was 947 mm, and average mean temperature was 4.48 °C (39°F from the tool).
 
-![Annual precipitaion in Lolo Creek watershed](./images/Module4/LoloAnnualPrecip.jpg){#fig:LoloPrecip}
+```{r LoloPrecip, echo = F, fig.cap="Annual precipitation in the Lolo Creek watershed. ", fig.id = "LoloPrecip", warning=F, out.width="70%", fig.align="center"}
+
+```
 
 Based on this information and what I've observed driving up to Lolo pass to go skiing, I would expect the hydrology to be highly driven by snowfall and then melt, largely occurring in the highest elevation areas of the watershed. There's a fairly clear divide in the precipitation (Fig. \@ref(fig:LoloPrecip)), with the valley getting 500 mm per year and the highest portions of the watershed with 3 times that much. With a fairly high slope across the watershed, and underlying geology dominated by harder, less permeable rocks, I imagine there's a lot of runoff in this watershed.
 
@@ -24,7 +26,7 @@ Based on this information and what I've observed driving up to Lolo pass to go s
 
 Stream gauge data also didn't seem to pull from the Riverscapes QRiS project, but I was able to access the data using a package in R to pull data from 2017 until 2026, see below. 
 
-```{r streamgauge, echo = F, fig.cap="Discharge from Stream Gauge USGS-12352500, located on the Bitterroot several miles north of the junction with Lolo Creek. ", warning=F}
+```{r streamgauge, echo = F, fig.cap="Discharge from Stream Gauge USGS-12352500, located on the Bitterroot several miles north of the junction with Lolo Creek. ", warning=F, out.width="70%", fig.align='center'}
 library(ggplot2)
 # library(dataRetrieval)
 # library(tidyverse)
@@ -54,7 +56,7 @@ knitr::include_graphics('./images/Module4/StreamGauge10yrPlot.jpg')
 
 During this time, the highest recorded discharge was 19,400 cubic feet per second on May 5, 2018. The lowest was 120 cubic feet per second on December 22nd, 2022. This means the highest discharge is 162 times that of the lowest discharge. As predicted, there does appear to be a seasonal peak discharge occurring in the late spring. Frequently fall rains seem to create additional peaks in the late fall, often in November. We can see this better if we just zoom into one year. The below is data from 2021, year that looks roughly representative of the years in the 10-year dataset. 
 
-```{r gauge1year, echo = F, fig.cap="Discharge from Stream Gauge USGS-12352500 in 2021, located on the Bitterroot several miles north of the junction with Lolo Creek. A distinct peak is seen in the late spring during snowmelt runoff. Additional peaks show up in the fall, likely due to seasonal storms. "}
+```{r gauge1year, echo = F, fig.cap="Discharge from Stream Gauge USGS-12352500 in 2021, located on the Bitterroot several miles north of the junction with Lolo Creek. A distinct peak is seen in the late spring during snowmelt runoff. Additional peaks show up in the fall, likely due to seasonal storms. ", out.width="70%", fig.align='center'}
 knitr::include_graphics('./images/Module4/StreamGauge2021.jpg')
 ```
 
@@ -77,6 +79,5 @@ I did try comparing reaches with similar drainage areas, one on the southern sid
 
 # Uploading to Data Exchange
 
-The resulting files of this analysis can be found in my [Lolo Riverscape]
-(https://data.riverscapes.net/p/d9837286-e4cb-4fde-97a7-816f0505088a/) project on the Riverscapes Data Exchange. 
+The resulting files of this analysis can be found in my [Lolo Riverscape](https://data.riverscapes.net/p/d9837286-e4cb-4fde-97a7-816f0505088a/) project on the Riverscapes Data Exchange. 
 
