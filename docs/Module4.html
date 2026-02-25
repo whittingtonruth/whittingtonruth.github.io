@@ -360,6 +360,50 @@ div.tocify {
 
 <div id="introduction" class="section level1" number="1">
 <h1><span class="header-section-number">1</span> Introduction</h1>
+<p>For this module, I chose to focus on the Lolo Creek watershed, located south and east of Missoula and right on the border with Idaho in the Bitterroot Mountains.</p>
+</div>
+<div id="basin-characteristics" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Basin Characteristics</h1>
+<p>Basic characteristics calculated manually, such as average elevation, slope, and average temperature precipitation, all came out very close to the numbers provided by the basin characteristics from the catchment delineation tool. Average elevation calculated across the watershed was 1591 m or 5220 ft (basin characteristic: 5223 ft). Average slope was 14.7°, or 36.5% according to the catchment tool. 62% of the catchment had a slope above 30% and 22% was above 50% slope. Average annual precipitation was 947 mm, and average mean temperature was 4.48 °C (39°F from the tool).</p>
+<div class="float" id="fig:LoloPrecip">
+<img src="images/Module4/LoloAnnualPrecip.jpg" alt="Annual precipitaion in Lolo Creek watershed" />
+<div class="figcaption">Annual precipitaion in Lolo Creek watershed</div>
+</div>
+<p>Based on this information and what I’ve observed driving up to Lolo pass to go skiing, I would expect the hydrology to be highly driven by snowfall and then melt, largely occurring in the highest elevation areas of the watershed. There’s a fairly clear divide in the precipitation (Fig. <a href="#fig:LoloPrecip"><strong>??</strong></a>), with the valley getting 500 mm per year and the highest portions of the watershed with 3 times that much. With a fairly high slope across the watershed, and underlying geology dominated by harder, less permeable rocks, I imagine there’s a lot of runoff in this watershed.</p>
+</div>
+<div id="stream-gauge-data" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Stream Gauge Data</h1>
+<p>Stream gauge data also didn’t seem to pull from the Riverscapes QRiS project, but I was able to access the data using a package in R to pull data from 2017 until 2026, see below.</p>
+<div class="figure"><span style="display:block;" id="fig:streamgauge"></span>
+<img src="images/Module4/StreamGauge10yrPlot.jpg" alt="Discharge from Stream Gauge USGS-12352500, located on the Bitterroot several miles north of the junction with Lolo Creek. "  />
+<p class="caption">
+Figure 3.1: Discharge from Stream Gauge USGS-12352500, located on the Bitterroot several miles north of the junction with Lolo Creek.
+</p>
+</div>
+<p>During this time, the highest recorded discharge was 19,400 cubic feet per second on May 5, 2018. The lowest was 120 cubic feet per second on December 22nd, 2022. This means the highest discharge is 162 times that of the lowest discharge. As predicted, there does appear to be a seasonal peak discharge occurring in the late spring. Frequently fall rains seem to create additional peaks in the late fall, often in November. We can see this better if we just zoom into one year. The below is data from 2021, year that looks roughly representative of the years in the 10-year dataset.</p>
+<div class="figure"><span style="display:block;" id="fig:gauge1year"></span>
+<img src="images/Module4/StreamGauge2021.jpg" alt="Discharge from Stream Gauge USGS-12352500 in 2021, located on the Bitterroot several miles north of the junction with Lolo Creek. A distinct peak is seen in the late spring during snowmelt runoff. Additional peaks show up in the fall, likely due to seasonal storms. "  />
+<p class="caption">
+Figure 3.2: Discharge from Stream Gauge USGS-12352500 in 2021, located on the Bitterroot several miles north of the junction with Lolo Creek. A distinct peak is seen in the late spring during snowmelt runoff. Additional peaks show up in the fall, likely due to seasonal storms.
+</p>
+</div>
+<div id="translating-stream-gauge-data-back-to-lolo-creek" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Translating Stream Gauge data back to Lolo Creek</h2>
+<p>Below are the images for baseflow and a typical flood across the Lolo Creek Watershed.</p>
+<div class="figure"><span style="display:block;" id="fig:floodmodels"></span>
+<img src="Module4_files/figure-html/floodmodels-1.png" alt="Predictions of baseflow (a) and typical flood (b) discharge across the Lolo Creek Watershed. " width="672" />
+<p class="caption">
+Figure 3.3: Predictions of baseflow (a) and typical flood (b) discharge across the Lolo Creek Watershed.
+</p>
+</div>
+<p>This roughly agrees with what I would assume - many channels have low or no flow in typical conditions, but they become “activated” under typical flood conditions. First order streams are more likely to have very low flow, while the 5th order mainstem of Lolo Creek has much higher discharge, even under baseflow conditions. Looking closely at a reach of the mainstem of Lolo Creek, close to where it connects with the Bitterroot river and upstream of the gauge location, the values range from Qlow of 90 cfs to 1725 cfs. So the low is still quite a bit lower than the low of the Bitterroot River 2016 - 2026, and the high of Lolo is also less than 10% the high of the Bitterroot. That all makes sense to me.</p>
+<p>I did try comparing reaches with similar drainage areas, one on the southern side and one on the northern side, to see if precipitation would play a factor, but they had very similar Qlow and Q2’s. I’m guessing the model takes the drainage area into account, but not the precipition trends of that subbasin.</p>
+</div>
+</div>
+<div id="uploading-to-data-exchange" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Uploading to Data Exchange</h1>
+<p>The resulting files of this analysis can be found in my [Lolo Riverscape]
+(<a href="https://data.riverscapes.net/p/d9837286-e4cb-4fde-97a7-816f0505088a/" class="uri">https://data.riverscapes.net/p/d9837286-e4cb-4fde-97a7-816f0505088a/</a>) project on the Riverscapes Data Exchange.</p>
 </div>
 
 
