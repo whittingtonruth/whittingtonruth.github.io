@@ -42,7 +42,7 @@ embed_video(src = "./images/Notebook/LasTorresVideo.mp4", type = "mp4")
 
 Evaporation is the process by which water changes phases into a gas, and is taken up into the air and transported elsewhere. On my recent trip to Patagonia, we had some sunny days that likely resulted in evaporation from the large lakes up into the atmosphere. On one particularly windy day, I could see clouds of water being taken up into the air (Fig. \@ref(fig:evaporation)). The wind was also resulting in a lot of waves along the edges of this lake. While what I can see in the photo below is actually still water droplets, wind evens like this also likely result in some water actually changing into a gas, as the surface area of the water increases. 
 
-```{r evaporation, echo = F, fig.cap="See how the snowmelt runs off the rocks at the base of Las Torres. It's unable to penetrate into the granite, so it runs off instead. "}
+```{r evaporation, echo = F, fig.cap="The power of the wind can be seen in the clouds it was whipping up and the waves on the shoreline. Both of these processes will result in higher surface area on the water droplets and evaporation. "}
 knitr::include_graphics('./images/Notebook/Waveaction.jpg')
 ```
 

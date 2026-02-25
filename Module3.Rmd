@@ -146,7 +146,7 @@ ggsave("./images/Module3/CombinedGoldCreekMaps.jpg", threemaps, units = "in", he
 knitr::include_graphics("./images/Module3/CombinedGoldCreekMaps.jpg")
 ```
 
-In summary, the watershed has some strong differences between the two subbasins contained within it \@ref(fig:DiffGoldCreek)). 
+In summary, the watershed has some strong differences between the two subbasins contained within it (Fig. \@ref(fig:DiffGoldCreek)). 
 
 ### Physiographic Setting
 
