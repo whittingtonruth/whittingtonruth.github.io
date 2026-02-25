@@ -34,7 +34,8 @@ For each watershed, I used various layers contained in the geopackage of the Riv
 
 # Logan River Watershed: 1601020303
 
-The Logan River Watershed is located in the Wasatch Mountains on the border of Utah and Idaho, just west of Bear Lake in Utah. It starts in the forested mountains and descends into the city of Logan, UT (Fig. \@ref(fig:LoganLocation)). 
+The Logan River Watershed is located in the Wasatch Mountains on the border of Utah and Idaho, just west of Bear Lake in Utah. It starts in the forested mountains and descends into the city of Logan, UT (Fig. \@ref(fig:LoganLocation)).
+
 ```{r LoganLocation, fig.cap="The Logan River Watershed.", echo=F, out.width="70%", fig.align='center'}
 knitr::include_graphics("./images/Module3/Location Map Logan River.jpg")
 ```
@@ -56,6 +57,7 @@ The majority of the watershed is made up of closed- and open-canopy, forested ar
 ### Physiographic Setting
 
 The majority of the watershed is located in the Wasatch and Uinta Mountains Level III ecoregion, which is part of the Northwestern Forests Level 1 ecoregion. The outlet of the river then descends down the foothills into the Malad and Cache Valley ecoregion within the North American Deserts Level I ecoregion (Fig. \@ref(fig:LoganEcoregions)).
+
 ```{r LoganEcoregions, fig.cap="Level IV Ecoregions of the Logan River Watershed. ", echo=F, out.width="70%", fig.align='center'}
 knitr::include_graphics("./images/Module3/Ecoregions Logan River.jpg")
 ```
