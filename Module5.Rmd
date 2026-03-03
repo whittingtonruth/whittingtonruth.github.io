@@ -77,7 +77,7 @@ knitr::include_graphics('./images/Module5/UniformFlow.jpg')
 
 Here's another annotation of flow divergence and convergence (Fig. \@ref(fig:flowseparation)). Again, Around the branches of the downed tree, there were areas (marked in orange) where the flow separated. As the flow converged again, it showed a reattachment zone, where the curvature of the bank guided the diverged flow back into a faster moving channel. This faster run then had a clear flow seam as it flowed past the bank as it cut in again (red). This incut bank then had an eddy where the water began to flow in the opposite direction (green). 
 
-```{r flowseparation, echo = F, fig.cap="This area is much simpler than the main reach I looked at. Here is the most likely place to find uniform flow. ", out.width="70%", fig.align='center'}
+```{r flowseparation, echo = F, fig.cap="Flow separation and reattachment zone shown in dark and light orange, respectively. A flow seam is seen in red between the faster moving water and the eddy closer to the bank (green). ", out.width="70%", fig.align='center'}
 knitr::include_graphics('./images/Module5/FlowSeparation.jpg')
 ```
 
@@ -85,7 +85,7 @@ knitr::include_graphics('./images/Module5/FlowSeparation.jpg')
 
 There were quite a few examples of different flow types. Starting right at the top, the photo below is annotated with five different flows (Fig. \@ref(fig:flowtypes)). The reach I focused on starts with smooth surface flow just after a full channel obstruction (yellow). This section appears (from afar) to be quite deep before heading over a shallow riffle with unbroken standing waves pointing upstream (orange) (Fig. \@ref(fig:flowtypes2)). This riffle is directed straight into a side-channel obstruction, which is abrupt enough to cause the waves to break and show a brief rapid (purple). From here, the water had a nice run where ripples could be seen traveling downstream with a symmetrical arch (blue). As this water slowed down and crossed a floating log, surface movement became scarcely perceptible above a deep pool (red).
 
-```{r flowtypes, echo = F, fig.cap="So many flow types could be seen in this one stretch of stream. ", out.width="100%", fig.align='center'}
+```{r flowtypes, echo = F, fig.cap="So many flow types could be seen in this one stretch of stream. ", out.width="70%", fig.align='center'}
 knitr::include_graphics('./images/Module5/RiffleToRapidToRunToPool.jpg')
 ```
 
@@ -95,7 +95,7 @@ knitr::include_graphics('./images/Module5/RiffleToRapid.jpg')
 
 Downstream, there were more examples. In the photo below (Fig. \@ref(fig:flowtypes3)), a really clear run can be seen circled in blue. The ripples are nicely symmetrical here, where the relative roughness is low. Further upstream, the influence of the downed tree can be seen with extremely slow flow and mostly smooth surface. I threw a stick in this part of the channel, and it took a long time before it entered the run below. 
 
-```{r flowtypes3, echo = F, fig.cap="Downstream were more areas of rippled and smooth surface flow. ", out.width="100%", fig.align='center'}
+```{r flowtypes3, echo = F, fig.cap="Downstream were more areas of rippled and smooth surface flow. ", out.width="70%", fig.align='center'}
 knitr::include_graphics('./images/Module5/RunAndGlide.jpg')
 ```
 
