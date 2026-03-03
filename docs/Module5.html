@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Module 5: Hydraulics</title>
+
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Ruth Whittington's Website</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="FluvialGeomorphologyNotebook.html">Fluvial Geomorphology</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Module Exercises
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="Module1.html">Module 1: Reading a Riverscape Analysis</a>
+    </li>
+    <li>
+      <a href="Module3.html">Module 3: Catchment-Level Controls</a>
+    </li>
+    <li>
+      <a href="Module4.html">Module 4: Watershed Hydrology</a>
+    </li>
+    <li>
+      <a href="Module5.html">Module 5: Hydraulics</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Module 5: Hydraulics</h1>
+
+</div>
+
+
+<div id="introduction" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> Introduction</h1>
+<p>For this assignment, I visited Lolo Creek, less than a mile from its confluence with the Bitterroot River. This particular area is located within Traveler’s Rest State Park, just west of Lolo, MT (Fig. <a href="#fig:maps">1.1</a>).</p>
+<div class="figure"><span style="display:block;" id="fig:maps"></span>
+<img src="images/Module5/TravelersRestSP_Map.png" alt="Maps showing the location of Traveler's Rest State Park in the Bitterroot Valley in Western Montana. The map on the right shows the more precise point on Lolo Creek that I conducted my hydraulics assignment. " width="29%" /><img src="images/Module5/TravelersRestSP_MapCloseup.png" alt="Maps showing the location of Traveler's Rest State Park in the Bitterroot Valley in Western Montana. The map on the right shows the more precise point on Lolo Creek that I conducted my hydraulics assignment. " width="71%" />
+<p class="caption">
+Figure 1.1: Maps showing the location of Traveler’s Rest State Park in the Bitterroot Valley in Western Montana. The map on the right shows the more precise point on Lolo Creek that I conducted my hydraulics assignment.
+</p>
+</div>
+<p>Here is a video of the reach, just to give a quick overview of what I’ll be describing below!</p>
+<video width='650' height='240' controls> <source src='./images/Module5/Lolo Overview.mp4' type='video/mp4'> Your browser does not support the video tag;  for browser support, please see:  https://www.w3schools.com/tags/tag_video.asp </video>
+</div>
+<div id="field-sketch" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Field Sketch</h1>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:planformsketch"></span>
+<img src="images/Module5/PlanformSketch.jpg" alt="Planform sketch of the whole reach. A second planform sketch was completed for the area shown by a box with a dotted line. " width="70%" />
+<p class="caption">
+Figure 2.1: Planform sketch of the whole reach. A second planform sketch was completed for the area shown by a box with a dotted line.
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:planformcloseup"></span>
+<img src="images/Module5/PlanformSketchCloseup.jpg" alt="Here's a closeup of the middle, more straight section of my first planform sketch. This shows the flow paths" width="70%" />
+<p class="caption">
+Figure 2.2: Here’s a closeup of the middle, more straight section of my first planform sketch. This shows the flow paths
+</p>
+</div>
+</div>
+<div id="hydraulic-conceptual-examples" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Hydraulic conceptual examples</h1>
+<div id="flow-direction" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Flow Direction</h2>
+<p>Below is one example of flow direction in a particularly busy section (Fig. <a href="#fig:FlowDirection">3.1</a>). Here we have the fastest moving water shown in red, getting faster as water previously separated from the central channel joins the flow. Just downstream, this fast moving channel flows directly into the bank, as the channel turns an acute angle to the left. This produces the slow moving eddy furthest from the viewer, with water moving extremely slowly in the opposite direction of the main channel.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:FlowDirection"></span>
+<img src="images/Module5/FlowDirection.jpg" alt="Flow direction annotated on this section of stream. The fastest moving water is shown in red. Orange is medium speed, slowed down by high channel roughness, but kept moving by the higher slope. Finally, an eddy is produced just off to the left, where the fast moving channel collides with the streambank. " width="70%" />
+<p class="caption">
+Figure 3.1: Flow direction annotated on this section of stream. The fastest moving water is shown in red. Orange is medium speed, slowed down by high channel roughness, but kept moving by the higher slope. Finally, an eddy is produced just off to the left, where the fast moving channel collides with the streambank.
+</p>
+</div>
+<p>Here’s another example, showing a larger portion of the reach above the previous photo (Fig. <a href="#fig:FlowDirectionChannel">3.2</a>). That same fast moving section is again shown in red. On either side of that fast moving channel, the water is slightly slower, with lower depth, and less discharge. I also show the contrast between that area on the other side of a downed tree, with the area of the channel closest to me, where flow moves much slower, due to interrupted flow caused by the roots of the downed tree crossing the channel. The channel is extremely deep here, but water moves very slowly.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:FlowDirectionChannel"></span>
+<img src="images/Module5/FlowDirection_LongerReach.jpg" alt="Flow direction annotated on this section of stream. The fastest moving water is shown in red. Orange is medium speed, slowed down by high channel roughness, but kept moving by the higher slope. Finally, an eddy is produced just off to the left, where the fast moving channel collides with the streambank. " width="100%" />
+<p class="caption">
+Figure 3.2: Flow direction annotated on this section of stream. The fastest moving water is shown in red. Orange is medium speed, slowed down by high channel roughness, but kept moving by the higher slope. Finally, an eddy is produced just off to the left, where the fast moving channel collides with the streambank.
+</p>
+</div>
+</div>
+<div id="areas-of-convergent-divergent-and-uniform-flow" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Areas of convergent, divergent, and uniform flow</h2>
+<p>This reach had a lot of curves and a lot of uneven sides with enbanked log structures or a log in the middle of the river. This led to many areas of convergent and divergent flow, with relatively few areas with uniform flow.</p>
+<p>One area of divergent flow occurred around a long tree fallen parallel to the river, with the large root ball on the upstream side. Where flow came down from above and hit the roots, the flow split, pushing some flow into a (convergent) area of flow where water moved quickly downstream, and another portion into the bank. The area on the side of the channel where I was standing had incredibly slow flow and remained disconnected from flow on the other side of the channel for the length of the tree (Fig. <a href="#fig:divergentflow">3.3</a>)</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:divergentflow"></span>
+<img src="images/Module5/DivergentFlow.jpg" alt="An area of divergent flow: the flow above this tree diverged strongly as it hit the root ball. " width="70%" />
+<p class="caption">
+Figure 3.3: An area of divergent flow: the flow above this tree diverged strongly as it hit the root ball.
+</p>
+</div>
+<p>Continuing downstream, the top of the tree in the stream had several branches, continuing the slow moving and spread out flow, until the branches ended, the streambank on the rightside of the photo below cut in, and the riffle starting below forced several flowstreams back into one stream moving much more quickly in this particular area (Fig. <a href="#fig:convergentflow">3.4</a>).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:convergentflow"></span>
+<img src="images/Module5/ConvergentFlow.jpg" alt="An area of convergentflow flow: the streambank and the emerging riffle concentrated the flow here into a faster moving area of the stream. " width="70%" />
+<p class="caption">
+Figure 3.4: An area of convergentflow flow: the streambank and the emerging riffle concentrated the flow here into a faster moving area of the stream.
+</p>
+</div>
+<p>There were relatively few areas in this particular reach where I was seeing uniform flow. I took a picture further downstream, after the second bend captured in my reach diagram, looking upstream towards that bend, Here, the channel depth appeared fairly consistent, with few rocks or logs poking out and few bends to the channel (Fig. <a href="#fig:uniformflow">3.5</a>). This is the area most likely to have uniform flow.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:uniformflow"></span>
+<img src="images/Module5/UniformFlow.jpg" alt="This area is much simpler than the main reach I looked at. Here is the most likely place to find uniform flow. " width="70%" />
+<p class="caption">
+Figure 3.5: This area is much simpler than the main reach I looked at. Here is the most likely place to find uniform flow.
+</p>
+</div>
+</div>
+<div id="flow-separation-and-reattachment" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Flow separation and reattachment</h2>
+<p>Here’s another annotation of flow divergence and convergence (Fig. <a href="#fig:flowseparation">3.6</a>). Again, Around the branches of the downed tree, there were areas (marked in orange) where the flow separated. As the flow converged again, it showed a reattachment zone, where the curvature of the bank guided the diverged flow back into a faster moving channel. This faster run then had a clear flow seam as it flowed past the bank as it cut in again (red). This incut bank then had an eddy where the water began to flow in the opposite direction (green).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:flowseparation"></span>
+<img src="images/Module5/FlowSeparation.jpg" alt="This area is much simpler than the main reach I looked at. Here is the most likely place to find uniform flow. " width="70%" />
+<p class="caption">
+Figure 3.6: This area is much simpler than the main reach I looked at. Here is the most likely place to find uniform flow.
+</p>
+</div>
+</div>
+<div id="flow-types" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> Flow Types</h2>
+<p>There were quite a few examples of different flow types. Starting right at the top, the photo below is annotated with five different flows (Fig. <a href="#fig:flowtypes">3.7</a>). The reach I focused on starts with smooth surface flow just after a full channel obstruction (yellow). This section appears (from afar) to be quite deep before heading over a shallow riffle with unbroken standing waves pointing upstream (orange) (Fig. <a href="#fig:flowtypes2">3.8</a>). This riffle is directed straight into a side-channel obstruction, which is abrupt enough to cause the waves to break and show a brief rapid (purple). From here, the water had a nice run where ripples could be seen traveling downstream with a symmetrical arch (blue). As this water slowed down and crossed a floating log, surface movement became scarcely perceptible above a deep pool (red).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:flowtypes"></span>
+<img src="images/Module5/RiffleToRapidToRunToPool.jpg" alt="So many flow types could be seen in this one stretch of stream. " width="100%" />
+<p class="caption">
+Figure 3.7: So many flow types could be seen in this one stretch of stream.
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:flowtypes2"></span>
+<img src="images/Module5/RiffleToRapid.jpg" alt="A zoomed in photo of the top portion of this section of river. " width="100%" />
+<p class="caption">
+Figure 3.8: A zoomed in photo of the top portion of this section of river.
+</p>
+</div>
+<p>Downstream, there were more examples. In the photo below (Fig. <a href="#fig:flowtypes3">3.9</a>), a really clear run can be seen circled in blue. The ripples are nicely symmetrical here, where the relative roughness is low. Further upstream, the influence of the downed tree can be seen with extremely slow flow and mostly smooth surface. I threw a stick in this part of the channel, and it took a long time before it entered the run below.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:flowtypes3"></span>
+<img src="images/Module5/RunAndGlide.jpg" alt="Downstream were more areas of rippled and smooth surface flow. " width="100%" />
+<p class="caption">
+Figure 3.9: Downstream were more areas of rippled and smooth surface flow.
+</p>
+</div>
+</div>
+</div>
+<div id="estimated-discharge" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Estimated discharge</h1>
+<p>I measured the average velocity by pacing out 10 m along the bank. I then threw a stick into the center of the channel and timed how long it took to move that distance (15 s). I did this a couple times, and found the same answer, leading me to calculate the discharge to be about 0.67 m per second. For area, I estimated the width and average depth at the same location as Cross-section B (see below). The width was roughly 17 m across, and 0.75 m deep, giving an area around 12.75 m^2.</p>
+<p>Using these measurements, I estimate the discharge to be around 8.5 cubic meters per second.</p>
+</div>
+<div id="cross-sectional-diagrams" class="section level1" number="5">
+<h1><span class="header-section-number">5</span> Cross sectional diagrams</h1>
+<p>I drew two cross-sectional diagrams, at points labelled A and B in Fig. <a href="#fig:crosssectionA">5.1</a>. The first (Fig. <a href="#fig:"><strong>??</strong></a>) is just above where the channel diverges around the downed tree. Here I show the deepest water is close to the bank, where water moving around the tree has carved out a deep pool. The fastest moving water was on the far side of the channel.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:crosssectionA"></span>
+<img src="images/Module5/CrosssectionA.jpg" alt="Cross-section A looking upstream, where diverging flow around the downed tree has carved out a deep pool on the near bank. " width="70%" />
+<p class="caption">
+Figure 5.1: Cross-section A looking upstream, where diverging flow around the downed tree has carved out a deep pool on the near bank.
+</p>
+</div>
+<p>The second cross-section was taken after the initial divergence of the channel (<a href="#fig:crosssectionB">5.2</a>). The water closest to me, on the right side of the image was slow moving, with a gentle slope where slower moving water has deposited sediment on the bank.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:crosssectionB"></span>
+<img src="images/Module5/CrosssectionB.jpg" alt="Cross-section B looking upstream, showing channel shape where the downed log had changed flow. " width="70%" />
+<p class="caption">
+Figure 5.2: Cross-section B looking upstream, showing channel shape where the downed log had changed flow.
+</p>
+</div>
+</div>
+<div id="hydraulic-jump" class="section level1" number="6">
+<h1><span class="header-section-number">6</span> Hydraulic Jump</h1>
+<p>The hydraulic jump I noted occurred before and after a riffle in the river. On either side of the riffle, we see smooth flowing water. These areas are going to be the subcritical zone, where any wave introduced will be able to travel upstream. In the riffle, we see more turbulent water where the velocity of flow has increased to the point where any waves will not be able to travel upstream. In the video below, I said this whole area is the hydraulic jump, but I think the jump occurs where the flow from the riffle runs into the slower zone below it (Fig. <a href="#fig:hydraulicjump">6.1</a>)</p>
+<div class="figure"><span style="display:block;" id="fig:hydraulicjump"></span>
+<img src="images/Module5/HydraulicJump.jpg" alt="Unannotated and annotated photo of hydraulic jump. Yellow outlines highlight areas of subcritical flow before and after a riffle. Red outlines the riffle, in this case an area of supercritical flow. The purple line is drawn where supercritical, fast moving flow runs into slower subcritical flow - a hydraulic jump. " width="50%" /><img src="images/Module5/HydraulicJump_withmarkup.jpg" alt="Unannotated and annotated photo of hydraulic jump. Yellow outlines highlight areas of subcritical flow before and after a riffle. Red outlines the riffle, in this case an area of supercritical flow. The purple line is drawn where supercritical, fast moving flow runs into slower subcritical flow - a hydraulic jump. " width="50%" />
+<p class="caption">
+Figure 6.1: Unannotated and annotated photo of hydraulic jump. Yellow outlines highlight areas of subcritical flow before and after a riffle. Red outlines the riffle, in this case an area of supercritical flow. The purple line is drawn where supercritical, fast moving flow runs into slower subcritical flow - a hydraulic jump.
+</p>
+</div>
+<div id="narrated-video" class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> Narrated Video</h2>
+<video width='650' height='240' controls> <source src='./images/Module5/HydraulicJump.mp4' type='video/mp4'> Your browser does not support the video tag;  for browser support, please see:  https://www.w3schools.com/tags/tag_video.asp </video>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

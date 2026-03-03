@@ -14,6 +14,8 @@ navbar:
           href: Module3.html
         - text: "Module 4: Watershed Hydrology"
           href: Module4.html
+        - text: "Module 5: Hydraulics"
+          href: Module5.html
 output_dir: "docs" 
 output: 
   html_document: 
