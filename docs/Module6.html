@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Module 6: Flume Observations</title>
+
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Ruth Whittington's Website</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="FluvialGeomorphologyNotebook.html">Fluvial Geomorphology</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Module Exercises
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="Module1.html">Module 1: Reading a Riverscape Analysis</a>
+    </li>
+    <li>
+      <a href="Module3.html">Module 3: Catchment-Level Controls</a>
+    </li>
+    <li>
+      <a href="Module4.html">Module 4: Watershed Hydrology</a>
+    </li>
+    <li>
+      <a href="Module5.html">Module 5: Hydraulics</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Module 6: Flume Observations</h1>
+
+</div>
+
+
+<div id="flume-controls" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> Flume Controls</h1>
+<p>Flume controls are shown in the image below.</p>
+<div class="figure"><span style="display:block;" id="fig:flumecontrol"></span>
+<img src="images/Module6/FlumeControls.jpg" alt="Flume controls. The blue arrow shows discharge. In orange is the slope. Sediment charge is shown in pink with amount of sediment falling through the trap. Green shows the height of the drain which controls the base level. " width="75%" />
+<p class="caption">
+Figure 1.1: Flume controls. The blue arrow shows discharge. In orange is the slope. Sediment charge is shown in pink with amount of sediment falling through the trap. Green shows the height of the drain which controls the base level.
+</p>
+</div>
+<div id="q-water-discharge" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Q: Water Discharge</h2>
+<p>Water discharge is the amount of water flowing through the flume. This is controlled by the water coming from the pump at the top of the flume.</p>
+</div>
+<div id="s-slope" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> S: Slope</h2>
+<p>Slope of the river overall is controlled by the angle of the table. Shifting and piling the sediment in the table can also cause there to be higher or lower slope locally, but the table angle is the ultimate control.</p>
+</div>
+<div id="qs-sediment-discharge" class="section level2" number="1.3">
+<h2><span class="header-section-number">1.3</span> Qs: Sediment Discharge</h2>
+<p>Sediment discharge is the amount of sediment moving through the system and ultimately being released. This would be the amount of sediment per unit time falling through the trap at the low end of the flume.</p>
+</div>
+<div id="profile" class="section level2" number="1.4">
+<h2><span class="header-section-number">1.4</span> Profile</h2>
+<p>The longitudinal profile of the system is the change in the height of sediment over the length of the flume. This changes over time as the force of the river attempts to return to base level.</p>
+</div>
+<div id="base-level" class="section level2" number="1.5">
+<h2><span class="header-section-number">1.5</span> Base Level</h2>
+<p>Base level is the height to which the water in the flume is attempting to return. This is controlled by the level of the drain at the end of the flume. If the flume drain is high, the water builds up at the end in a pool, and the height of that pool defines the base level for the water moving through it.</p>
+</div>
+</div>
+<div id="fluvial-geomorphic-processes" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Fluvial Geomorphic Processes</h1>
+<div id="bed-erosion" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> Bed Erosion</h2>
+<p>Bed erosion occurs in the bottom of the channel, where the discharge of the river is strong enough to entrain material from the bottom in its flow. I see more concentrated bed erosion where the local slope is higher or where local discharge in a particular channel increases. In the video below, see how the closing off of one channel increases the discharge in a smaller, high slope channel.</p>
+<video width='650' height='240' controls> <source src='./images/Module6/Bed Erosion.mp4' type='video/mp4'> Your browser does not support the video tag;  for browser support, please see:  https://www.w3schools.com/tags/tag_video.asp </video>
+</div>
+<div id="bank-erosion" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> Bank Erosion</h2>
+<p>Bank erosion occurs when the water flow entrains sediment from the sides of the channel. This is particularly pronounced in the outside bends of meanders, or where the flow is directed more perpendicularly into the side of the stream. In the video below, yellow lines and arrows mark where bank erosion occurs, making a straight section slowly become increasingly meandering.</p>
+<video width='650' height='240' controls> <source src='./images/Module6/Bank Erosion.mp4' type='video/mp4'> Your browser does not support the video tag;  for browser support, please see:  https://www.w3schools.com/tags/tag_video.asp </video>
+</div>
+<div id="deposition" class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> Deposition</h2>
+<p>Deposition occurs when the discharge drops to the point where entrained sediment begins to fall out of flow, leading to a build up of sediment. This happens where flow velocity is suddenly reduced, either by a lower local slope, or on the inside of meanders. Larger grains fall out of flow more quickly than smaller grains.</p>
+<video width='650' height='240' controls> <source src='./images/Module6/Deposition.mp4' type='video/mp4'> Your browser does not support the video tag;  for browser support, please see:  https://www.w3schools.com/tags/tag_video.asp </video>
+</div>
+<div id="sediment-transport" class="section level2" number="2.4">
+<h2><span class="header-section-number">2.4</span> Sediment Transport</h2>
+<p>Sediment transport is when sediment is already entrained in the water flow and is transported downstream. The stream power has to be great enough to keep the available sediment either moving as bedload or suspended in the discharge itself. In the video of the flume, sediment transport increases greatly with more discharge, particularly when the flume is flooded.</p>
+<video width='650' height='240' controls> <source src='./images/Module6/Transport.mp4' type='video/mp4'> Your browser does not support the video tag;  for browser support, please see:  https://www.w3schools.com/tags/tag_video.asp </video>
+</div>
+</div>
+<div id="fluvial-geomorphic-mechanisms" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Fluvial Geomorphic Mechanisms</h1>
+<div id="grain-size-sorting" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Grain size sorting</h2>
+<p>Grain-size sorting occurs in the flume where the transport capacity is at a threshold where some grains fall out disproportionately. This results in the occurrence of more concentrated large, or small grain sizes. This happened in a few different places. During flood events, I could particularly see where the threshold was just above that which could move the largest grains. These grains were the fastest to fall out, resulting in more yellow grains being left behind on the floodplain reached only by the largest flows. Deposition of yellow grains in the channel also had the most capacity to change the flow of the river as discharge declined. Where yellow grains settled, the channel quickly redirected itself around them. Behind objects (like a pencil placed in the flow) more small grains tended to concentrate, as the flow decreased behind the object, preventing these grains from becoming entrained. The majority of the sediment movement in channels was made up of the black and white grains. Red was hard to track. Occasionally it became concentrated in particular areas, but then was gone as quickly as it appeared.</p>
+<div class="figure"><span style="display:block;" id="fig:grainsorting"></span>
+<img src="images/Module6/GrainSorting.png" alt="During a big flood, the yellow grains were finally moved, but deposited quickly. The channel quickly moved to go around them as they settled in its path" width="70%" />
+<p class="caption">
+Figure 3.1: During a big flood, the yellow grains were finally moved, but deposited quickly. The channel quickly moved to go around them as they settled in its path
+</p>
+</div>
+</div>
+<div id="meandering" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Meandering</h2>
+<p>Meandering occurs where a river begins to bend and curve. This starts as the stream power decreases such that deposition occurs on one side of the river. The flow then begins to curve to avoid the deposited sediment, resulting in flow eroding the opposite bank.</p>
+<div class="figure"><span style="display:block;" id="fig:meander"></span>
+<img src="images/Module6/Meander1.png" alt="A developing meander. Zones of deposition are highlighted in yellow. Zones of erosion are highlighted in pink. " width="33%" /><img src="images/Module6/Meander2.png" alt="A developing meander. Zones of deposition are highlighted in yellow. Zones of erosion are highlighted in pink. " width="33%" /><img src="images/Module6/Meander3.png" alt="A developing meander. Zones of deposition are highlighted in yellow. Zones of erosion are highlighted in pink. " width="33%" />
+<p class="caption">
+Figure 3.2: A developing meander. Zones of deposition are highlighted in yellow. Zones of erosion are highlighted in pink.
+</p>
+</div>
+</div>
+<div id="braiding" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Braiding</h2>
+<p>Braiding occurs where deposition leads to the development of one or more mid-channel islands. Once deposition begins, the island grows downstream, as flow is forced to either side, and deposition occurs on the inside of both side channels.</p>
+<div class="figure"><span style="display:block;" id="fig:braid"></span>
+<img src="images/Module6/Braid1.png" alt="A braiding channel. Blue arrows shows where flow has been split, causing erosion on the outside bends and deposition on the downstream side of the developing island. " width="50%" /><img src="images/Module6/Braid2.png" alt="A braiding channel. Blue arrows shows where flow has been split, causing erosion on the outside bends and deposition on the downstream side of the developing island. " width="50%" />
+<p class="caption">
+Figure 3.3: A braiding channel. Blue arrows shows where flow has been split, causing erosion on the outside bends and deposition on the downstream side of the developing island.
+</p>
+</div>
+</div>
+<div id="avulsion" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> Avulsion</h2>
+<p>Avulsion is the process by which a river abandons a lower slope channel in favor of a higher slope channel. This happens as the sediment build-up from deposition in the first channel becomes great enough that the stream forges a new path. Once a more efficiently sloped channel is cut, the original one is abandoned. In the below screenshots, the tunnel around one channel collapses, resulting in a new channel with a higher slope being cut.</p>
+<div class="figure"><span style="display:block;" id="fig:avulsion"></span>
+<img src="images/Module6/Avulsion.png" alt="The collapse in sediment blocking the flow of the main channel (red) results in the flow being redirected over higher slope terrain. " width="33%" /><img src="images/Module6/Avulsion2.png" alt="The collapse in sediment blocking the flow of the main channel (red) results in the flow being redirected over higher slope terrain. " width="33%" /><img src="images/Module6/Avulsion3.png" alt="The collapse in sediment blocking the flow of the main channel (red) results in the flow being redirected over higher slope terrain. " width="33%" />
+<p class="caption">
+Figure 3.4: The collapse in sediment blocking the flow of the main channel (red) results in the flow being redirected over higher slope terrain.
+</p>
+</div>
+</div>
+<div id="chute-dissection" class="section level2" number="3.5">
+<h2><span class="header-section-number">3.5</span> Chute Dissection</h2>
+<p>Chute dissection is where meanders are cut off, as the velocity of the flow is such that it fully erodes through the floodplain on the outside of the meander. In the below screenshots, see a section before and after a flood. Initially there is a meandering stream. During the flood, the floodplain maintaining the meanders is eroded. Even after the flood recedes, the stream left over appears straighter.</p>
+<div class="figure"><span style="display:block;" id="fig:dissection"></span>
+<img src="images/Module6/ChuteDissection.png" alt="Before and after a flood, see how floodplain erosion in a meandering section results in a straighter river after the flood recedes. " width="33%" /><img src="images/Module6/ChuteDissection2.png" alt="Before and after a flood, see how floodplain erosion in a meandering section results in a straighter river after the flood recedes. " width="33%" /><img src="images/Module6/ChuteDissection3.png" alt="Before and after a flood, see how floodplain erosion in a meandering section results in a straighter river after the flood recedes. " width="33%" />
+<p class="caption">
+Figure 3.5: Before and after a flood, see how floodplain erosion in a meandering section results in a straighter river after the flood recedes.
+</p>
+</div>
+</div>
+<div id="structural-forcing" class="section level2" number="3.6">
+<h2><span class="header-section-number">3.6</span> Structural Forcing</h2>
+<p>Structural forcing occurs when objects, such as dams or vegetation change the pattern of flow. In this example, a branch cuts off the flow of a channel. The flow changes to move around it, leading to erosion on the right side of the downstream flow and deposition of sediment in front of the vegetation.</p>
+<div class="figure"><span style="display:block;" id="fig:forcing"></span>
+<img src="images/Module6/StructuralForcing1.png" alt="Flow is shown in red. After the physical obstruction is added, redirected flow results in deposition (highlighted in yellow) and erosion on the right side looking downstream. " width="33%" /><img src="images/Module6/StructuralForcing2.png" alt="Flow is shown in red. After the physical obstruction is added, redirected flow results in deposition (highlighted in yellow) and erosion on the right side looking downstream. " width="33%" /><img src="images/Module6/StructuralForcing3.png" alt="Flow is shown in red. After the physical obstruction is added, redirected flow results in deposition (highlighted in yellow) and erosion on the right side looking downstream. " width="33%" />
+<p class="caption">
+Figure 3.6: Flow is shown in red. After the physical obstruction is added, redirected flow results in deposition (highlighted in yellow) and erosion on the right side looking downstream.
+</p>
+</div>
+</div>
+<div id="single-thread-meandering-channel" class="section level2" number="3.7">
+<h2><span class="header-section-number">3.7</span> Single thread meandering channel</h2>
+<p>In the photos and videos I saw, I didn’t see a single thread, meandering channel. This must result from a careful balance of erosional and depositional forces. These balances are difficult to maintain. If deposition becomes too strong, additional, smaller channels begin to develop. If erosion becomes too strong, the meanders get cut off. Too much stream power can easily throw off the balance of these forces. Riparian vegetation as well as grain cohesion would help maintain the balance more easily, but without those stabilizing factors, slight changes quickly result in redirected channel(s).</p>
+</div>
+</div>
+<div id="events" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Events</h1>
+<div id="small-flood" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Small Flood</h2>
+<p>With a small flood, smaller channels become wider and more straightened as the banks are eroded laterally. However, smaller floods were not always enough to fully reroute the channel paths. This would be even more true in a true channel, where stabilizing vegetation and cohesion would better counteract the additional erosive factors of the larger stream power.</p>
+<div class="figure"><span style="display:block;" id="fig:smallflood"></span>
+<img src="images/Module6/SmallFloodBefore.png" alt="A small flood resulted in channel widening and straightening, with significant erosion in the beds. However, the general paths of the preexisting channels remained. " width="50%" /><img src="images/Module6/SmallFloodDuring.png" alt="A small flood resulted in channel widening and straightening, with significant erosion in the beds. However, the general paths of the preexisting channels remained. " width="50%" />
+<p class="caption">
+Figure 4.1: A small flood resulted in channel widening and straightening, with significant erosion in the beds. However, the general paths of the preexisting channels remained.
+</p>
+</div>
+<p>In the following video, watch as this initial small flood, turns into a much bigger flood.</p>
+<video width='650' height='240' controls> <source src='./images/Module6/SmallThenBigFlood.mp4' type='video/mp4'> Your browser does not support the video tag;  for browser support, please see:  https://www.w3schools.com/tags/tag_video.asp </video>
+</div>
+<div id="big-flood" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Big flood</h2>
+<p>After a big flood, all the channels were fully reworked. The preexisting channels disappeared in favor of one straight, wide channel taking its quickest path to the drain. The below example was taken right after the smaller flood. You can see how side channels become fully abandoned, as both bed and bank erosion resulted in a channel with higher slope and more direct access to the drain. Even after flows receded, they did not return to the abandoned channels on the lower side of the photos.</p>
+<div class="figure"><span style="display:block;" id="fig:bigflood"></span>
+<img src="images/Module6/BigFloodBefore.png" alt="A small flood resulted in channel widening and straightening, with significant erosion in the beds. However, the general paths of the preexisting channels remained. " width="50%" /><img src="images/Module6/BigFloodDuring.png" alt="A small flood resulted in channel widening and straightening, with significant erosion in the beds. However, the general paths of the preexisting channels remained. " width="50%" />
+<p class="caption">
+Figure 4.2: A small flood resulted in channel widening and straightening, with significant erosion in the beds. However, the general paths of the preexisting channels remained.
+</p>
+</div>
+</div>
+<div id="channel-realignment-grading" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> Channel Realignment (Grading)</h2>
+<p>Channel realignment occurred at the end of the video where vegetation was placed in the channel to reintroduce bends in the flow (see Fig. <a href="#fig:forcing">3.6</a>). In the video of the flood, only minimal realignment is possible within the bounds of the inset channel. As flow decreases, it can’t maintain the full channel, leading to deposition on one side of the larger channel, and curving of the flow to recreate a smaller meander. To get back out of the large channel from the flood, a little more reworking of the sediment is required.</p>
+</div>
+<div id="impacts-of-small-and-big-floods" class="section level2" number="4.4">
+<h2><span class="header-section-number">4.4</span> Impacts of small and big floods</h2>
+<p>From watching the videos online, I can see that both small and large floods do a lot of work to erode the banks and move sediment downstream. With the small flood, this resulted in more channels with more spread out flood as previously abandoned reaches are rewetted. While erosion occurred, there was also deposition leading to more braiding and the formation of islands as the flood receded slightly The large flood fully transformed the flume, resulting in a much more straight channel. It was harder for subsequent flooding to overcome the erosion done by the larger flood. While the channel reintroduced a meander, the bends were still constricted to the inset valley.</p>
+</div>
+<div id="overbank-bankfull-or-base-flow" class="section level2" number="4.5">
+<h2><span class="header-section-number">4.5</span> Overbank, Bankfull, or Base Flow?</h2>
+<p>The type of flow observed in the flume would depend on what we’re interpreting as bankful in this particular flume. I would think of the large flood as having overbank flooding, where the previously established channels are overflowing and flowing across the “floodplain”. Bankfull flows would be where the flow is at the top of the established channels, but not yet overflowing. Baseflow would be at times when the flow was above the top of the established channels. However, it’s a little difficult to define these specifically in the flume, observed over just a few minutes, as baseflow and bankfull are typically determined over much longer timescales.</p>
+</div>
+<div id="hyporheic-flow" class="section level2" number="4.6">
+<h2><span class="header-section-number">4.6</span> Hyporheic flow</h2>
+<p>In the flume, there were times where I could see a section where the channel grew from the downstream side. As water flowed through the sediment and eventually into the downstream channel, erosion occurred at the downstream side first, then eroding a channel, until the upstream sediments were not supported anymore.</p>
+<video width='650' height='240' controls> <source src='./images/Module6/Hyporheic Flow.mp4' type='video/mp4'> Your browser does not support the video tag;  for browser support, please see:  https://www.w3schools.com/tags/tag_video.asp </video>
+</div>
+<div id="recession-limb-flows" class="section level2" number="4.7">
+<h2><span class="header-section-number">4.7</span> Recession Limb Flows</h2>
+<p>Recession limb flows are typically more confined to the deeper channels cut by large flooding events. As they can’t maintain the full width, deposition in the larger channel begins to cut off sections of the larger flow, resulting in in-stream channel bars which redirect flows.</p>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
