@@ -16,6 +16,8 @@ navbar:
           href: Module4.html
         - text: "Module 5: Hydraulics"
           href: Module5.html
+        - text: "Module 6: Flume Observations"
+          href: Module6.html
 output_dir: "docs" 
 output: 
   html_document: 
