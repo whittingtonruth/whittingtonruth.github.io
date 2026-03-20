@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Module 7: Channel Geometry</title>
+
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Ruth Whittington's Website</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="FluvialGeomorphologyNotebook.html">Fluvial Geomorphology</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Module Exercises
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="Module1.html">Module 1: Reading a Riverscape Analysis</a>
+    </li>
+    <li>
+      <a href="Module3.html">Module 3: Catchment-Level Controls</a>
+    </li>
+    <li>
+      <a href="Module4.html">Module 4: Watershed Hydrology</a>
+    </li>
+    <li>
+      <a href="Module5.html">Module 5: Hydraulics</a>
+    </li>
+    <li>
+      <a href="Module6.html">Module 6: Flume Observations</a>
+    </li>
+    <li>
+      <a href="Module7.html">Module 7: Channel Geometry</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Module 7: Channel Geometry</h1>
+
+</div>
+
+
+<div id="introduction" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> Introduction</h1>
+<div class="figure"><span style="display:block;" id="fig:feshieoverview"></span>
+<img src="images/Module7/Feshie_Overview.jpg" alt="A photo overlooking the Feshie, the stream in focus for this module. " width="100%" />
+<p class="caption">
+Figure 1.1: A photo overlooking the Feshie, the stream in focus for this module.
+</p>
+</div>
+<p>This week’s assignment brings us to the Feshie in Scotland. For this assignment, I used GCD software to perform a basic budget segregation analysis. I had two time periods I looked at: 2003 - 2004 and 2004-2005. For each time period, I traced one area that represented each of four types of changes to elevation: Bank Erosion, Channel Bed Lowering, Channel Bed Rising, and Bar Development.</p>
+<p>In 2003 to 2004, channel locations changed some, resulting in a large amount of area that changed, but much of this area cancelled out, with just 9.37% of the total area showing detectable change. The net change in volume was -816.8 ± 926 cubic meters, with total surface raising volume of 1106 ± 463 cubic meters and total surface lowering volume of 1923 ± 802 cubic meters.</p>
+<p>Changes from 2004 to 2005 were much larger, with the total thresholded area with detectable change of 22.8% - over double the area change from 2003-2004. The volume of material was also much greater - a net change of -738 ± 2207 cubic meters, with volume of surface raising of 4841 ± 1444 cubic meters and a volume of surface lowering of 5579 ± 1669 cubic meters. While the net change is not necessarily that different from the year before, the volume moved is close to 3 times as much (Fig. <a href="#fig:volumewholereach">1.2</a>).</p>
+<div class="figure"><span style="display:block;" id="fig:volumewholereach"></span>
+<img src="images/Module7/WholeReach_2003_2004_VolumeChange.jpg" alt="Volumetric change across the whole reach of the Feshie from 2003-2004 (left) and 2004-2005 (right). " width="50%" /><img src="images/Module7/WholeReach_2004_2005_VolumeChange.jpg" alt="Volumetric change across the whole reach of the Feshie from 2003-2004 (left) and 2004-2005 (right). " width="50%" />
+<p class="caption">
+Figure 1.2: Volumetric change across the whole reach of the Feshie from 2003-2004 (left) and 2004-2005 (right).
+</p>
+</div>
+</div>
+<div id="bank-erosion" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Bank Erosion</h1>
+<div id="bank-erosion-in-2003-to-2004" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> Bank Erosion in 2003 to 2004</h2>
+<p>My example of Bank Erosion in this year was a thin sliver of bank that shifted slightly to the left across an area of 249 m^2. Total volume removed was 127±51 cubic meters. Average depth of lowering was 0.65 m. See the comparison in the images below (Fig. <a href="#fig:bankerosion20032004">2.1</a>). Looking at the DEM, this section has a clear pattern consistent with bank erosion - where the channel likely scoured the outside bend of a curve. The result is a sliver of lost elevation.</p>
+<div class="figure"><span style="display:block;" id="fig:bankerosion20032004"></span>
+<img src="images/Module7/BankErosion_2003Pre.jpg" alt="Bank Erosion from 2003 to 2004. See the DEM from 2003 (left), 2004 (middle), and the change detected (right). The polygon used to perform the analysis is shown in black. " width="33%" /><img src="images/Module7/BankErosion_2004Post.jpg" alt="Bank Erosion from 2003 to 2004. See the DEM from 2003 (left), 2004 (middle), and the change detected (right). The polygon used to perform the analysis is shown in black. " width="33%" /><img src="images/Module7/BankErosion_2003_2004Change.jpg" alt="Bank Erosion from 2003 to 2004. See the DEM from 2003 (left), 2004 (middle), and the change detected (right). The polygon used to perform the analysis is shown in black. " width="33%" />
+<p class="caption">
+Figure 2.1: Bank Erosion from 2003 to 2004. See the DEM from 2003 (left), 2004 (middle), and the change detected (right). The polygon used to perform the analysis is shown in black.
+</p>
+</div>
+</div>
+<div id="bank-erosion-in-2004-to-2005" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> Bank Erosion in 2004 to 2005</h2>
+<p>My example of Bank Erosion in this year was another, slightly larger section (340 m^2) of bank that shifted slightly to the left. Total volume removed was 318±79 cubic meters. Average depth of lowering was 0.99 m, demonstrating the larger magnitude of bed and bank shifts during this time compared with the 2003-2004 timeframe. See the comparison in the images below (Fig. <a href="#fig:bankerosion20042005"><strong>??</strong></a>).</p>
+<div class="figure"><span style="display:block;" id="fig:bankerosion20052004"></span>
+<img src="images/Module7/BankErosion_2004Pre.jpg" alt="Bank Erosion from 2004 to 2005. See the DEM from 2004 (left), 2005 (middle), and the change detected (right). The polygon used to perform the analysis is shown in black. " width="33%" /><img src="images/Module7/BankErosion_2005Post.jpg" alt="Bank Erosion from 2004 to 2005. See the DEM from 2004 (left), 2005 (middle), and the change detected (right). The polygon used to perform the analysis is shown in black. " width="33%" /><img src="images/Module7/BankErosion_2004_2005Change.jpg" alt="Bank Erosion from 2004 to 2005. See the DEM from 2004 (left), 2005 (middle), and the change detected (right). The polygon used to perform the analysis is shown in black. " width="33%" />
+<p class="caption">
+Figure 2.2: Bank Erosion from 2004 to 2005. See the DEM from 2004 (left), 2005 (middle), and the change detected (right). The polygon used to perform the analysis is shown in black.
+</p>
+</div>
+<p>In this case, the larger flows upstream appear to have changed the direction of flow slightly so that this particular bank is now on the outside of a slight curve, rather than the inside of a curve like it was the year before (Fig. <a href="#fig:bankerosionflowdirection">2.3</a>).</p>
+<div class="figure"><span style="display:block;" id="fig:bankerosionflowdirection"></span>
+<img src="images/Module7/BankErosion_FlowDirection04.jpg" alt="The change in flow direction between 2004 and 2005 is shown using the blue arros" width="30%" /><img src="images/Module7/BankErosion_FlowDirection05.jpg" alt="The change in flow direction between 2004 and 2005 is shown using the blue arros" width="30%" />
+<p class="caption">
+Figure 2.3: The change in flow direction between 2004 and 2005 is shown using the blue arros
+</p>
+</div>
+</div>
+</div>
+<div id="channel-bed-lowering-incision" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Channel Bed Lowering (incision)</h1>
+<div id="channel-incision-in-2003-to-2004" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Channel Incision in 2003 to 2004</h2>
+<p>My example of channel incision in this year was a fairly large area (1718 m^2) of a wider section of the channel. Total volume removed was 634±239 cubic meters. Average depth of lowering was 0.43 m. See the comparison in the images below (Fig. <a href="#fig:channelincision20042003">3.1</a>). Looking at the DEM, it’s clear that while the area is large, there’s not as pronounced a loss of elevation, except on the left side towards the bottom where I accidentally included some bank erosion as well. This fits with what I would expect from channel incision across a wider portion of the channel: slight changes across a broader area.</p>
+<div class="figure"><span style="display:block;" id="fig:channelincision20042003"></span>
+<img src="images/Module7/ChannelIncision_2003Pre.jpg" alt="Channel incision from 2003 to 2004. See the DEM from 2003 (left), 2004 (middle), and the change detected (right). The polygon used to perform the analysis is shown in black. " width="33%" /><img src="images/Module7/ChannelIncision_2004Post.jpg" alt="Channel incision from 2003 to 2004. See the DEM from 2003 (left), 2004 (middle), and the change detected (right). The polygon used to perform the analysis is shown in black. " width="33%" /><img src="images/Module7/ChannelIncision_2003_2004Change.jpg" alt="Channel incision from 2003 to 2004. See the DEM from 2003 (left), 2004 (middle), and the change detected (right). The polygon used to perform the analysis is shown in black. " width="33%" />
+<p class="caption">
+Figure 3.1: Channel incision from 2003 to 2004. See the DEM from 2003 (left), 2004 (middle), and the change detected (right). The polygon used to perform the analysis is shown in black.
+</p>
+</div>
+<p>We can also see a peak in the volume loss at a fairly low elevation loss in the histogram below.</p>
+<div class="figure"><span style="display:block;" id="fig:channelincision20042003hist"></span>
+<img src="images/Module7/ChannelIncision_2003_2004_Hist.jpg" alt="Histogram of the volume change from 2003 to 2004 in this section of channel incision. Note the peak of volume loss at a comparatively low elevation loss." width="60%" />
+<p class="caption">
+Figure 3.2: Histogram of the volume change from 2003 to 2004 in this section of channel incision. Note the peak of volume loss at a comparatively low elevation loss.
+</p>
+</div>
+</div>
+<div id="channel-incision-in-2004-to-2005" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Channel Incision in 2004 to 2005</h2>
+<p>My example of channel incision in this year was an area (709 m^2) of a wider section of the channel. Total volume removed was 323±108 cubic meters. Average depth of lowering was 0.52 m. Again, though this section is smaller than my focal area from the previous timeframe, a greater average depth across that area was observed. See the comparison in the images below (Fig. <a href="#fig:channelincision20042003">3.1</a>). Looking at the DEM, this seems like a case of the whole channel shifting over such that the location of the inside bend is now in this section. This is accompanied by channel aggradation to the left in an area that has now become the outside bend of the channel. It is a little hard to tell whether this is bank erosion or channel incision, but in the below DEM of 2004, some slight shadows above this section made me suspect this area is still part of the channel bed, though still it’s a little hard to tell for sure.</p>
+<div class="figure"><span style="display:block;" id="fig:channelincision20052004"></span>
+<img src="images/Module7/ChannelIncision_2004Pre.jpg" alt="Channel incision from 2004 to 2005. See the DEM from 2004 (left), 2005 (middle), and the change detected (right). Arrows in the left photo highlight shadows in the DEM that made me think this was channel incision rather than bank erosion. The polygon used to perform the analysis is shown in black. " width="33%" /><img src="images/Module7/ChannelIncision_2005Post.jpg" alt="Channel incision from 2004 to 2005. See the DEM from 2004 (left), 2005 (middle), and the change detected (right). Arrows in the left photo highlight shadows in the DEM that made me think this was channel incision rather than bank erosion. The polygon used to perform the analysis is shown in black. " width="33%" /><img src="images/Module7/ChannelIncision_2004_2005Change.jpg" alt="Channel incision from 2004 to 2005. See the DEM from 2004 (left), 2005 (middle), and the change detected (right). Arrows in the left photo highlight shadows in the DEM that made me think this was channel incision rather than bank erosion. The polygon used to perform the analysis is shown in black. " width="33%" />
+<p class="caption">
+Figure 3.3: Channel incision from 2004 to 2005. See the DEM from 2004 (left), 2005 (middle), and the change detected (right). Arrows in the left photo highlight shadows in the DEM that made me think this was channel incision rather than bank erosion. The polygon used to perform the analysis is shown in black.
+</p>
+</div>
+</div>
+</div>
+<div id="channel-bed-rising-aggradation" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Channel Bed Rising (aggradation)</h1>
+<div id="channel-aggradation-in-2003-to-2004" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Channel Aggradation in 2003 to 2004</h2>
+<p>My example of channel aggradation in this year was a small area on the inside of a bend in the channel. Total volume added was 61±20 cubic meters. Average depth of raising was 0.39 m. See the comparison in the images below (Fig. <a href="#fig:channelaggradation20042003">4.1</a>). The location makes sense for channel aggradation - on the inside of a curve where the slower moving water is likely to deposit some sediment, resulting in the bed rising.</p>
+<div class="figure"><span style="display:block;" id="fig:channelaggradation20042003"></span>
+<img src="images/Module7/ChannelAggradation_2003Pre.jpg" alt="Channel aggradation from 2003 to 2004. See the DEM from 2003 (left), 2004 (middle), and the change detected (right). The polygon used to perform the analysis is shown in black. " width="33%" /><img src="images/Module7/ChannelAggradation_2004Post.jpg" alt="Channel aggradation from 2003 to 2004. See the DEM from 2003 (left), 2004 (middle), and the change detected (right). The polygon used to perform the analysis is shown in black. " width="33%" /><img src="images/Module7/ChannelAggradation_2003_2004Change.jpg" alt="Channel aggradation from 2003 to 2004. See the DEM from 2003 (left), 2004 (middle), and the change detected (right). The polygon used to perform the analysis is shown in black. " width="33%" />
+<p class="caption">
+Figure 4.1: Channel aggradation from 2003 to 2004. See the DEM from 2003 (left), 2004 (middle), and the change detected (right). The polygon used to perform the analysis is shown in black.
+</p>
+</div>
+</div>
+<div id="channel-aggradation-in-2004-to-2005" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Channel Aggradation in 2004 to 2005</h2>
+<p>My example of channel aggradation in this year was a small area in the middle of a channel. Magnitude of change here was small, but unlike other areas, there isn’t a clear pairing of neighboring erosion and deposition. Instead, it appears this particular channel just raised slightly (Fig. <a href="#fig:channelaggradationzoomout">4.2</a>).</p>
+<div class="figure"><span style="display:block;" id="fig:channelaggradationzoomout"></span>
+<img src="images/Module7/ChannelAggradation_2003Pre.jpg" alt="See how this particular polygon is on the periphery, and is not accompanied by an adjacent channel degradation. " width="60%" />
+<p class="caption">
+Figure 4.2: See how this particular polygon is on the periphery, and is not accompanied by an adjacent channel degradation.
+</p>
+</div>
+<p>Total volume added was 108±36 cubic meters. Average depth of raising was 0.4 m, making this one of the smaller magnitude areas of change. See the comparison in the images below (Fig. <a href="#fig:channelaggradation20052004">4.3</a>). I’m guessing the high flows led to more concentrated flow in the center of the river valley, leading to slightly lower flows in this side channel compared with other years, resulting in some aggradation.</p>
+<div class="figure"><span style="display:block;" id="fig:channelaggradation20052004"></span>
+<img src="images/Module7/ChannelAggradation_2004Pre.jpg" alt="Channel aggradation from 2004 to 2005. See the DEM from 2004 (left), 2005 (middle), and the change detected (right). The polygon used to perform the analysis is shown in black. " width="33%" /><img src="images/Module7/ChannelAggradation_2005Post.jpg" alt="Channel aggradation from 2004 to 2005. See the DEM from 2004 (left), 2005 (middle), and the change detected (right). The polygon used to perform the analysis is shown in black. " width="33%" /><img src="images/Module7/ChannelAggradation_2004_2005Change.jpg" alt="Channel aggradation from 2004 to 2005. See the DEM from 2004 (left), 2005 (middle), and the change detected (right). The polygon used to perform the analysis is shown in black. " width="33%" />
+<p class="caption">
+Figure 4.3: Channel aggradation from 2004 to 2005. See the DEM from 2004 (left), 2005 (middle), and the change detected (right). The polygon used to perform the analysis is shown in black.
+</p>
+</div>
+</div>
+</div>
+<div id="bar-development" class="section level1" number="5">
+<h1><span class="header-section-number">5</span> Bar Development</h1>
+<div id="bar-development-in-2003-to-2004" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Bar Development in 2003 to 2004</h2>
+<p>My example of bar development in this year was a small area where the channel appeared to lower to the sides of a feature that increased in elevation between them. Total volume added was 57±21 cubic meters. Average depth of raising was 0.35 m. See the comparison in the images below (Fig. <a href="#fig:bardevelopment20042003">5.1</a>). Looking at the DEM, this section has a clear pattern consistent with bar development, particularly with the erosion happening north and south of where the bar is raising.</p>
+<div class="figure"><span style="display:block;" id="fig:bardevelopment20042003"></span>
+<img src="images/Module7/BarDevelopment_2003Pre.jpg" alt="Bar development from 2003 to 2004. See the DEM from 2003 (left), 2004 (middle), and the change detected (right). The polygon used to perform the analysis is shown in black. Arrows point to areas where the channel eroded around the developing bar. " width="33%" /><img src="images/Module7/BarDevelopment_2004Post.jpg" alt="Bar development from 2003 to 2004. See the DEM from 2003 (left), 2004 (middle), and the change detected (right). The polygon used to perform the analysis is shown in black. Arrows point to areas where the channel eroded around the developing bar. " width="33%" /><img src="images/Module7/BarDevelopment_2003_2004Change.jpg" alt="Bar development from 2003 to 2004. See the DEM from 2003 (left), 2004 (middle), and the change detected (right). The polygon used to perform the analysis is shown in black. Arrows point to areas where the channel eroded around the developing bar. " width="33%" />
+<p class="caption">
+Figure 5.1: Bar development from 2003 to 2004. See the DEM from 2003 (left), 2004 (middle), and the change detected (right). The polygon used to perform the analysis is shown in black. Arrows point to areas where the channel eroded around the developing bar.
+</p>
+</div>
+</div>
+<div id="bar-development-in-2004-to-2005" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Bar Development in 2004 to 2005</h2>
+<p>My example of bar development in this year was a small area where the channel appeared to lower to the sides of a feature that increased in elevation between them. Total volume added was 78±23 cubic meters. Average depth of raising was 0.28 m. See the comparison in the images below (Fig. <a href="#fig:bardevelopment20052004">5.2</a>). This particular area has defined channels on either side of a rising bar. The DEM’s don’t look all that different between the two years, with the channels staying in place, but the bar does appear to rise somewhat.</p>
+<div class="figure"><span style="display:block;" id="fig:bardevelopment20052004"></span>
+<img src="images/Module7/BarDevelopment_2004Pre.jpg" alt="Bar development from 2004 to 2005. See the DEM from 2004 (left), 2005 (middle), and the change detected (right). The polygon used to perform the analysis is shown in black." width="33%" /><img src="images/Module7/BarDevelopment_2005Post.jpg" alt="Bar development from 2004 to 2005. See the DEM from 2004 (left), 2005 (middle), and the change detected (right). The polygon used to perform the analysis is shown in black." width="33%" /><img src="images/Module7/BarDevelopment_2004_2005Change.jpg" alt="Bar development from 2004 to 2005. See the DEM from 2004 (left), 2005 (middle), and the change detected (right). The polygon used to perform the analysis is shown in black." width="33%" />
+<p class="caption">
+Figure 5.2: Bar development from 2004 to 2005. See the DEM from 2004 (left), 2005 (middle), and the change detected (right). The polygon used to perform the analysis is shown in black.
+</p>
+</div>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
