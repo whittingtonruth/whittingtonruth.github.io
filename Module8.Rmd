@@ -49,7 +49,27 @@ knitr::include_graphics("./images/Module8/MyMappedReach.jpg")
 
 ## Calculating relative proportions of geomorphic surfaces
 
+After delineating the various geometric units, I calculated the density, count, and area of mid-channel bars, pools, and riffles. I calculated the same metrics for geomorphic units mapped using imagery from June 2023. Below are the results. 
 
+```{r stattable, tab.cap='Calculated metrics for geomorphic units delineated on the same reach in June of 2023 and August of 2024. 2023 units were delineated for me, while 2024 units were hand-delineated by me. ', echo=F}
+stats <- data.frame(Metric = c("Mid Channel Bar Count", 
+                               "Mid Channel Bar Area", 
+                               "Mid Channel Bar Density", 
+                               "Pool Count", 
+                               "Pool Area", 
+                               "Pool Density", 
+                               "Riffle Count", 
+                               "Riffle Area", 
+                               "Riffle Density"), 
+                    June2023 = c(11.9, 856.4, 0.011, 42.0, 1960.9, 0.039, 23,	1364.4, 0.021), 
+                    Aug2024 = c(53.0, 1807.7, 0.049, 32.0, 1538.4, 0.03,	34.0, 1537.9,	0.031))
 
-# Visiting a nearby stream
+knitr::kable(stats)
+```
+
+From these metrics, I can see that mid channel bar count drastically increased, as did area and density. This is likely due to the added complexity from the added woody debris piles. In general, I'd expect that all three features would increase with how much woody debris was added to the channel, causing slows to be pushed to one side or another, scouring out pools and making preexisting mid channel bars more dramatic. However pools decreased in number, density and area. I suspect this is due to user error rather than true declines. Riffles also increased in 2024 compared with 2023, though less so than the mid channel bars. This all makes sense to me - I started with the mid channel bars because they were the easiest to call out. It makes sense then that the impacts were greatest in this category. 
+
+I do wonder whether this would be true anyway - Because the August 2024 snapshot was so immediately after the restoration project, the mid channel bars were directly created by the project itself, whereas the pools and riffles are more likely to form as the project becomes more established, and the change in flow patterns begin to produce more pronounced changes in sediment deposition and erosion. 
+
+# Field Geomorphic Unit Mapping
 

@@ -1,0 +1,11 @@
+---
+title: "Module 10: River Diversity"
+output: 
+  bookdown::html_document2:
+    self_contained: no
+    theme: cosmo
+    toc: true
+    toc_float: true
+---
+
+# Introduction
