@@ -1,0 +1,55 @@
+---
+title: "Module 8: Instream Geomorphic Units"
+output: 
+  bookdown::html_document2:
+    self_contained: no
+    theme: cosmo
+    toc: true
+    toc_float: true
+---
+
+# Willow Springs, OR Geomorphic Units Mapping
+
+## Creating the geomorphic extents layer
+
+For this assignment, I first needed to map geomorphic units on a stretch of Wychus Creek in Sisters, OR. This stretch had obviously recently undergone a restoration project inputting a number of piles of woody debris, channel-spanning dams, and other structural elements into the creek. This resulted in fairly complex geomorphic units. 
+
+I started by mapping the mid-channel and bank-attached bars. These were fairly easy to find, though their precise boundaries were more challenging, since their outermost boundaries likely are under the current water flow. Another challenge was the trees and shrubs that overhang the channel, making it hard to see the boundaries. 
+
+Then I started to go back and try filling in more of the stream. Here, I ran into a lot of issues. First, some features were hard to find or define the margins. Pools, since they are under the water, were particularly difficult to map. In many instances, I had to intuit a pool rather than map what I could see in the stream reach itself (Fig. \@ref(fig:poolithink)). 
+
+```{r poolithink, fig.show='hold', fig.cap='This location made sense for there to be a pool - It is located on the outside of a curve, with a bar on the inside of the riverbend. However, I could only just make it out in the imagery. The boundaries (right) were a guess. ', out.width="40%", echo=F, fig.align='center'}
+knitr::include_graphics("./images/Module8/SpottedPool.jpg")
+knitr::include_graphics("./images/Module8/PoolIdentified.jpg")
+```
+
+The newly installed woody debris also felt challenging. The debris was obvious, as was the change to the way the water moved around it, however, changes to the geomorphic surfaces seem to only just be forming. It's unclear at what scale I should be mapping these - are they all a part of one feature, or are they multiple mid channel bars in a row? The underlying processes also didn't really apply since they are human-installed. In the example below, there are a chain of woody debris piles, but the process creating them, while common for all them, is not a geomorphic one. Humans installed them. Behind a few of them, we can see how sediment is moving differently behind them, but that hasn't yet led to a change in the elevation of the channel bed, at least not obviously (Fig. \@ref(fig:humaninstalled)). 
+
+```{r humaninstalled, fig.show='hold', fig.cap='A series of midchannel woody debris. Arrows point where sediment is clearly moving differently behind them, but resulting geomorphic units have yet to form. ', out.width="60%", echo=F, fig.align='center'}
+knitr::include_graphics("./images/Module8/HumanInstalled.jpg")
+```
+
+Some areas didn't clearly fit into a category in my mind - take this stretch where flow was being concentrated by a series of bars (Fig. \@ref(fig:concentratedflow)): Is this a chute or a run/glide? Can the thalweg be in a chute? How can I tell without knowing the underlying surface? I can see the water flow being concentrated such that the water surface is showing waves, and I'd think that the increased water flow might mean a pool could be carved here, but at what point does a chute become a pool? I'm not sure how to interpret this into one of the available categories. Similarly, several channel-spanning dams of woody debris didn't feel like they fit into any of the provided categories.
+
+```{r concentratedflow, fig.show='hold', fig.cap='An area where flow is being concentrated by the berms of woody debris, but it is not clear to me what this geomorphic unit would be. ', out.width="60%", echo=F, fig.align='center'}
+knitr::include_graphics("./images/Module8/ConcentratedFlow.jpg")
+```
+
+Finally, I ended up with a lot of in-between spaces, two examples below. In the left, a pool is obvious on the outer bend. A bank-attached bar is obvious on the right side, but what is the space in between these? I often ended up using glides/runs as my catch-all. With such a varying reach, it seems like it's difficult to understand where the inflection points are which define the different geomorphic units. 
+
+```{r inbetween, fig.cap='An example of in-between spaces. Here is an area between a pool and a bank-attached bar ended up being classified as a run. I do not think that is right, but I am not sure how else to classify.', out.width="40%", echo=F, fig.align='center'}
+knitr::include_graphics("./images/Module8/InBetween.jpg")
+```
+
+Here's my finished reach. By the end, I was creating pretty general shapes, but still I got an idea of how complex this reach was.  
+
+```{r myreach, fig.cap='Here is the matority of the section I was able to map. ', out.width="50%", echo=F, fig.align='center'}
+knitr::include_graphics("./images/Module8/MyMappedReach.jpg")
+```
+
+## Calculating relative proportions of geomorphic surfaces
+
+
+
+# Visiting a nearby stream
+

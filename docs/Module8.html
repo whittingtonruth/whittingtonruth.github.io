@@ -11,9 +11,8 @@
 
 
 
-<title>Module 1: Field Observations from the Clark Fork River</title>
+<title>Module 8: Instream Geomorphic Units</title>
 
-<script src="site_libs/header-attrs-2.30/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -366,80 +365,59 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Module 1: Field Observations from the Clark
-Fork River</h1>
+<h1 class="title toc-ignore">Module 8: Instream Geomorphic Units</h1>
 
 </div>
 
 
-<p>For this first assignment, I chose to look digitally at a spot on the
-Clark Fork River where I regularly take my dog for swimming during the
-summer. This spot overlooks the Clark Fork River in Missoula just before
-the Bitterroot River runs into it. For my river analysis, I’ll try and
-break it into the same four steps.</p>
-<div id="locate-geomorphic-landforms." class="section level1">
-<h1>1. Locate geomorphic landforms.</h1>
-<p>From imagery, I first noted a few things: In-Channel point
-bars/islands, some side channels in what is a very braided channel. Some
-Overflow channels and sloughs. The river in the imagery was full to the
-brim, with even older sloughs filled up with water.</p>
-<div class="float">
-<img src="images/Notebook/Module1_RiverAnalysisLandforms.jpg"
-alt="Landforms located!" />
-<div class="figcaption">Landforms located!</div>
+<div id="willow-springs-or-geomorphic-units-mapping" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> Willow Springs, OR Geomorphic Units Mapping</h1>
+<div id="creating-the-geomorphic-extents-layer" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Creating the geomorphic extents layer</h2>
+<p>For this assignment, I first needed to map geomorphic units on a stretch of Wychus Creek in Sisters, OR. This stretch had obviously recently undergone a restoration project inputting a number of piles of woody debris, channel-spanning dams, and other structural elements into the creek. This resulted in fairly complex geomorphic units.</p>
+<p>I started by mapping the mid-channel and bank-attached bars. These were fairly easy to find, though their precise boundaries were more challenging, since their outermost boundaries likely are under the current water flow. Another challenge was the trees and shrubs that overhang the channel, making it hard to see the boundaries.</p>
+<p>Then I started to go back and try filling in more of the stream. Here, I ran into a lot of issues. First, some features were hard to find or define the margins. Pools, since they are under the water, were particularly difficult to map. In many instances, I had to intuit a pool rather than map what I could see in the stream reach itself (Fig. <a href="#fig:poolithink">1.1</a>).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:poolithink"></span>
+<img src="images/Module8/SpottedPool.jpg" alt="This location made sense for there to be a pool - It is located on the outside of a curve, with a bar on the inside of the riverbend. However, I could only just make it out in the imagery. The boundaries (right) were a guess. " width="40%" /><img src="images/Module8/PoolIdentified.jpg" alt="This location made sense for there to be a pool - It is located on the outside of a curve, with a bar on the inside of the riverbend. However, I could only just make it out in the imagery. The boundaries (right) were a guess. " width="40%" />
+<p class="caption">
+Figure 1.1: This location made sense for there to be a pool - It is located on the outside of a curve, with a bar on the inside of the riverbend. However, I could only just make it out in the imagery. The boundaries (right) were a guess.
+</p>
 </div>
-<p>I also pulled up a couple photos I took over the summer. I can
-particularly see the bank on the north side of the river which slowly
-transitions from an erosional bank with nearly undercut banks into a
-depositional bank with low slope into the river. See below my photos
-from this summer - the first one looking upstream to the east and the
-second one looking downstream to the west. In the upstream photo, in the
-foreground is a point bar of an island in the imagery. The side channel
-flows in a funky pattern here as the slow moving water from the side
-channel hits the fast moving water of the mainstem.</p>
-<div class="float">
-<img src="images/Notebook/ClarkFork_SummerPhotoUpstream.jpg"
-alt="Photo looking upstream to the east." />
-<div class="figcaption">Photo looking upstream to the east.</div>
+<p>The newly installed woody debris also felt challenging. The debris was obvious, as was the change to the way the water moved around it, however, changes to the geomorphic surfaces seem to only just be forming. It’s unclear at what scale I should be mapping these - are they all a part of one feature, or are they multiple mid channel bars in a row? The underlying processes also didn’t really apply since they are human-installed. In the example below, there are a chain of woody debris piles, but the process creating them, while common for all them, is not a geomorphic one. Humans installed them. Behind a few of them, we can see how sediment is moving differently behind them, but that hasn’t yet led to a change in the elevation of the channel bed, at least not obviously (Fig. <a href="#fig:humaninstalled">1.2</a>).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:humaninstalled"></span>
+<img src="images/Module8/HumanInstalled.jpg" alt="A series of midchannel woody debris. Arrows point where sediment is clearly moving differently behind them, but resulting geomorphic units have yet to form. " width="60%" />
+<p class="caption">
+Figure 1.2: A series of midchannel woody debris. Arrows point where sediment is clearly moving differently behind them, but resulting geomorphic units have yet to form.
+</p>
 </div>
-<div class="float">
-<img src="images/Notebook/ClarkFork_SummerPhotoDownstream.jpg"
-alt="Photo looking downstream to the west." />
-<div class="figcaption">Photo looking downstream to the west.</div>
+<p>Some areas didn’t clearly fit into a category in my mind - take this stretch where flow was being concentrated by a series of bars (Fig. <a href="#fig:concentratedflow">1.3</a>): Is this a chute or a run/glide? Can the thalweg be in a chute? How can I tell without knowing the underlying surface? I can see the water flow being concentrated such that the water surface is showing waves, and I’d think that the increased water flow might mean a pool could be carved here, but at what point does a chute become a pool? I’m not sure how to interpret this into one of the available categories. Similarly, several channel-spanning dams of woody debris didn’t feel like they fit into any of the provided categories.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:concentratedflow"></span>
+<img src="images/Module8/ConcentratedFlow.jpg" alt="An area where flow is being concentrated by the berms of woody debris, but it is not clear to me what this geomorphic unit would be. " width="60%" />
+<p class="caption">
+Figure 1.3: An area where flow is being concentrated by the berms of woody debris, but it is not clear to me what this geomorphic unit would be.
+</p>
+</div>
+<p>Finally, I ended up with a lot of in-between spaces, two examples below. In the left, a pool is obvious on the outer bend. A bank-attached bar is obvious on the right side, but what is the space in between these? I often ended up using glides/runs as my catch-all. With such a varying reach, it seems like it’s difficult to understand where the inflection points are which define the different geomorphic units.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:inbetween"></span>
+<img src="images/Module8/InBetween.jpg" alt="An example of in-between spaces. Here is an area between a pool and a bank-attached bar ended up being classified as a run. I do not think that is right, but I am not sure how else to classify." width="40%" />
+<p class="caption">
+Figure 1.4: An example of in-between spaces. Here is an area between a pool and a bank-attached bar ended up being classified as a run. I do not think that is right, but I am not sure how else to classify.
+</p>
+</div>
+<p>Here’s my finished reach. By the end, I was creating pretty general shapes, but still I got an idea of how complex this reach was.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:myreach"></span>
+<img src="images/Module8/MyMappedReach.jpg" alt="Here is the matority of the section I was able to map. " width="50%" />
+<p class="caption">
+Figure 1.5: Here is the matority of the section I was able to map.
+</p>
 </div>
 </div>
-<div id="understand-process-form-linkages" class="section level1">
-<h1>2. Understand process-form linkages</h1>
-<p>Looking at that same imagery, I can start to think through the
-connections beginning to form the features I’m seeing: - During high
-flow events, side and overflow channels are created as the higher force
-water can’t be contained by the mainstem channel. The erosional forces
-excavating some of the material out, leaving them lower, and more able
-to flood during smaller events. - Large wood contributed from the
-surrounding forest may lead to random changes in the way the river
-flows. - As the river winds around the bend it simultaneously erodes the
-southern bank and leaves sediment behind on the inside of the curve. -
-the back side of islands accumulate sediment as the water slows on the
-downstream side.</p>
+<div id="calculating-relative-proportions-of-geomorphic-surfaces" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> Calculating relative proportions of geomorphic surfaces</h2>
 </div>
-<div id="consider-the-controls-and-boundaries" class="section level1">
-<h1>3. Consider the controls and boundaries</h1>
-<ul>
-<li>Houses and settlements are not far from the floodplain, so some
-human prevention is surely going on.</li>
-<li>This area doesn’t have a high slope. Even with a lot of water moving
-through, it only has so much force.</li>
-</ul>
 </div>
-<div id="place-it-into-context" class="section level1">
-<h1>4. Place it into context</h1>
-<p>This section of the Clark Fork is just before the Bitterroot River
-flows into it from the south. Before coming here, the river comes into
-the Missoula valley through a narrow canyon before opening up into this
-wider floodplain. This river then flows north - it narrows again into a
-thin floodplain winding through mountainous terrain. This section is
-likely a slightly lower slope than where it came from, allowing the
-river to take it’s time winding through this valley.</p>
+<div id="visiting-a-nearby-stream" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Visiting a nearby stream</h1>
 </div>
 
 
