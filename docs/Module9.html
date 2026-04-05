@@ -378,6 +378,114 @@ div.tocify {
 
 <div id="introduction" class="section level1" number="1">
 <h1><span class="header-section-number">1</span> Introduction</h1>
+<p>For this assignment, I chose to focus on the Two Medicine watershed, just east of the Rocky Mountains in Northern Montana. I wanted to find an area with clear floodplain features with fewer humanimpacts than many of the river systems closer to home in Missoula. The section I chose to look at is partly confined, bouncing between gentle hillslopes as they come off the Rockies (Fig. <a href="#fig:projectarea">1.1</a>).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:projectarea"></span>
+<img src="images/Module9/ProjectArea.jpg" alt="The yellow dashed line shows the extent of the reach I mapped. This is Two Medicine Creek, just East of the Rocky Mountains in Montana. " width="80%" />
+<p class="caption">
+Figure 1.1: The yellow dashed line shows the extent of the reach I mapped. This is Two Medicine Creek, just East of the Rocky Mountains in Montana.
+</p>
+</div>
+</div>
+<div id="geomorphic-unit-mapping-on-the-floodplain" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Geomorphic Unit Mapping on the Floodplain</h1>
+<p>I started by mapping floodplain geomorphic units, first mapping the active channel itself. This felt relatively straightforward, though questions came up for me about what is considered the active channel. When do I include islands, vs. when to call those part of the floodplain. Take the example of the curve below - The water obviously counts as active channel. Just below the channel is a bank-attached bar that is scoured regularly enough to prevent revegetation (black). Still further up in elevation does have some pockets of water, but vegetation is growing back. I ended up counting the closest area to the channel, but not the others (Fig. <a href="#fig:activechannel">2.1</a>).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:activechannel"></span>
+<img src="images/Module9/ActiveChannel.JPG" alt="A river bend demonstrating the gradual transition from active channel to terrace. I ended up calling actively scoured bank as part of the active channel. " width="40%" /><img src="images/Module9/ActiveChannel_delineated.JPG" alt="A river bend demonstrating the gradual transition from active channel to terrace. I ended up calling actively scoured bank as part of the active channel. " width="40%" />
+<p class="caption">
+Figure 2.1: A river bend demonstrating the gradual transition from active channel to terrace. I ended up calling actively scoured bank as part of the active channel.
+</p>
+</div>
+<p>This process then only got more difficult as I moved toward the drier end of the geomorphic unit spectrum. For each category, there were some areas that were easy to differentiate, but the boundaries around active floodplain, inactive floodplain, and terrace felt very difficult to distinguish, especially in an area where even the terrace is still green and lush with forested vegetation. In the example below, the orange seemed borderline one whether it should be active channel or active floodplain. Based on the rules above, I decided it was active channel. Red has water running over it, but has some vegetation growing back. This seemed like it should be active floodplain, but due to the water, felt like it could potentially be considered active channel. I decided to call it active floodplain. Then in pink, there was still water but vegetation was growing back easily. I ended up calling it inactive floodplain but perhaps it was still active? Then the purple felt more clearly forested, terrace. Definitely in the valley bottom, but from another hydrologic regime.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:gradient"></span>
+<img src="images/Module9/WhereToCutoff.jpg" alt="A river section demonstrating the challenge of mapping floodplain units. On the left, I show the various surfaces I was challenged to map. The right shows the final product. " width="40%" /><img src="images/Module9/WhereToCutoff_delineated.jpg" alt="A river section demonstrating the challenge of mapping floodplain units. On the left, I show the various surfaces I was challenged to map. The right shows the final product. " width="40%" />
+<p class="caption">
+Figure 2.2: A river section demonstrating the challenge of mapping floodplain units. On the left, I show the various surfaces I was challenged to map. The right shows the final product.
+</p>
+</div>
+<p>I completed the mapping, but ended with a lot of questions on how I would more precisely delineate the boundaries between the various categories (Fig. <a href="#fig:projectareamapped">2.3</a>).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:projectareamapped"></span>
+<img src="images/Module9/ProjectArea_mapped.jpg" alt="The yellow dashed line shows the extent of the reach I mapped. This is Two Medicine Creek, just East of the Rocky Mountains in Montana. " width="80%" />
+<p class="caption">
+Figure 2.3: The yellow dashed line shows the extent of the reach I mapped. This is Two Medicine Creek, just East of the Rocky Mountains in Montana.
+</p>
+</div>
+</div>
+<div id="calculated-floodplain-metrics" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Calculated floodplain metrics</h1>
+<p>Below are the calculated metrics from my delineated geometric units.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Metric</th>
+<th align="left">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Active Channel Area (m2)</td>
+<td align="left">493,226</td>
+</tr>
+<tr class="even">
+<td align="left">Active Channel Proportion</td>
+<td align="left">0.12</td>
+</tr>
+<tr class="odd">
+<td align="left">Active Floodplain Area (m2)</td>
+<td align="left">401,935</td>
+</tr>
+<tr class="even">
+<td align="left">Active Floodplain Proportion</td>
+<td align="left">0.09</td>
+</tr>
+<tr class="odd">
+<td align="left">Inactive Floodplain Area (m2)</td>
+<td align="left">1,182,286</td>
+</tr>
+<tr class="even">
+<td align="left">Inactive Floodplain Proportion</td>
+<td align="left">0.28</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="automated-vbet-product" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Automated VBET Product</h1>
+<p>After mapping my valley bottom, I then compared my result with the automated VBET product. There were a lot of areas of both overlap and incongruity. Below are a few examples.</p>
+<ul>
+<li>There were some places where the channel from VBET was somewhat less sinuous than what I found (Fig. <a href="#fig:riverplacement">4.1</a>). This may be due to a difference in the dates of the DEM used for the VBET and the imagery available that I used to do my mapping. You can see in the same image that I tended to have a wider area defined as active compared with VBET. I’m less sure about whether this is due to a difference in definition, or a difference in timing.</li>
+<li>If my defined Active and Inactive Floodplain categories are combined to define the Valley Bottom Extent from VBET, It seems like there’s fairly good alignment between the two (Fig. <a href="#fig:valleybottom">4.2</a>).</li>
+<li>However there were areas of pretty poor alignment (Fig. <a href="#fig:pooralignment">4.3</a>). In the example below, a settlement and pasture disrupts the flow of the valley bottom. The mapping from VBET is more sinuous here, but it also doesn’t respond to the imagery when defining the active vs. inactive floodplain. I think this is likely due to a combination of two things: First, the same timing issue as before: The VBET and my mapping likely rely on remote sensing data from different time points. Second, I primarily relied on imagery, meaning much of my mapping was responding to changes in vegetation. In contrast, I think VBET relies more heavily on DEMs, meaning elevational gradients have a larger role in determining floodplain boundaries.</li>
+<li>Finally, there seemed to be a lot of incongruity between what I thought was inactive versus the VBET tool. Again, some of this is due to changes in the channel resulting in changes to the floodplain. See the below example (Fig. <a href="#fig:inactive">4.4</a>). Here, there’s a section with vegetation growing in linear patterns like it has some direct influence of the channel that I mapped as active and VBET didn’t map at all (Blue question mark on VBET imagery). Or an area with fully developed forest that VBET mapped as active and that I mapped as inactive (marked with a purple question mark in my mapping). In these instances, it’s hard for me to know which to believe, partly because I don’t have a sense for the veg, and partly because I don’t have a sense for the time scales it occurs across.</li>
+</ul>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:riverplacement"></span>
+<img src="images/Module9/RiverImagery.jpg" alt="The Active Channel from VBET had a more sinuous path defined in this section. On the left is imagery, the middle shows the VBET river and the right is my hand delineated product. " width="30%" /><img src="images/Module9/RiverVBET.jpg" alt="The Active Channel from VBET had a more sinuous path defined in this section. On the left is imagery, the middle shows the VBET river and the right is my hand delineated product. " width="30%" /><img src="images/Module9/RiverMapped.jpg" alt="The Active Channel from VBET had a more sinuous path defined in this section. On the left is imagery, the middle shows the VBET river and the right is my hand delineated product. " width="30%" />
+<p class="caption">
+Figure 4.1: The Active Channel from VBET had a more sinuous path defined in this section. On the left is imagery, the middle shows the VBET river and the right is my hand delineated product.
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:valleybottom"></span>
+<img src="images/Module9/Valley%20Bottom%20Imagery.jpg" alt="This section demonstrates areas of good alignment between VBET and my product. I was a little more inclusive in my delineation.  " width="30%" /><img src="images/Module9/Valley%20Bottom%20VBET.jpg" alt="This section demonstrates areas of good alignment between VBET and my product. I was a little more inclusive in my delineation.  " width="30%" /><img src="images/Module9/Valley%20Bottom%20Mapped.jpg" alt="This section demonstrates areas of good alignment between VBET and my product. I was a little more inclusive in my delineation.  " width="30%" />
+<p class="caption">
+Figure 4.2: This section demonstrates areas of good alignment between VBET and my product. I was a little more inclusive in my delineation.
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:pooralignment"></span>
+<img src="images/Module9/PoorMatchImagery.jpg" alt="This section demonstrates an area of poor alignment" width="30%" /><img src="images/Module9/PoorMatchVBET.jpg" alt="This section demonstrates an area of poor alignment" width="30%" /><img src="images/Module9/PoorMatchMapped.jpg" alt="This section demonstrates an area of poor alignment" width="30%" />
+<p class="caption">
+Figure 4.3: This section demonstrates an area of poor alignment
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:inactive"></span>
+<img src="images/Module9/InactiveImagery.jpg" alt="This section demonstrates an area of poor alignment" width="30%" /><img src="images/Module9/InactiveVBET.jpg" alt="This section demonstrates an area of poor alignment" width="30%" /><img src="images/Module9/InactiveMapped.jpg" alt="This section demonstrates an area of poor alignment" width="30%" />
+<p class="caption">
+Figure 4.4: This section demonstrates an area of poor alignment
+</p>
+</div>
+<p>With all of these examples, I can’t tell whether there’s a bias between my mapping and VBET’s. Visually, DEM’s can be hard for me to interpret. Likewise, I would guess that imagery can be difficult to classify on a large scale, since the imagery signature for differnt kinds of vegetation can vary quite widely. I would guess the best product would be using VBET as a starting place, then visually adjusting it using available imagery and my own knowledge of the area.</p>
+</div>
+<div id="posted-riverscape-project" class="section level1" number="5">
+<h1><span class="header-section-number">5</span> Posted Riverscape Project</h1>
+<p>I was not able to get this layer posted to the Riverscapes data exchange because it produced errors I could not figure out. 'NoneType' object has no attribute 'data'…I must have messed something up.</p>
 </div>
 
 

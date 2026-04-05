@@ -43,7 +43,7 @@ knitr::include_graphics("./images/Module8/InBetween.jpg")
 
 Here's my finished reach. By the end, I was creating pretty general shapes, but still I got an idea of how complex this reach was.  
 
-```{r myreach, fig.cap='Here is the matority of the section I was able to map. ', out.width="50%", echo=F, fig.align='center'}
+```{r myreach, fig.cap='Here is the majority of the section I was able to map. ', out.width="50%", echo=F, fig.align='center'}
 knitr::include_graphics("./images/Module8/MyMappedReach.jpg")
 ```
 
