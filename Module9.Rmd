@@ -40,7 +40,7 @@ knitr::include_graphics("./images/Module9/ProjectArea_mapped.jpg")
 
 # Calculated floodplain metrics
 
-Below are the calculated metrics from my delineated geometric units. 
+Below are the calculated metrics from my delineated geometric units. Interestingly, my active floodplain was fairly similar, though slightly smaller than my active channel. These were dwarfed by my inactive floodplain area, though I'm not sure whether that includes the terrace. 
 
 ```{r calculatedmetrics, echo=F}
 stats <- data.frame(Metric = c("Active Channel Area (m2)", 
@@ -75,14 +75,14 @@ knitr::include_graphics("./images/Module9/RiverMapped.jpg")
 ```
 
 
-```{r valleybottom, fig.show='hold', fig.cap="This section demonstrates areas of good alignment between VBET and my product. I was a little more inclusive in my delineation.  ", out.width="30%", echo=F, fig.align='center'}
+```{r valleybottom, fig.show='hold', fig.cap="This section demonstrates areas of good alignment between VBET and my product's valley bottom extent (yellow + green in VBET; All green in my delineations). I was a little more inclusive in my delineation.  ", out.width="30%", echo=F, fig.align='center'}
 knitr::include_graphics("./images/Module9/Valley Bottom Imagery.jpg")
 knitr::include_graphics("./images/Module9/Valley Bottom VBET.jpg")
 knitr::include_graphics("./images/Module9/Valley Bottom Mapped.jpg")
 ```
 
 
-```{r pooralignment, fig.show='hold', fig.cap="This section demonstrates an area of poor alignment", out.width="30%", echo=F, fig.align='center'}
+```{r pooralignment, fig.show='hold', fig.cap="This section demonstrates an area of poor alignment of valley bottom extent between my delineation and VBET. PArticularly obvious is how my mapping follows imagery around the farmland, while VBET likely focuses more so on elevation, meaning it includes a large portion of pasture as being active floodplain. On the area south of the river, there's a forested area with a similar imagery signature. I considered this to be inactive floodplain, while VBET split this into active floodplain and terrace. ", out.width="30%", echo=F, fig.align='center'}
 knitr::include_graphics("./images/Module9/PoorMatchImagery.jpg")
 knitr::include_graphics("./images/Module9/PoorMatchVBET.jpg")
 knitr::include_graphics("./images/Module9/PoorMatchMapped.jpg")
@@ -90,13 +90,13 @@ knitr::include_graphics("./images/Module9/PoorMatchMapped.jpg")
 
 
 
-```{r inactive, fig.show='hold', fig.cap="This section demonstrates an area of poor alignment", out.width="30%", echo=F, fig.align='center'}
+```{r inactive, fig.show='hold', fig.cap="This section demonstrates an area of poor alignment between what is considered active in my delineation vs. VBET. Question marks mark areas that were particularly off.", out.width="30%", echo=F, fig.align='center'}
 knitr::include_graphics("./images/Module9/InactiveImagery.jpg")
 knitr::include_graphics("./images/Module9/InactiveVBET.jpg")
 knitr::include_graphics("./images/Module9/InactiveMapped.jpg")
 ```
 
-With all of these examples, I can't tell whether there's a bias between my mapping and VBET's. Visually, DEM's can be hard for me to interpret. Likewise, I would guess that imagery can be difficult to classify on a large scale, since the imagery signature for differnt kinds of vegetation can vary quite widely. I would guess the best product would be using VBET as a starting place, then visually adjusting it using available imagery and my own knowledge of the area. 
+With all of these examples, I can't tell whether there's a bias between my mapping and VBET's. Visually, DEM's can be hard for me to interpret. Likewise, I would guess that imagery can be difficult to classify on a large scale, since the imagery signature for different kinds of vegetation can vary quite widely. I would guess the best product would be using VBET as a starting place, then visually adjusting it using available imagery and my own knowledge of the area. 
 
 # Posted Riverscape Project
 
