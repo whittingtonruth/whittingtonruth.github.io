@@ -145,10 +145,10 @@ knitr::include_graphics("./images/Module8/DiagonalBar2_markup.jpg")
 Finally, another area that was more easily accessible showed another structurally forced set of units (Fig. \@ref(fig:forcedriffle2)). Mid channel woody debris was forcing water into a secondary channel/chute. As the water flowed down over the bank, it then created a structurally-forced pool. A ledge also showed here, where the water was carving into the floodplain. Also connecting to the river here is a backwater slough with algae across some of its surface. Again the main channel has a run continuing around the bend here.  
 
 ```{r forcedriffle2, echo=F, fig.cap='A second patch of woody debris is causing several different geomorphic units. In purple is a secondary channel (forced side channel?). This runs into a forced pool as the water comes down off the floodplain and back into the main channel (green). In blue, a small ledge is circled. A back channel is highlighted in pink. ' , out.width='80%'}
-knitr::include_graphics("./images/Module8/ForcedRiffle.jpg")
+knitr::include_graphics("./images/Module8/StructurallyForcedPool.jpg")
 ```
 
-Below is a video of my observations from my second vantage point. 
+Below is a video of my observations from my second vantage point. I can't get this video to load right now. 
 
 ```{r video, echo = F, warning=F, fig.align='center'}
 library(voice)
