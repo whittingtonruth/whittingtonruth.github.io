@@ -25,8 +25,12 @@ navbar:
         - text: "Module 9: Floodplain Geomorphic Units"
           href: Module9.html
         - text: "Module 10: River Diversity"
-          href: Module10.html
-      
+          href: Module10.html4
+    - text: "Final Project"
+      menu: 
+        - text: "Project Site Selection"
+        - text: "Proforma Map"
+        - text: "Final Project"
 output_dir: "docs" 
 output: 
   html_document: 
