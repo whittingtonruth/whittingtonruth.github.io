@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Final Project</title>
+
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Ruth Whittington's Website</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="FluvialGeomorphologyNotebook.html">Fluvial Geomorphology</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Module Exercises
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="Module1.html">Module 1: Reading a Riverscape Analysis</a>
+    </li>
+    <li>
+      <a href="Module3.html">Module 3: Catchment-Level Controls</a>
+    </li>
+    <li>
+      <a href="Module4.html">Module 4: Watershed Hydrology</a>
+    </li>
+    <li>
+      <a href="Module5.html">Module 5: Hydraulics</a>
+    </li>
+    <li>
+      <a href="Module6.html">Module 6: Flume Observations</a>
+    </li>
+    <li>
+      <a href="Module7.html">Module 7: Channel Geometry</a>
+    </li>
+    <li>
+      <a href="Module8.html">Module 8: In-Channel Geomorphic Units</a>
+    </li>
+    <li>
+      <a href="Module9.html">Module 9: Floodplain Geomorphic Units</a>
+    </li>
+    <li>
+      <a href="Module10.html">Module 10: River Diversity</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Final Project
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Project Site Selection</li>
+    <li class="dropdown-header">Proforma Map</li>
+    <li>
+      <a href="FinalProject.html">Final Project</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Final Project</h1>
+
+</div>
+
+
+<div id="introduction-lolo-creek-watershed" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> Introduction: Lolo Creek Watershed</h1>
+<div class="figure"><span style="display:block;" id="fig:OverviewMap"></span>
+<img src="images/FinalProject/Large%20Scale%20Map.jpg" alt="An overview of the Lolo Creek Watershed, a HUC-10 watershed within the subbasin of the Bitterroot River. Inset image shows where in Montana this watershed is located, just over the Montana-Idaho border. Purple points demonstrate potential riverscape locations that are accessible from major roads. These are the points I intend to visit for this project. " width="90%" />
+<p class="caption">
+Figure 1.1: An overview of the Lolo Creek Watershed, a HUC-10 watershed within the subbasin of the Bitterroot River. Inset image shows where in Montana this watershed is located, just over the Montana-Idaho border. Purple points demonstrate potential riverscape locations that are accessible from major roads. These are the points I intend to visit for this project.
+</p>
+</div>
+<p>Lolo Creek watershed is located in Montana on the border with Idaho (Fig. <a href="#fig:OverviewMap">1.1</a>). The rivers and streams of the watershed all flow to the east from the peaks of the Bitterroot Mountains into the Bitterroot Valley, where it joins the Bitterroot River just south of its confluence with the Clark Fork River in Missoula. From Missoula, the Clark Fork flows north through the Rocky Mountains, eventually through the Pend Oreille River to the Columbia and the Pacific Ocean.</p>
+<div id="my-riverscapes" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> My Riverscapes</h2>
+<p>Within this watershed, I chose five potential riverscapes to focus on for my project, predominantly located on the main, West Fork Lolo Creek, as this creek is highly accessible, particularly at the top of the watershed where most land is Forest Service land, though a couple of points were chose just off the main branch to ensure a confined riverscape would be included. I’ve driven by this river many times on the way to the best accessible cross country skiing at the top of the watershed, and during those drives I’ve noted the steep granite peaks that characterize the whole watershed, leading to a deeply confined valley at the macro scale, and frequent stretches of sinuous channel across intermittent floodplains. At the base, access becomes more difficult, but still a spot of unconfined channel is accessible from Traveler’s Rest State Park, which I’ve used for other assignments (e.g. <a href="Module5.html">Module 5</a> and <a href="Module9.html">Module 9</a>).</p>
+</div>
+<div id="climate-flow-regime-and-geology-of-lolo-creek-watershed" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> Climate, Flow Regime, and Geology of Lolo Creek Watershed</h2>
+<p>Lolo Creek Watershed is characterized by a strong precipitation gradient from the top of the watershed that has some of the most reliable snow close to Missoula and 1833 mm of annual precipitation, to the bottom of the watershed, which has 320 mm of annual precipitation. Combine that with the high slope of the watershed, and granite heavy geology, and it becomes clear that this area has a strong spring pulse of water as the snow melts at the top and works its way to the bottom (see <a href="Module4.html">Module 4</a> for more of my assessment of the flow regime).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:LoloPrecip"></span>
+<img src="images/Module4/LoloAnnualPrecip.jpg" alt="Annual precipitation in the Lolo Creek watershed. " width="70%" />
+<p class="caption">
+Figure 1.2: Annual precipitation in the Lolo Creek watershed.
+</p>
+</div>
+<p>The geology of the watershed is made up of granitic material at the top of the watershed, transitioning into a mix of quartzite along the mainstem of Lolo Creek, with metasiltstone and argillite mixed in from the subcatchments to the north and south (Fig <a href="#fig:LoloGeology">1.3</a>). This makes sense with what I saw in my riverscapes - a lot of coarse material with clear water, particularly high in the watershed. As I traveled lower in elevation towards its outlet, the fine fraction increased to some degree, but still not dramatically.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:LoloGeology"></span>
+<img src="images/FinalProject/LoloGeology.jpg" alt="Geology of Lolo watershed, from the State Geologic Map Compilation (SGMC) Geodatabase of the Conterminous United States. Labels show one major lithology of each mapped unit. Additional major lithologies are listed in the datasource, but even just showing the first gives an idea of the kind of parent material that is found in Lolo Creek Watershed. " width="70%" />
+<p class="caption">
+Figure 1.3: Geology of Lolo watershed, from the State Geologic Map Compilation (SGMC) Geodatabase of the Conterminous United States. Labels show one major lithology of each mapped unit. Additional major lithologies are listed in the datasource, but even just showing the first gives an idea of the kind of parent material that is found in Lolo Creek Watershed.
+</p>
+</div>
+</div>
+<div id="physiography-and-vegetative-communities" class="section level2" number="1.3">
+<h2><span class="header-section-number">1.3</span> Physiography and Vegetative Communities</h2>
+<p>Lolo Creek watershed is entirely within the Northwestern Forested Mountains Level I ecoregion and crosses two Level III ecoregions: Northern Forests and Idaho Batholith (Fig. <a href="#fig:LoloVeg">1.4</a>). The divide between these two ecoregions is roughly located around the geologic transition from granitic lithology to quarzite, argillite, and metasiltstone. The vast majority of the watershed is forested, with different flavors of forest, just as mixed montane, lodgepole pine, and mixed spruce-fir towards the headwaters (Fig. <a href="#fig:LoloVeg">1.4</a>). This contributes a significant amount of woody debris across the watershed, which was obvious in all of my riverscape visits. Down in the valley, there’s intermittent shrubland, particularly in the lower portion of the watershed. It should also be noted that while the vegtation class shows as being fairly consistent in the high elevations, a major fire burned the southern portion of the watershed, likely contributing to more fine sediment at the lowest of the riverscapes I visited (Fig. <a href="#fig:LoloDisturb">1.5</a>).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:LoloVeg"></span>
+<img src="images/FinalProject/LoloEcoregions.jpg" alt="Left: The Ecoregions from the EPA Ecoregional classification, showing the level III ecoregions, with dark green representing the Idaho Batholith, and the light green representing Northern Rockies. Right: Veg Type from LANDFIRE Existing Vegetation data. The vasg majority of the watershed is forested. " width="50%" /><img src="images/FinalProject/VegetationClass.jpg" alt="Left: The Ecoregions from the EPA Ecoregional classification, showing the level III ecoregions, with dark green representing the Idaho Batholith, and the light green representing Northern Rockies. Right: Veg Type from LANDFIRE Existing Vegetation data. The vasg majority of the watershed is forested. " width="50%" />
+<p class="caption">
+Figure 1.4: Left: The Ecoregions from the EPA Ecoregional classification, showing the level III ecoregions, with dark green representing the Idaho Batholith, and the light green representing Northern Rockies. Right: Veg Type from LANDFIRE Existing Vegetation data. The vasg majority of the watershed is forested.
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:LoloDisturb"></span>
+<img src="images/FinalProject/Disturbance.jpg" alt="Historic Disturbance as noted in the LANDFIRE Historic Disturbance data. Black areas have no to minimal disturbance, while the red shows the area of the Lolo Peak Fire from 2017. This area is still recovering, with young trees just starting to provide significant cover. " width="70%" />
+<p class="caption">
+Figure 1.5: Historic Disturbance as noted in the LANDFIRE Historic Disturbance data. Black areas have no to minimal disturbance, while the red shows the area of the Lolo Peak Fire from 2017. This area is still recovering, with young trees just starting to provide significant cover.
+</p>
+</div>
+</div>
+<div id="select-watershed-morphometrics" class="section level2" number="1.4">
+<h2><span class="header-section-number">1.4</span> (Select) Watershed Morphometrics</h2>
+<p>I calculated/measured some of the easiest morphometrics for Lolo Creek Watershed (). The method used were the same as what I did for Module 3. As a reminder:</p>
+<p><strong>Catchment Length</strong>: I ensured the project was in UTM projection, then used the measurement tool to measure a straight line from the mainstem beginning to the catchment mouth.</p>
+<p><strong>Catchment Area</strong>: I used the area in the attribute table of the Watershed layer.</p>
+<p><strong>Catchment Perimeter</strong>: I calculated a perimeter for the watershed layer.</p>
+<p><strong>Circularity Ratio</strong>: This is defined in my book as Catchment Area divided by the Area of a circle with the same circumference as the watershed perimeter. The area of a circle can be calculated from perimeter as circumference squared, divided by 4 pi.</p>
+<p><strong>Form Factor</strong>: This calculation is defined as the catchment area divided by catchment length squared.</p>
+<p><strong>Catchment relief</strong>: I used the maximum elevation in the project DEM minus the minimum elevation in the DEM, located at the catchment mouth.</p>
+<p><strong>Relief Ratio</strong>: Catchment relief divided by catchment length, both in meters.</p>
+<p><strong>Drainage Density</strong>: This was calculated as the total stream length from the attribute table of the drainage network (note this included Perennial, Intermittent and Ephemeral drainages), divided by the catchment area.</p>
+<p>My calculations are shown in the table below. The size, length, and perimeter ended up fairly similar to Logan River watershed, interestingly enough, with a slightly higher relief ratio and slightly higher drainage density. This indicates this watershed is less responsive to major storm events than Gold Creek, for example. It also has an average drop that is slightly higher than Logan River, but slightly lower than Gold Creek. This suggests that the differences between these two watersheds are going to be more based on the geology, vegetation, and climate more so than the watershed shape.</p>
+<table>
+<caption><span id="tab:morphometrics">Table 1.1: </span>Catchment morphometrics for Lolo Creek watershed.</caption>
+<thead>
+<tr class="header">
+<th align="left">Morphometric</th>
+<th align="left">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Catchment Length (m)</td>
+<td align="left">41.7 km (41,731 m))</td>
+</tr>
+<tr class="even">
+<td align="left">Catchment Area</td>
+<td align="left">706.4 sq km (706,400,000 sq m)</td>
+</tr>
+<tr class="odd">
+<td align="left">Catchment Perimeter Length</td>
+<td align="left">162.0 km (161,969 m)</td>
+</tr>
+<tr class="even">
+<td align="left">Circularity Ratio</td>
+<td align="left">706.4 / ((162.0^2)/(4pi)) = 0.338</td>
+</tr>
+<tr class="odd">
+<td align="left">Form Factor</td>
+<td align="left">706.4 / (41.7^2) = 0.406</td>
+</tr>
+<tr class="even">
+<td align="left">Catchment Relief</td>
+<td align="left">2786 - 961 = 1825 m</td>
+</tr>
+<tr class="odd">
+<td align="left">Relief Ratio</td>
+<td align="left">1825 / 41731 = 0.043</td>
+</tr>
+<tr class="even">
+<td align="left">Drainage Density</td>
+<td align="left">970 km / 706.4 km^2 = 1.37 km km^-2</td>
+</tr>
+<tr class="odd">
+<td align="left">Drainage Pattern</td>
+<td align="left">Dendritic</td>
+</tr>
+</tbody>
+</table>
+<p>I also created a longitudinal profile, and was surprised to find that it was much less interesting than the profile I completed for <a href="Module3.html">Module 3</a> (Fig. <a href="#fig:LoloProfile">1.6</a>). Where Gold Creek and Logan watershed both had multiple interesting knickpoints and slope changes, there was really just one major transition at the top of the watershed. This big change did not coincide with a geologic or ecological transition, however, it did happen just below a transition in annual precipitation in a watershed that has a lot of snow during the winter right at the top. This watershed is most characterized by hard geology with low disturbance and fairly homogenous vegetative communities, likely explaining the fairly uneroded watershed.</p>
+<p>Concavity is calculated as:
+Concavity = 2A / H
+Where A is the height difference between the profile at mid-distance and a straight line joining the end points of the profile and H is the total fall of the longitudinal profile. In this case, A would be around 150 m, and H is 672. Concavity equals 0.45, much lower than both Gold Creek and Logan River watersheds that I looked at in Module 3. This again confirms this watershed is eroding quite slowly. Below the initial precipitous drop, the slope of the mainstem Lolo is fairly even all the way to the mouth.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:LoloProfile"></span>
+<img src="images/FinalProject/LoloProfile.png" alt="A longitudinal profile of the mainstem of Lolo Creek. This profile had few large knickpoints, and a lot more small knickpoints as confined sections gaveway to small valleys where the river could meander a big before plunging down another confined section. " width="70%" />
+<p class="caption">
+Figure 1.6: A longitudinal profile of the mainstem of Lolo Creek. This profile had few large knickpoints, and a lot more small knickpoints as confined sections gaveway to small valleys where the river could meander a big before plunging down another confined section.
+</p>
+</div>
+</div>
+</div>
+<div id="confined-riverscape-granite-creek" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Confined Riverscape: Granite Creek</h1>
+<p>My confined riverscape was the second reach I visited. It was located on Granite Creek, on the north side of Lolo Creek. My original location ended up being much like my partly confined riverscape I visited first, forcing me to keep driving up stream until the floodplains disappeared and stream flow was characterized more by cascades than runs. Below is my overview drawing and imagery of this reach.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:overviewgranite"></span>
+<img src="images/FinalProject/RS2_DrawingOverview.jpg" alt="Overview drawing of Granite Creek reach and photo taken looking upstream at the location of cross section 1. " width="45%" /><img src="images/FinalProject/RS2_OverviewPhoto.jpg" alt="Overview drawing of Granite Creek reach and photo taken looking upstream at the location of cross section 1. " width="45%" />
+<p class="caption">
+Figure 2.1: Overview drawing of Granite Creek reach and photo taken looking upstream at the location of cross section 1.
+</p>
+</div>
+<p>I focused in on two cross sections for this reach.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:crosssection1granite"></span>
+<img src="images/FinalProject/RS2_CS1_Drawing.jpg" alt="Overview drawing and photo of cross section 1. " width="45%" /><img src="images/FinalProject/RS2_CS1_Photo.jpg" alt="Overview drawing and photo of cross section 1. " width="45%" />
+<p class="caption">
+Figure 2.2: Overview drawing and photo of cross section 1.
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:crosssection2granite"></span>
+<img src="images/FinalProject/RS2_CS2_Drawing.jpg" alt="Overview drawing and photo of cross section 2. " width="45%" /><img src="images/FinalProject/RS2_CS2_Photo.jpg" alt="Overview drawing and photo of cross section 2. " width="45%" />
+<p class="caption">
+Figure 2.3: Overview drawing and photo of cross section 2.
+</p>
+</div>
+</div>
+<div id="partly-confined-riverscape-east-fork-lolo-creek" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Partly Confined Riverscape: East Fork Lolo Creek</h1>
+<p>The first location I “read” was at East Fork Lolo Creek. Below is a overview drawing of the reach, alongside available imagery (Fig. <a href="#fig:overviewelolo">3.1</a>).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:overviewelolo"></span>
+<img src="images/FinalProject/DrawingELolo.jpg" alt="Overview representations of the East Fork Lolo Creek reach. On the left is my drawing from in the field and the right is imagery from OnX. " width="45%" /><img src="images/FinalProject/ImageryELolo.jpg" alt="Overview representations of the East Fork Lolo Creek reach. On the left is my drawing from in the field and the right is imagery from OnX. " width="45%" />
+<p class="caption">
+Figure 3.1: Overview representations of the East Fork Lolo Creek reach. On the left is my drawing from in the field and the right is imagery from OnX.
+</p>
+</div>
+<p>This section was my example of a partly confined stream, with characteristic intermittent floodplains showing up on alternating sides of the stream. These floodplains were small, forming in the tight turns as the active channel bounced back and forth between the road I was walking on and the steep hillslope across the valley from me. This section was loaded with woody debris, both crossing the channel and lining the banks, especially closest to the road - potentially woody debris added to the side to protect it from eroding into the road.</p>
+<p>In this reach, I first looked at three cross sections (Fig. <a href="#fig:rs1crosssections">3.2</a>. Some consistencies popped out in all three spots. First, the dominance of coarse woody debris creating the river bends, lining the banks, and forming the floodplains. To get a good view of the river, I had to climb over and balance on one or more of the many trunks lining the side of the channel. Even standing away from the river on the floodplain, I could feel more woody debris forming the floodplain itself. Second was the presence of a small floodplain, usually on one side or the other. The floodplains were small, often with overflow channels cutting across them.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:rs1crosssections"></span>
+<img src="images/FinalProject/RS1_CS1_Drawing.jpg" alt="Three crosssections from my partially confined riverscape on East Fork Lolo Creek. Note the coarse woody material and large rocks creating the curves in the stream. " width="33%" /><img src="images/FinalProject/RS1_CS2_Drawing.jpg" alt="Three crosssections from my partially confined riverscape on East Fork Lolo Creek. Note the coarse woody material and large rocks creating the curves in the stream. " width="33%" /><img src="images/FinalProject/RS1_CS3_Drawing.jpg" alt="Three crosssections from my partially confined riverscape on East Fork Lolo Creek. Note the coarse woody material and large rocks creating the curves in the stream. " width="33%" />
+<p class="caption">
+Figure 3.2: Three crosssections from my partially confined riverscape on East Fork Lolo Creek. Note the coarse woody material and large rocks creating the curves in the stream.
+</p>
+</div>
+<p>A few more features I noticed from Stage 1 &amp; 2 of reading a landscape:
+- Dominant geomorphic features were aforementioned floodplains, vegetated bars where woody debris had gotten caught, further complicating the present features.
+- The bed was made up of cobbles with incredibly clear water. I think this stream is dominated by bedload. I’m not sure what sediments made up the islands and floodplains, because they were so covered by woody debris, but I would guess they were also quite coarse.
+- Vegetation on the floodplains was dominated by willow species. Willows were also vegetating the present islands, likely meaning the islands have been there for a while, building up sediment between coarser rock, and eventually growing vegetation. However, they also don’t seem overly complicated, with multiple forces working and reworking what is available in new conglomerated shapes. These features likely formed from contemporary behavior rather than past history.
+- The road clearly restricts the river. This reach had no inactive terrace; the road was created where there used to be more river valley. The bank on the road side had also been built up and protected, with large cobble without the rounded edges I would expect in a river. I also wonder how much of the woody debris on the road side had been added to further protect that bank from eroding.</p>
+<p>I also took a little extra time to look at downstream section of this reach at cross section 3 (Fig. <a href="#fig:lolozoomed">3.3</a>). Here, the thalweg comes around the floodplain, and gets caught on a large boulder in the stream. This caused an eddy to form as some water hit the rock and carved out the bank in the opposite direction of the stream. The water was deeper here, with even coarser material making up the bed. This section had a lot of water moving through it, but also highlighted how few places the river had to go - it was deep, but now running into coarse boulders or bedrock at the bottom of the stream. It was carving into the far bank, but the hillslope went straight up from there.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:lolozoomed"></span>
+<img src="images/FinalProject/RS1_CS3_AnnotatedPicture.jpg" alt="A photo taken at the third cross section from the above drawing. The channel was deeper here, being limited in how far it could carve into the opposite bank. The boulder in the river forced a lot of changes to water movement, carving a pool in front of it and eroding into the opposite adjacent hillslope. Still, the yellow line indicates the proximity of the high slope hillslope. There is not a lot of space for this river to move and adjust. On the right is my drawing of this particular section. " width="50%" /><img src="images/FinalProject/RS1_CS3_ZoomDrawing.jpg" alt="A photo taken at the third cross section from the above drawing. The channel was deeper here, being limited in how far it could carve into the opposite bank. The boulder in the river forced a lot of changes to water movement, carving a pool in front of it and eroding into the opposite adjacent hillslope. Still, the yellow line indicates the proximity of the high slope hillslope. There is not a lot of space for this river to move and adjust. On the right is my drawing of this particular section. " width="50%" />
+<p class="caption">
+Figure 3.3: A photo taken at the third cross section from the above drawing. The channel was deeper here, being limited in how far it could carve into the opposite bank. The boulder in the river forced a lot of changes to water movement, carving a pool in front of it and eroding into the opposite adjacent hillslope. Still, the yellow line indicates the proximity of the high slope hillslope. There is not a lot of space for this river to move and adjust. On the right is my drawing of this particular section.
+</p>
+</div>
+<p>All of these observations allowed me to start to classify at the reach scale. This is a partly confined channel with discontinuous floodplain pockets. The channel had some low sinuosity. While there were occasional islands, I was visiting at a high flow, and I wonder if the stream is more often down to just one channel.</p>
+<p>This channel seems quite stable in its current form. While the stream power is high, the available sediment is dominated by a coarse fraction too big to be moved in lower flows. It appears to be competence limited, unable to pickup the sediment making up its banks. It appears to be adjusting laterally for the most part. High flows likely happen during spring runoff, when the majority of sediment movement occurs as well, carving into the hillslopes slowly, with sudden releases of finer material from the hillslopes, but for the most part, I expect the water runs quite clear and sediments are moved along the channel bottom slowly.</p>
+</div>
+<div id="unconfined-riverscape-west-lolo-creek-at-travelers-rest-state-park" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Unconfined Riverscape: West Lolo Creek at Traveler’s Rest State Park</h1>
+<div id="reach-description" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Reach description</h2>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
