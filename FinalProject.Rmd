@@ -102,27 +102,6 @@ Where A is the height difference between the profile at mid-distance and a strai
 knitr::include_graphics("./images/FinalProject/LoloProfile.png")
 ```
 
-# Confined Riverscape: Granite Creek
-
-My confined riverscape was the second reach I visited. It was located on Granite Creek, on the north side of Lolo Creek. My original location ended up being much like my partly confined riverscape I visited first, forcing me to keep driving up stream until the floodplains disappeared and stream flow was characterized more by cascades than runs. Below is my overview drawing and imagery of this reach. 
-
-```{r overviewgranite, fig.show='hold', fig.cap='Overview drawing of Granite Creek reach and photo taken looking upstream at the location of cross section 1. ', out.width="45%", echo=F, fig.align='center'}
-knitr::include_graphics("./images/FinalProject/RS2_DrawingOverview.jpg")
-knitr::include_graphics("./images/FinalProject/RS2_OverviewPhoto.jpg")
-```
-
-I focused in on two cross sections for this reach. 
-
-```{r crosssection1granite, fig.show='hold', fig.cap='Overview drawing and photo of cross section 1. ', out.width="45%", echo=F, fig.align='center'}
-knitr::include_graphics("./images/FinalProject/RS2_CS1_Drawing.jpg")
-knitr::include_graphics("./images/FinalProject/RS2_CS1_Photo.jpg")
-```
-
-```{r crosssection2granite, fig.show='hold', fig.cap='Overview drawing and photo of cross section 2. ', out.width="45%", echo=F, fig.align='center'}
-knitr::include_graphics("./images/FinalProject/RS2_CS2_Drawing.jpg")
-knitr::include_graphics("./images/FinalProject/RS2_CS2_Photo.jpg")
-```
-
 # Partly Confined Riverscape: East Fork Lolo Creek
 
 The first location I "read" was at East Fork Lolo Creek. Below is a overview drawing of the reach, alongside available imagery (Fig. \@ref(fig:overviewelolo)). 
@@ -159,7 +138,88 @@ All of these observations allowed me to start to classify at the reach scale. Th
 
 This channel seems quite stable in its current form. While the stream power is high, the available sediment is dominated by a coarse fraction too big to be moved in lower flows. It appears to be competence limited, unable to pickup the sediment making up its banks. It appears to be adjusting laterally for the most part. High flows likely happen during spring runoff, when the majority of sediment movement occurs as well, carving into the hillslopes slowly, with sudden releases of finer material from the hillslopes, but for the most part, I expect the water runs quite clear and sediments are moved along the channel bottom slowly. 
 
+# Confined Riverscape: Granite Creek
+
+My confined riverscape was the second reach I visited. It was located on Granite Creek, on the North side of Lolo Creek. My original location ended up being much like my partly confined riverscape I visited first, forcing me to keep driving up stream until the floodplains disappeared and stream flow was characterized more by cascades than runs. Below is my overview drawing and imagery of this reach. 
+
+```{r overviewgranite, fig.show='hold', fig.cap='Overview drawing of Granite Creek reach and photo taken looking upstream at the location of cross section 1. ', out.width="45%", echo=F, fig.align='center'}
+knitr::include_graphics("./images/FinalProject/RS2_DrawingOverview.jpg")
+knitr::include_graphics("./images/FinalProject/RS2_OverviewPhoto.jpg")
+```
+
+I focused in on two cross sections for this reach. In both, the hillslope went directly up straight from the stream bank, quickly transitioning from willow dominated vegetation to upland conifers. The road, much like in the first reach, was built up to one side, and where the channel was directly adjacent to the road, large, angular rocks and cut down trees lined the stream bank ensuring any meanders wouldn't degrade into the road. The bed of this reach was made up of large cobble and boulders. In the second cross section, large boulders were nearly half or more the width of the stream itself, creating cascades where the channel couldn't wash out or degrade the boulders with its flow. 
+
+I also considered how this reach would look different at different flows. At the time I visited, the stream seemed near or at bankfull, with the water coming up to just under the rooting vegetation on the banks. At lower flows, the boulders and cobbles would increasingly stick out from the water surface, causing the channel to lose velocity as the relative roughness increased. Those cobbles would offer little coarse material the stream was competent enough to carry. At really high flows, some of the smallest coarse material might start to be rolled down the channel. With this area occurring in a fairly linearly shaped subcatchment, its unlikely to have really sudden high flow events. Rather, the channel would slowly increase flows in the spring, as slowly melting snow gradually contributed to the watershed. With snow being a dominant precipitation and the hillslope being covered with trees, erosion from the hillslopes likely happens quite slowly. 
+
+```{r crosssection1granite, fig.show='hold', fig.cap='Overview drawing and photo of cross section 1. Yellow line demonstrates the placement of where the cross section was taken. While an island is present here, the growth of conifers on them indicate that they are not regularly inundated with water. ', out.width="45%", echo=F, fig.align='center'}
+knitr::include_graphics("./images/FinalProject/RS2_CS1_Drawing.jpg")
+knitr::include_graphics("./images/FinalProject/RS2_CS1_Photo.jpg")
+```
+
+```{r crosssection2granite, fig.show='hold', fig.cap='Overview drawing and photo of cross section 2. ', out.width="45%", echo=F, fig.align='center'}
+knitr::include_graphics("./images/FinalProject/RS2_CS2_Drawing.jpg")
+knitr::include_graphics("./images/FinalProject/RS2_CS2_Photo.jpg")
+```
+
+In terms of geomorphic surfaces, this reach still had a lot of runs, but cascades and rapids were intermixed (Fig. \@ref(fig:cascades)). I could see ridges of boulders, creating channel-spanning ridges in the water surface as water flowed over it. While the other reach had coarse woody debris crossing the channel, in this channel any logs were oriented parallel to the channel. Only boulders were stable enough to hold back water in the fast moving current. There were channels in this channel, but no loose gravel was available on their edges. Their entire exposed banks were stabilized by growing vegetation. Where they existed, a large boulder usually existed either on the downstreams side to support them, as in the rapids section, or on the upstream side, protecting them from the highest velocity portion of the channel (Fig. \@ref(fig:island)). 
+
+```{r cascades, echo = F, fig.cap="A section of rapids appearing as boulders and bedrock form channel-spanning ridges for the water to spill over. ", warning=F, out.width="70%", fig.align="center"}
+knitr::include_graphics("./images/FinalProject/RS2_cascades.jpg")
+```
+
+```{r island, echo = F, fig.cap="This island highlighted in purple is protected from erosion by the bedrock or very large boulder embedded in the stream upstream of it. This island also has several large boulders downstream. It's stable enough that old conifers have been able to thrive on the island. ", warning=F, out.width="70%", fig.align="center"}
+knitr::include_graphics("./images/FinalProject/RS2_Island.jpg")
+```
+
+Out of curiosity, I did put together a quick profile for Granite Creek (Fig. \@ref(fig:GraniteProfile)). Where I looked at the stream, the channel had just come out of a relatively flat section. With the similarity to my first stop, I'm curious what it would have looked like a little higher, where the slope is higher, and the jumps in elevation come out more strongly. In general, one pattern that stands out to me is that high in the profile, there are a long series of flat sections followed by big jumps and then flat, and then another jump. I wish I had gone up here, but I'm guessing this pattern demonstrates random sudden erosional events in particular areas, producing a series of jumps along the profile. This also might make sense for this watershed, given it's granite lithology. Granite tends to break up slowly, and even then only in larger chunks.
+
+```{r GraniteProfile, echo = F, fig.cap="A longitudinal profile of Granite Creek. The redlines in the graph show where my reach occured in this profile. ", warning=F, out.width="70%", fig.align="center"}
+knitr::include_graphics("./images/FinalProject/GraniteCreekProfile.png")
+```
+
+This river is a steep headwater stream (though it would have been more so higher up in the profile). It has one, occasionally two channels, with low sinuosity. Bed material size was boulder dominated with some sections of cobble. In highflow events, it adjusts vertically, with very little ability to adjust laterally. It generally seems quite stable, though it probably leans towards being erosion dominated, which erosional events requiring very high flow to move the very coarse bed material, and very few inputs from upstream.
+
 # Unconfined Riverscape: West Lolo Creek at Traveler's Rest State Park
 
-## Reach description
+I was not able to complete a third site visit for this project, due to limited time availability. However, my reach from [Module 5](Module5.html) is in an unconfined valley setting at the bottom of Lolo Creek Watershed. I will use the observations and cross sections I drew for that module to make a few observations about this laterally unconfined stretch of river. Here are a few key notes:
 
+- That reach had dramatically smaller bed material, with most of the bed being a fine cobble with some zones of gravel. 
+- Islands were made up of the same material, with little vegetation growing on them. They look to be regularly reworked as they accumulate material from higher in the watershed. This stretch of stream seems to have more regular pockets of erosion and deposition along the channel - a bank-attached bar developing in one area, as a curve in the channel carves into the bank upstream. 
+- There was significantly less coarse woody debris, and it tended to be deposited/concentrated in piles. It seems likely that the majority of the time, the stream power is not enough to move them. But high flow events will push them to particular points all at once. 
+- Geomorphic units were made up of riffles and pools, with some runs as well. Bank-attached bars and mid channel bars were also observed. 
+- This reach adjusts laterally - there were many bends in the river. On the floodplain were side channels that either mark historic channels, or provide a place for overflow during high flow events. 
+- Floodplain was available above the channel itself. Hillslopes can be seen in some background photos, but around the river is flat floodplain and terrace. 
+- Cross sections show a much higher width to depth ratio and 
+
+Another spot I briefly stopped was at Earl Tennant Campground. Here's it's clear a major re-routing project is underway, because the imagery on google maps shows a stream that is no longer matching its current state. 
+
+```{r EarlTennantImagery, echo = F, fig.cap="This is the area for my last quick stop. The purple shows the course of the river I visited. The imagery shows channel reworking underway. ", warning=F, out.width="70%", fig.align="center"}
+knitr::include_graphics("./images/FinalProject/Earl Tennant Imagery.jpg")
+```
+
+This section also had some more similar characteristics to Traveler's Rest, with a wide floodplain, bank-attached bars, and a series of riffles and pools (Fig \@ref(fig:EarlTennantQuickStop)). This was also a spot where I saw the finest sediment, and the clearest sediment sorting, with coarser materials developing in riffles and coarse sand and fine gravel depositing downstream of them. I didn't have time to do a full read here, but the stop was worth the time to just see a different example of a less confined section of Lolo Creek. 
+
+```{r EarlTennantQuickStop, fig.show='hold', fig.cap='A couple photos looking upstream (left) and downstream (right) at Earl Tennant Campground.This was just a quick stop, but it had some of the finest sediments of any of my visits as well as clear sediment sorting. ', out.width="45%", echo=F, fig.align='center'}
+knitr::include_graphics("./images/FinalProject/EarlTennantUpstream.jpg")
+knitr::include_graphics("./images/FinalProject/EarlTennantDownstream.jpg")
+```
+
+# Bringing it all together
+
+In looking at these reaches together, along with the information I was able to summarize about the catchment overall, I can see a couple major defining factors in determining how this catchment works. First is it's lithology - extremely hard, impermeable rock make up the majority of the watershed, leading to steep profiles with sediment that doesn't fine into sand over the course of is 63 kilometers. These steep slopes keep the river highly connected to the surrounding hillslopes, without historic terraces and inactive floodplains to separate them. 
+
+This may also have to do with the low degree of human disturbance in this watershed compared with others across the west. While the Lolo Creek Valley has intermittent pockets where some people have settled or had cattle, the majority of the watershed is on forest service land, with logging roads and road building being the main disturbance otherwise. These roads likely are a big source of sediment, particularly considering that the naturally available parent material of the watershed is fairly resistant to weathering. 
+
+In the three reaches I was able to visit, I could see the classic pattern of river diversity as I moved down the longitudinal profile. I saw a source zone in Granite Creek, where boulders and cobbles must (very) slowly break into the material that moves downstream. In East Fork Lolo Creek, I saw a transfer zone, where slightly finer cobbles were both eroding and depositing to create intermittent floodplains on alternating sides of the river. Finally, I've been looking at an accumulation zone, where cobble from upstream stretches is deposited to form bank-attached and mid island bars. The classic riffle and pool pattern also showed strongly here. 
+
+In this catchment, looking for spots along the mainstem Lolo Creek, I was struck by the regular pattern of steep confined section followed by open meanering valley, followed by another strictly confined section. looking at the profiles, I had expected to see this pattern come out really obviously. Instead, the pattern of opening valleys and confined stretches is so regular that the whole profile has few knickpoints that stand out. After completing this assignment, I think this is because of the lithology of this watershed - Just as I saw a step pattern high in Granite Creek, so to is happening at a much larger spatial and temporal scale across this whole catchment - with the decades and centuries of river carving only intermittent and relatively narrow pockets of unconfined meandering river. 
+
+```{r lolomeander1, fig.show='hold', fig.cap='Two photos from Google Earth showing one meandering section (left) just downstream from a more confined section (right). ', out.width="45%", echo=F, fig.align='center'}
+knitr::include_graphics("./images/FinalProject/LoloCreekMeander1.jpg")
+knitr::include_graphics("./images/FinalProject/LoloCreekConfined1.jpg")
+```
+
+```{r lolomeander2, fig.show='hold', fig.cap='Another example of the pattern of opening floodplain into confined section of the mainstem Lolo Creek along Highway 12. Two photos from Google Earth showing one meandering section (left) just downstream from a more confined section (right). ', out.width="45%", echo=F, fig.align='center'}
+knitr::include_graphics("./images/FinalProject/LoloCreekMeander2.jpg")
+knitr::include_graphics("./images/FinalProject/LoloCreekConfined2.jpg")
+```

@@ -13,6 +13,7 @@
 
 <title>Final Project</title>
 
+<script src="site_libs/header-attrs-2.30/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -28,9 +29,6 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
-<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
-<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
-<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -221,69 +219,6 @@ $(document).ready(function () {
 
 
 
-<style type="text/css">
-
-#TOC {
-  margin: 25px 0px 20px 0px;
-}
-@media (max-width: 768px) {
-#TOC {
-  position: relative;
-  width: 100%;
-}
-}
-
-@media print {
-.toc-content {
-  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
-  float: right;
-}
-}
-
-.toc-content {
-  padding-left: 30px;
-  padding-right: 40px;
-}
-
-div.main-container {
-  max-width: 1200px;
-}
-
-div.tocify {
-  width: 20%;
-  max-width: 260px;
-  max-height: 85%;
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  div.tocify {
-    width: 25%;
-  }
-}
-
-@media (max-width: 767px) {
-  div.tocify {
-    width: 100%;
-    max-width: none;
-  }
-}
-
-.tocify ul, .tocify li {
-  line-height: 20px;
-}
-
-.tocify-subheader .tocify-item {
-  font-size: 0.90em;
-}
-
-.tocify .list-group-item {
-  border-radius: 0px;
-}
-
-
-</style>
-
-
 
 </head>
 
@@ -291,16 +226,6 @@ div.tocify {
 
 
 <div class="container-fluid main-container">
-
-
-<!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row">
-<div class="col-xs-12 col-sm-4 col-md-3">
-<div id="TOC" class="tocify">
-</div>
-</div>
-
-<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -390,66 +315,158 @@ div.tocify {
 </div>
 
 
-<div id="introduction-lolo-creek-watershed" class="section level1" number="1">
-<h1><span class="header-section-number">1</span> Introduction: Lolo Creek Watershed</h1>
-<div class="figure"><span style="display:block;" id="fig:OverviewMap"></span>
+<div id="introduction-lolo-creek-watershed" class="section level1">
+<h1>Introduction: Lolo Creek Watershed</h1>
+<div class="figure">
 <img src="images/FinalProject/Large%20Scale%20Map.jpg" alt="An overview of the Lolo Creek Watershed, a HUC-10 watershed within the subbasin of the Bitterroot River. Inset image shows where in Montana this watershed is located, just over the Montana-Idaho border. Purple points demonstrate potential riverscape locations that are accessible from major roads. These are the points I intend to visit for this project. " width="90%" />
 <p class="caption">
-Figure 1.1: An overview of the Lolo Creek Watershed, a HUC-10 watershed within the subbasin of the Bitterroot River. Inset image shows where in Montana this watershed is located, just over the Montana-Idaho border. Purple points demonstrate potential riverscape locations that are accessible from major roads. These are the points I intend to visit for this project.
+An overview of the Lolo Creek Watershed, a HUC-10 watershed within the
+subbasin of the Bitterroot River. Inset image shows where in Montana
+this watershed is located, just over the Montana-Idaho border. Purple
+points demonstrate potential riverscape locations that are accessible
+from major roads. These are the points I intend to visit for this
+project.
 </p>
 </div>
-<p>Lolo Creek watershed is located in Montana on the border with Idaho (Fig. <a href="#fig:OverviewMap">1.1</a>). The rivers and streams of the watershed all flow to the east from the peaks of the Bitterroot Mountains into the Bitterroot Valley, where it joins the Bitterroot River just south of its confluence with the Clark Fork River in Missoula. From Missoula, the Clark Fork flows north through the Rocky Mountains, eventually through the Pend Oreille River to the Columbia and the Pacific Ocean.</p>
-<div id="my-riverscapes" class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> My Riverscapes</h2>
-<p>Within this watershed, I chose five potential riverscapes to focus on for my project, predominantly located on the main, West Fork Lolo Creek, as this creek is highly accessible, particularly at the top of the watershed where most land is Forest Service land, though a couple of points were chose just off the main branch to ensure a confined riverscape would be included. I’ve driven by this river many times on the way to the best accessible cross country skiing at the top of the watershed, and during those drives I’ve noted the steep granite peaks that characterize the whole watershed, leading to a deeply confined valley at the macro scale, and frequent stretches of sinuous channel across intermittent floodplains. At the base, access becomes more difficult, but still a spot of unconfined channel is accessible from Traveler’s Rest State Park, which I’ve used for other assignments (e.g. <a href="Module5.html">Module 5</a> and <a href="Module9.html">Module 9</a>).</p>
+<p>Lolo Creek watershed is located in Montana on the border with Idaho
+(Fig. @ref(fig:OverviewMap)). The rivers and streams of the watershed
+all flow to the east from the peaks of the Bitterroot Mountains into the
+Bitterroot Valley, where it joins the Bitterroot River just south of its
+confluence with the Clark Fork River in Missoula. From Missoula, the
+Clark Fork flows north through the Rocky Mountains, eventually through
+the Pend Oreille River to the Columbia and the Pacific Ocean.</p>
+<div id="my-riverscapes" class="section level2">
+<h2>My Riverscapes</h2>
+<p>Within this watershed, I chose five potential riverscapes to focus on
+for my project, predominantly located on the main, West Fork Lolo Creek,
+as this creek is highly accessible, particularly at the top of the
+watershed where most land is Forest Service land, though a couple of
+points were chose just off the main branch to ensure a confined
+riverscape would be included. I’ve driven by this river many times on
+the way to the best accessible cross country skiing at the top of the
+watershed, and during those drives I’ve noted the steep granite peaks
+that characterize the whole watershed, leading to a deeply confined
+valley at the macro scale, and frequent stretches of sinuous channel
+across intermittent floodplains. At the base, access becomes more
+difficult, but still a spot of unconfined channel is accessible from
+Traveler’s Rest State Park, which I’ve used for other assignments
+(e.g. <a href="Module5.html">Module 5</a> and <a
+href="Module9.html">Module 9</a>).</p>
 </div>
-<div id="climate-flow-regime-and-geology-of-lolo-creek-watershed" class="section level2" number="1.2">
-<h2><span class="header-section-number">1.2</span> Climate, Flow Regime, and Geology of Lolo Creek Watershed</h2>
-<p>Lolo Creek Watershed is characterized by a strong precipitation gradient from the top of the watershed that has some of the most reliable snow close to Missoula and 1833 mm of annual precipitation, to the bottom of the watershed, which has 320 mm of annual precipitation. Combine that with the high slope of the watershed, and granite heavy geology, and it becomes clear that this area has a strong spring pulse of water as the snow melts at the top and works its way to the bottom (see <a href="Module4.html">Module 4</a> for more of my assessment of the flow regime).</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:LoloPrecip"></span>
+<div id="climate-flow-regime-and-geology-of-lolo-creek-watershed"
+class="section level2">
+<h2>Climate, Flow Regime, and Geology of Lolo Creek Watershed</h2>
+<p>Lolo Creek Watershed is characterized by a strong precipitation
+gradient from the top of the watershed that has some of the most
+reliable snow close to Missoula and 1833 mm of annual precipitation, to
+the bottom of the watershed, which has 320 mm of annual precipitation.
+Combine that with the high slope of the watershed, and granite heavy
+geology, and it becomes clear that this area has a strong spring pulse
+of water as the snow melts at the top and works its way to the bottom
+(see <a href="Module4.html">Module 4</a> for more of my assessment of
+the flow regime).</p>
+<div class="figure" style="text-align: center">
 <img src="images/Module4/LoloAnnualPrecip.jpg" alt="Annual precipitation in the Lolo Creek watershed. " width="70%" />
 <p class="caption">
-Figure 1.2: Annual precipitation in the Lolo Creek watershed.
+Annual precipitation in the Lolo Creek watershed.
 </p>
 </div>
-<p>The geology of the watershed is made up of granitic material at the top of the watershed, transitioning into a mix of quartzite along the mainstem of Lolo Creek, with metasiltstone and argillite mixed in from the subcatchments to the north and south (Fig <a href="#fig:LoloGeology">1.3</a>). This makes sense with what I saw in my riverscapes - a lot of coarse material with clear water, particularly high in the watershed. As I traveled lower in elevation towards its outlet, the fine fraction increased to some degree, but still not dramatically.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:LoloGeology"></span>
+<p>The geology of the watershed is made up of granitic material at the
+top of the watershed, transitioning into a mix of quartzite along the
+mainstem of Lolo Creek, with metasiltstone and argillite mixed in from
+the subcatchments to the north and south (Fig @ref(fig:LoloGeology)).
+This makes sense with what I saw in my riverscapes - a lot of coarse
+material with clear water, particularly high in the watershed. As I
+traveled lower in elevation towards its outlet, the fine fraction
+increased to some degree, but still not dramatically.</p>
+<div class="figure" style="text-align: center">
 <img src="images/FinalProject/LoloGeology.jpg" alt="Geology of Lolo watershed, from the State Geologic Map Compilation (SGMC) Geodatabase of the Conterminous United States. Labels show one major lithology of each mapped unit. Additional major lithologies are listed in the datasource, but even just showing the first gives an idea of the kind of parent material that is found in Lolo Creek Watershed. " width="70%" />
 <p class="caption">
-Figure 1.3: Geology of Lolo watershed, from the State Geologic Map Compilation (SGMC) Geodatabase of the Conterminous United States. Labels show one major lithology of each mapped unit. Additional major lithologies are listed in the datasource, but even just showing the first gives an idea of the kind of parent material that is found in Lolo Creek Watershed.
+Geology of Lolo watershed, from the State Geologic Map Compilation
+(SGMC) Geodatabase of the Conterminous United States. Labels show one
+major lithology of each mapped unit. Additional major lithologies are
+listed in the datasource, but even just showing the first gives an idea
+of the kind of parent material that is found in Lolo Creek Watershed.
 </p>
 </div>
 </div>
-<div id="physiography-and-vegetative-communities" class="section level2" number="1.3">
-<h2><span class="header-section-number">1.3</span> Physiography and Vegetative Communities</h2>
-<p>Lolo Creek watershed is entirely within the Northwestern Forested Mountains Level I ecoregion and crosses two Level III ecoregions: Northern Forests and Idaho Batholith (Fig. <a href="#fig:LoloVeg">1.4</a>). The divide between these two ecoregions is roughly located around the geologic transition from granitic lithology to quarzite, argillite, and metasiltstone. The vast majority of the watershed is forested, with different flavors of forest, just as mixed montane, lodgepole pine, and mixed spruce-fir towards the headwaters (Fig. <a href="#fig:LoloVeg">1.4</a>). This contributes a significant amount of woody debris across the watershed, which was obvious in all of my riverscape visits. Down in the valley, there’s intermittent shrubland, particularly in the lower portion of the watershed. It should also be noted that while the vegtation class shows as being fairly consistent in the high elevations, a major fire burned the southern portion of the watershed, likely contributing to more fine sediment at the lowest of the riverscapes I visited (Fig. <a href="#fig:LoloDisturb">1.5</a>).</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:LoloVeg"></span>
+<div id="physiography-and-vegetative-communities"
+class="section level2">
+<h2>Physiography and Vegetative Communities</h2>
+<p>Lolo Creek watershed is entirely within the Northwestern Forested
+Mountains Level I ecoregion and crosses two Level III ecoregions:
+Northern Forests and Idaho Batholith (Fig. @ref(fig:LoloVeg)). The
+divide between these two ecoregions is roughly located around the
+geologic transition from granitic lithology to quarzite, argillite, and
+metasiltstone. The vast majority of the watershed is forested, with
+different flavors of forest, just as mixed montane, lodgepole pine, and
+mixed spruce-fir towards the headwaters (Fig. @ref(fig:LoloVeg)). This
+contributes a significant amount of woody debris across the watershed,
+which was obvious in all of my riverscape visits. Down in the valley,
+there’s intermittent shrubland, particularly in the lower portion of the
+watershed. It should also be noted that while the vegtation class shows
+as being fairly consistent in the high elevations, a major fire burned
+the southern portion of the watershed, likely contributing to more fine
+sediment at the lowest of the riverscapes I visited (Fig.
+@ref(fig:LoloDisturb)).</p>
+<div class="figure" style="text-align: center">
 <img src="images/FinalProject/LoloEcoregions.jpg" alt="Left: The Ecoregions from the EPA Ecoregional classification, showing the level III ecoregions, with dark green representing the Idaho Batholith, and the light green representing Northern Rockies. Right: Veg Type from LANDFIRE Existing Vegetation data. The vasg majority of the watershed is forested. " width="50%" /><img src="images/FinalProject/VegetationClass.jpg" alt="Left: The Ecoregions from the EPA Ecoregional classification, showing the level III ecoregions, with dark green representing the Idaho Batholith, and the light green representing Northern Rockies. Right: Veg Type from LANDFIRE Existing Vegetation data. The vasg majority of the watershed is forested. " width="50%" />
 <p class="caption">
-Figure 1.4: Left: The Ecoregions from the EPA Ecoregional classification, showing the level III ecoregions, with dark green representing the Idaho Batholith, and the light green representing Northern Rockies. Right: Veg Type from LANDFIRE Existing Vegetation data. The vasg majority of the watershed is forested.
+Left: The Ecoregions from the EPA Ecoregional classification, showing
+the level III ecoregions, with dark green representing the Idaho
+Batholith, and the light green representing Northern Rockies. Right: Veg
+Type from LANDFIRE Existing Vegetation data. The vasg majority of the
+watershed is forested.
 </p>
 </div>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:LoloDisturb"></span>
+<div class="figure" style="text-align: center">
 <img src="images/FinalProject/Disturbance.jpg" alt="Historic Disturbance as noted in the LANDFIRE Historic Disturbance data. Black areas have no to minimal disturbance, while the red shows the area of the Lolo Peak Fire from 2017. This area is still recovering, with young trees just starting to provide significant cover. " width="70%" />
 <p class="caption">
-Figure 1.5: Historic Disturbance as noted in the LANDFIRE Historic Disturbance data. Black areas have no to minimal disturbance, while the red shows the area of the Lolo Peak Fire from 2017. This area is still recovering, with young trees just starting to provide significant cover.
+Historic Disturbance as noted in the LANDFIRE Historic Disturbance data.
+Black areas have no to minimal disturbance, while the red shows the area
+of the Lolo Peak Fire from 2017. This area is still recovering, with
+young trees just starting to provide significant cover.
 </p>
 </div>
 </div>
-<div id="select-watershed-morphometrics" class="section level2" number="1.4">
-<h2><span class="header-section-number">1.4</span> (Select) Watershed Morphometrics</h2>
-<p>I calculated/measured some of the easiest morphometrics for Lolo Creek Watershed (). The method used were the same as what I did for Module 3. As a reminder:</p>
-<p><strong>Catchment Length</strong>: I ensured the project was in UTM projection, then used the measurement tool to measure a straight line from the mainstem beginning to the catchment mouth.</p>
-<p><strong>Catchment Area</strong>: I used the area in the attribute table of the Watershed layer.</p>
-<p><strong>Catchment Perimeter</strong>: I calculated a perimeter for the watershed layer.</p>
-<p><strong>Circularity Ratio</strong>: This is defined in my book as Catchment Area divided by the Area of a circle with the same circumference as the watershed perimeter. The area of a circle can be calculated from perimeter as circumference squared, divided by 4 pi.</p>
-<p><strong>Form Factor</strong>: This calculation is defined as the catchment area divided by catchment length squared.</p>
-<p><strong>Catchment relief</strong>: I used the maximum elevation in the project DEM minus the minimum elevation in the DEM, located at the catchment mouth.</p>
-<p><strong>Relief Ratio</strong>: Catchment relief divided by catchment length, both in meters.</p>
-<p><strong>Drainage Density</strong>: This was calculated as the total stream length from the attribute table of the drainage network (note this included Perennial, Intermittent and Ephemeral drainages), divided by the catchment area.</p>
-<p>My calculations are shown in the table below. The size, length, and perimeter ended up fairly similar to Logan River watershed, interestingly enough, with a slightly higher relief ratio and slightly higher drainage density. This indicates this watershed is less responsive to major storm events than Gold Creek, for example. It also has an average drop that is slightly higher than Logan River, but slightly lower than Gold Creek. This suggests that the differences between these two watersheds are going to be more based on the geology, vegetation, and climate more so than the watershed shape.</p>
+<div id="select-watershed-morphometrics" class="section level2">
+<h2>(Select) Watershed Morphometrics</h2>
+<p>I calculated/measured some of the easiest morphometrics for Lolo
+Creek Watershed (). The method used were the same as what I did for
+Module 3. As a reminder:</p>
+<p><strong>Catchment Length</strong>: I ensured the project was in UTM
+projection, then used the measurement tool to measure a straight line
+from the mainstem beginning to the catchment mouth.</p>
+<p><strong>Catchment Area</strong>: I used the area in the attribute
+table of the Watershed layer.</p>
+<p><strong>Catchment Perimeter</strong>: I calculated a perimeter for
+the watershed layer.</p>
+<p><strong>Circularity Ratio</strong>: This is defined in my book as
+Catchment Area divided by the Area of a circle with the same
+circumference as the watershed perimeter. The area of a circle can be
+calculated from perimeter as circumference squared, divided by 4 pi.</p>
+<p><strong>Form Factor</strong>: This calculation is defined as the
+catchment area divided by catchment length squared.</p>
+<p><strong>Catchment relief</strong>: I used the maximum elevation in
+the project DEM minus the minimum elevation in the DEM, located at the
+catchment mouth.</p>
+<p><strong>Relief Ratio</strong>: Catchment relief divided by catchment
+length, both in meters.</p>
+<p><strong>Drainage Density</strong>: This was calculated as the total
+stream length from the attribute table of the drainage network (note
+this included Perennial, Intermittent and Ephemeral drainages), divided
+by the catchment area.</p>
+<p>My calculations are shown in the table below. The size, length, and
+perimeter ended up fairly similar to Logan River watershed,
+interestingly enough, with a slightly higher relief ratio and slightly
+higher drainage density. This indicates this watershed is less
+responsive to major storm events than Gold Creek, for example. It also
+has an average drop that is slightly higher than Logan River, but
+slightly lower than Gold Creek. This suggests that the differences
+between these two watersheds are going to be more based on the geology,
+vegetation, and climate more so than the watershed shape.</p>
 <table>
-<caption><span id="tab:morphometrics">Table 1.1: </span>Catchment morphometrics for Lolo Creek watershed.</caption>
+<caption>Catchment morphometrics for Lolo Creek watershed.</caption>
 <thead>
 <tr class="header">
 <th align="left">Morphometric</th>
@@ -495,84 +512,372 @@ Figure 1.5: Historic Disturbance as noted in the LANDFIRE Historic Disturbance d
 </tr>
 </tbody>
 </table>
-<p>I also created a longitudinal profile, and was surprised to find that it was much less interesting than the profile I completed for <a href="Module3.html">Module 3</a> (Fig. <a href="#fig:LoloProfile">1.6</a>). Where Gold Creek and Logan watershed both had multiple interesting knickpoints and slope changes, there was really just one major transition at the top of the watershed. This big change did not coincide with a geologic or ecological transition, however, it did happen just below a transition in annual precipitation in a watershed that has a lot of snow during the winter right at the top. This watershed is most characterized by hard geology with low disturbance and fairly homogenous vegetative communities, likely explaining the fairly uneroded watershed.</p>
-<p>Concavity is calculated as:
-Concavity = 2A / H
-Where A is the height difference between the profile at mid-distance and a straight line joining the end points of the profile and H is the total fall of the longitudinal profile. In this case, A would be around 150 m, and H is 672. Concavity equals 0.45, much lower than both Gold Creek and Logan River watersheds that I looked at in Module 3. This again confirms this watershed is eroding quite slowly. Below the initial precipitous drop, the slope of the mainstem Lolo is fairly even all the way to the mouth.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:LoloProfile"></span>
+<p>I also created a longitudinal profile, and was surprised to find that
+it was much less interesting than the profile I completed for <a
+href="Module3.html">Module 3</a> (Fig. @ref(fig:LoloProfile)). Where
+Gold Creek and Logan watershed both had multiple interesting knickpoints
+and slope changes, there was really just one major transition at the top
+of the watershed. This big change did not coincide with a geologic or
+ecological transition, however, it did happen just below a transition in
+annual precipitation in a watershed that has a lot of snow during the
+winter right at the top. This watershed is most characterized by hard
+geology with low disturbance and fairly homogenous vegetative
+communities, likely explaining the fairly uneroded watershed.</p>
+<p>Concavity is calculated as: Concavity = 2A / H Where A is the height
+difference between the profile at mid-distance and a straight line
+joining the end points of the profile and H is the total fall of the
+longitudinal profile. In this case, A would be around 150 m, and H is
+672. Concavity equals 0.45, much lower than both Gold Creek and Logan
+River watersheds that I looked at in Module 3. This again confirms this
+watershed is eroding quite slowly. Below the initial precipitous drop,
+the slope of the mainstem Lolo is fairly even all the way to the
+mouth.</p>
+<div class="figure" style="text-align: center">
 <img src="images/FinalProject/LoloProfile.png" alt="A longitudinal profile of the mainstem of Lolo Creek. This profile had few large knickpoints, and a lot more small knickpoints as confined sections gaveway to small valleys where the river could meander a big before plunging down another confined section. " width="70%" />
 <p class="caption">
-Figure 1.6: A longitudinal profile of the mainstem of Lolo Creek. This profile had few large knickpoints, and a lot more small knickpoints as confined sections gaveway to small valleys where the river could meander a big before plunging down another confined section.
+A longitudinal profile of the mainstem of Lolo Creek. This profile had
+few large knickpoints, and a lot more small knickpoints as confined
+sections gaveway to small valleys where the river could meander a big
+before plunging down another confined section.
 </p>
 </div>
 </div>
 </div>
-<div id="confined-riverscape-granite-creek" class="section level1" number="2">
-<h1><span class="header-section-number">2</span> Confined Riverscape: Granite Creek</h1>
-<p>My confined riverscape was the second reach I visited. It was located on Granite Creek, on the north side of Lolo Creek. My original location ended up being much like my partly confined riverscape I visited first, forcing me to keep driving up stream until the floodplains disappeared and stream flow was characterized more by cascades than runs. Below is my overview drawing and imagery of this reach.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:overviewgranite"></span>
-<img src="images/FinalProject/RS2_DrawingOverview.jpg" alt="Overview drawing of Granite Creek reach and photo taken looking upstream at the location of cross section 1. " width="45%" /><img src="images/FinalProject/RS2_OverviewPhoto.jpg" alt="Overview drawing of Granite Creek reach and photo taken looking upstream at the location of cross section 1. " width="45%" />
-<p class="caption">
-Figure 2.1: Overview drawing of Granite Creek reach and photo taken looking upstream at the location of cross section 1.
-</p>
-</div>
-<p>I focused in on two cross sections for this reach.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:crosssection1granite"></span>
-<img src="images/FinalProject/RS2_CS1_Drawing.jpg" alt="Overview drawing and photo of cross section 1. " width="45%" /><img src="images/FinalProject/RS2_CS1_Photo.jpg" alt="Overview drawing and photo of cross section 1. " width="45%" />
-<p class="caption">
-Figure 2.2: Overview drawing and photo of cross section 1.
-</p>
-</div>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:crosssection2granite"></span>
-<img src="images/FinalProject/RS2_CS2_Drawing.jpg" alt="Overview drawing and photo of cross section 2. " width="45%" /><img src="images/FinalProject/RS2_CS2_Photo.jpg" alt="Overview drawing and photo of cross section 2. " width="45%" />
-<p class="caption">
-Figure 2.3: Overview drawing and photo of cross section 2.
-</p>
-</div>
-</div>
-<div id="partly-confined-riverscape-east-fork-lolo-creek" class="section level1" number="3">
-<h1><span class="header-section-number">3</span> Partly Confined Riverscape: East Fork Lolo Creek</h1>
-<p>The first location I “read” was at East Fork Lolo Creek. Below is a overview drawing of the reach, alongside available imagery (Fig. <a href="#fig:overviewelolo">3.1</a>).</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:overviewelolo"></span>
+<div id="partly-confined-riverscape-east-fork-lolo-creek"
+class="section level1">
+<h1>Partly Confined Riverscape: East Fork Lolo Creek</h1>
+<p>The first location I “read” was at East Fork Lolo Creek. Below is a
+overview drawing of the reach, alongside available imagery (Fig.
+@ref(fig:overviewelolo)).</p>
+<div class="figure" style="text-align: center">
 <img src="images/FinalProject/DrawingELolo.jpg" alt="Overview representations of the East Fork Lolo Creek reach. On the left is my drawing from in the field and the right is imagery from OnX. " width="45%" /><img src="images/FinalProject/ImageryELolo.jpg" alt="Overview representations of the East Fork Lolo Creek reach. On the left is my drawing from in the field and the right is imagery from OnX. " width="45%" />
 <p class="caption">
-Figure 3.1: Overview representations of the East Fork Lolo Creek reach. On the left is my drawing from in the field and the right is imagery from OnX.
+Overview representations of the East Fork Lolo Creek reach. On the left
+is my drawing from in the field and the right is imagery from OnX.
 </p>
 </div>
-<p>This section was my example of a partly confined stream, with characteristic intermittent floodplains showing up on alternating sides of the stream. These floodplains were small, forming in the tight turns as the active channel bounced back and forth between the road I was walking on and the steep hillslope across the valley from me. This section was loaded with woody debris, both crossing the channel and lining the banks, especially closest to the road - potentially woody debris added to the side to protect it from eroding into the road.</p>
-<p>In this reach, I first looked at three cross sections (Fig. <a href="#fig:rs1crosssections">3.2</a>. Some consistencies popped out in all three spots. First, the dominance of coarse woody debris creating the river bends, lining the banks, and forming the floodplains. To get a good view of the river, I had to climb over and balance on one or more of the many trunks lining the side of the channel. Even standing away from the river on the floodplain, I could feel more woody debris forming the floodplain itself. Second was the presence of a small floodplain, usually on one side or the other. The floodplains were small, often with overflow channels cutting across them.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:rs1crosssections"></span>
+<p>This section was my example of a partly confined stream, with
+characteristic intermittent floodplains showing up on alternating sides
+of the stream. These floodplains were small, forming in the tight turns
+as the active channel bounced back and forth between the road I was
+walking on and the steep hillslope across the valley from me. This
+section was loaded with woody debris, both crossing the channel and
+lining the banks, especially closest to the road - potentially woody
+debris added to the side to protect it from eroding into the road.</p>
+<p>In this reach, I first looked at three cross sections (Fig.
+@ref(fig:rs1crosssections). Some consistencies popped out in all three
+spots. First, the dominance of coarse woody debris creating the river
+bends, lining the banks, and forming the floodplains. To get a good view
+of the river, I had to climb over and balance on one or more of the many
+trunks lining the side of the channel. Even standing away from the river
+on the floodplain, I could feel more woody debris forming the floodplain
+itself. Second was the presence of a small floodplain, usually on one
+side or the other. The floodplains were small, often with overflow
+channels cutting across them.</p>
+<div class="figure" style="text-align: center">
 <img src="images/FinalProject/RS1_CS1_Drawing.jpg" alt="Three crosssections from my partially confined riverscape on East Fork Lolo Creek. Note the coarse woody material and large rocks creating the curves in the stream. " width="33%" /><img src="images/FinalProject/RS1_CS2_Drawing.jpg" alt="Three crosssections from my partially confined riverscape on East Fork Lolo Creek. Note the coarse woody material and large rocks creating the curves in the stream. " width="33%" /><img src="images/FinalProject/RS1_CS3_Drawing.jpg" alt="Three crosssections from my partially confined riverscape on East Fork Lolo Creek. Note the coarse woody material and large rocks creating the curves in the stream. " width="33%" />
 <p class="caption">
-Figure 3.2: Three crosssections from my partially confined riverscape on East Fork Lolo Creek. Note the coarse woody material and large rocks creating the curves in the stream.
+Three crosssections from my partially confined riverscape on East Fork
+Lolo Creek. Note the coarse woody material and large rocks creating the
+curves in the stream.
 </p>
 </div>
-<p>A few more features I noticed from Stage 1 &amp; 2 of reading a landscape:
-- Dominant geomorphic features were aforementioned floodplains, vegetated bars where woody debris had gotten caught, further complicating the present features.
-- The bed was made up of cobbles with incredibly clear water. I think this stream is dominated by bedload. I’m not sure what sediments made up the islands and floodplains, because they were so covered by woody debris, but I would guess they were also quite coarse.
-- Vegetation on the floodplains was dominated by willow species. Willows were also vegetating the present islands, likely meaning the islands have been there for a while, building up sediment between coarser rock, and eventually growing vegetation. However, they also don’t seem overly complicated, with multiple forces working and reworking what is available in new conglomerated shapes. These features likely formed from contemporary behavior rather than past history.
-- The road clearly restricts the river. This reach had no inactive terrace; the road was created where there used to be more river valley. The bank on the road side had also been built up and protected, with large cobble without the rounded edges I would expect in a river. I also wonder how much of the woody debris on the road side had been added to further protect that bank from eroding.</p>
-<p>I also took a little extra time to look at downstream section of this reach at cross section 3 (Fig. <a href="#fig:lolozoomed">3.3</a>). Here, the thalweg comes around the floodplain, and gets caught on a large boulder in the stream. This caused an eddy to form as some water hit the rock and carved out the bank in the opposite direction of the stream. The water was deeper here, with even coarser material making up the bed. This section had a lot of water moving through it, but also highlighted how few places the river had to go - it was deep, but now running into coarse boulders or bedrock at the bottom of the stream. It was carving into the far bank, but the hillslope went straight up from there.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:lolozoomed"></span>
+<p>A few more features I noticed from Stage 1 &amp; 2 of reading a
+landscape: - Dominant geomorphic features were aforementioned
+floodplains, vegetated bars where woody debris had gotten caught,
+further complicating the present features. - The bed was made up of
+cobbles with incredibly clear water. I think this stream is dominated by
+bedload. I’m not sure what sediments made up the islands and
+floodplains, because they were so covered by woody debris, but I would
+guess they were also quite coarse. - Vegetation on the floodplains was
+dominated by willow species. Willows were also vegetating the present
+islands, likely meaning the islands have been there for a while,
+building up sediment between coarser rock, and eventually growing
+vegetation. However, they also don’t seem overly complicated, with
+multiple forces working and reworking what is available in new
+conglomerated shapes. These features likely formed from contemporary
+behavior rather than past history. - The road clearly restricts the
+river. This reach had no inactive terrace; the road was created where
+there used to be more river valley. The bank on the road side had also
+been built up and protected, with large cobble without the rounded edges
+I would expect in a river. I also wonder how much of the woody debris on
+the road side had been added to further protect that bank from
+eroding.</p>
+<p>I also took a little extra time to look at downstream section of this
+reach at cross section 3 (Fig. @ref(fig:lolozoomed)). Here, the thalweg
+comes around the floodplain, and gets caught on a large boulder in the
+stream. This caused an eddy to form as some water hit the rock and
+carved out the bank in the opposite direction of the stream. The water
+was deeper here, with even coarser material making up the bed. This
+section had a lot of water moving through it, but also highlighted how
+few places the river had to go - it was deep, but now running into
+coarse boulders or bedrock at the bottom of the stream. It was carving
+into the far bank, but the hillslope went straight up from there.</p>
+<div class="figure" style="text-align: center">
 <img src="images/FinalProject/RS1_CS3_AnnotatedPicture.jpg" alt="A photo taken at the third cross section from the above drawing. The channel was deeper here, being limited in how far it could carve into the opposite bank. The boulder in the river forced a lot of changes to water movement, carving a pool in front of it and eroding into the opposite adjacent hillslope. Still, the yellow line indicates the proximity of the high slope hillslope. There is not a lot of space for this river to move and adjust. On the right is my drawing of this particular section. " width="50%" /><img src="images/FinalProject/RS1_CS3_ZoomDrawing.jpg" alt="A photo taken at the third cross section from the above drawing. The channel was deeper here, being limited in how far it could carve into the opposite bank. The boulder in the river forced a lot of changes to water movement, carving a pool in front of it and eroding into the opposite adjacent hillslope. Still, the yellow line indicates the proximity of the high slope hillslope. There is not a lot of space for this river to move and adjust. On the right is my drawing of this particular section. " width="50%" />
 <p class="caption">
-Figure 3.3: A photo taken at the third cross section from the above drawing. The channel was deeper here, being limited in how far it could carve into the opposite bank. The boulder in the river forced a lot of changes to water movement, carving a pool in front of it and eroding into the opposite adjacent hillslope. Still, the yellow line indicates the proximity of the high slope hillslope. There is not a lot of space for this river to move and adjust. On the right is my drawing of this particular section.
+A photo taken at the third cross section from the above drawing. The
+channel was deeper here, being limited in how far it could carve into
+the opposite bank. The boulder in the river forced a lot of changes to
+water movement, carving a pool in front of it and eroding into the
+opposite adjacent hillslope. Still, the yellow line indicates the
+proximity of the high slope hillslope. There is not a lot of space for
+this river to move and adjust. On the right is my drawing of this
+particular section.
 </p>
 </div>
-<p>All of these observations allowed me to start to classify at the reach scale. This is a partly confined channel with discontinuous floodplain pockets. The channel had some low sinuosity. While there were occasional islands, I was visiting at a high flow, and I wonder if the stream is more often down to just one channel.</p>
-<p>This channel seems quite stable in its current form. While the stream power is high, the available sediment is dominated by a coarse fraction too big to be moved in lower flows. It appears to be competence limited, unable to pickup the sediment making up its banks. It appears to be adjusting laterally for the most part. High flows likely happen during spring runoff, when the majority of sediment movement occurs as well, carving into the hillslopes slowly, with sudden releases of finer material from the hillslopes, but for the most part, I expect the water runs quite clear and sediments are moved along the channel bottom slowly.</p>
+<p>All of these observations allowed me to start to classify at the
+reach scale. This is a partly confined channel with discontinuous
+floodplain pockets. The channel had some low sinuosity. While there were
+occasional islands, I was visiting at a high flow, and I wonder if the
+stream is more often down to just one channel.</p>
+<p>This channel seems quite stable in its current form. While the stream
+power is high, the available sediment is dominated by a coarse fraction
+too big to be moved in lower flows. It appears to be competence limited,
+unable to pickup the sediment making up its banks. It appears to be
+adjusting laterally for the most part. High flows likely happen during
+spring runoff, when the majority of sediment movement occurs as well,
+carving into the hillslopes slowly, with sudden releases of finer
+material from the hillslopes, but for the most part, I expect the water
+runs quite clear and sediments are moved along the channel bottom
+slowly.</p>
 </div>
-<div id="unconfined-riverscape-west-lolo-creek-at-travelers-rest-state-park" class="section level1" number="4">
-<h1><span class="header-section-number">4</span> Unconfined Riverscape: West Lolo Creek at Traveler’s Rest State Park</h1>
-<div id="reach-description" class="section level2" number="4.1">
-<h2><span class="header-section-number">4.1</span> Reach description</h2>
+<div id="confined-riverscape-granite-creek" class="section level1">
+<h1>Confined Riverscape: Granite Creek</h1>
+<p>My confined riverscape was the second reach I visited. It was located
+on Granite Creek, on the North side of Lolo Creek. My original location
+ended up being much like my partly confined riverscape I visited first,
+forcing me to keep driving up stream until the floodplains disappeared
+and stream flow was characterized more by cascades than runs. Below is
+my overview drawing and imagery of this reach.</p>
+<div class="figure" style="text-align: center">
+<img src="images/FinalProject/RS2_DrawingOverview.jpg" alt="Overview drawing of Granite Creek reach and photo taken looking upstream at the location of cross section 1. " width="45%" /><img src="images/FinalProject/RS2_OverviewPhoto.jpg" alt="Overview drawing of Granite Creek reach and photo taken looking upstream at the location of cross section 1. " width="45%" />
+<p class="caption">
+Overview drawing of Granite Creek reach and photo taken looking upstream
+at the location of cross section 1.
+</p>
+</div>
+<p>I focused in on two cross sections for this reach. In both, the
+hillslope went directly up straight from the stream bank, quickly
+transitioning from willow dominated vegetation to upland conifers. The
+road, much like in the first reach, was built up to one side, and where
+the channel was directly adjacent to the road, large, angular rocks and
+cut down trees lined the stream bank ensuring any meanders wouldn’t
+degrade into the road. The bed of this reach was made up of large cobble
+and boulders. In the second cross section, large boulders were nearly
+half or more the width of the stream itself, creating cascades where the
+channel couldn’t wash out or degrade the boulders with its flow.</p>
+<p>I also considered how this reach would look different at different
+flows. At the time I visited, the stream seemed near or at bankfull,
+with the water coming up to just under the rooting vegetation on the
+banks. At lower flows, the boulders and cobbles would increasingly stick
+out from the water surface, causing the channel to lose velocity as the
+relative roughness increased. Those cobbles would offer little coarse
+material the stream was competent enough to carry. At really high flows,
+some of the smallest coarse material might start to be rolled down the
+channel. With this area occurring in a fairly linearly shaped
+subcatchment, its unlikely to have really sudden high flow events.
+Rather, the channel would slowly increase flows in the spring, as slowly
+melting snow gradually contributed to the watershed. With snow being a
+dominant precipitation and the hillslope being covered with trees,
+erosion from the hillslopes likely happens quite slowly.</p>
+<div class="figure" style="text-align: center">
+<img src="images/FinalProject/RS2_CS1_Drawing.jpg" alt="Overview drawing and photo of cross section 1. Yellow line demonstrates the placement of where the cross section was taken. While an island is present here, the growth of conifers on them indicate that they are not regularly inundated with water. " width="45%" /><img src="images/FinalProject/RS2_CS1_Photo.jpg" alt="Overview drawing and photo of cross section 1. Yellow line demonstrates the placement of where the cross section was taken. While an island is present here, the growth of conifers on them indicate that they are not regularly inundated with water. " width="45%" />
+<p class="caption">
+Overview drawing and photo of cross section 1. Yellow line demonstrates
+the placement of where the cross section was taken. While an island is
+present here, the growth of conifers on them indicate that they are not
+regularly inundated with water.
+</p>
+</div>
+<div class="figure" style="text-align: center">
+<img src="images/FinalProject/RS2_CS2_Drawing.jpg" alt="Overview drawing and photo of cross section 2. " width="45%" /><img src="images/FinalProject/RS2_CS2_Photo.jpg" alt="Overview drawing and photo of cross section 2. " width="45%" />
+<p class="caption">
+Overview drawing and photo of cross section 2.
+</p>
+</div>
+<p>In terms of geomorphic surfaces, this reach still had a lot of runs,
+but cascades and rapids were intermixed (Fig. @ref(fig:cascades)). I
+could see ridges of boulders, creating channel-spanning ridges in the
+water surface as water flowed over it. While the other reach had coarse
+woody debris crossing the channel, in this channel any logs were
+oriented parallel to the channel. Only boulders were stable enough to
+hold back water in the fast moving current. There were channels in this
+channel, but no loose gravel was available on their edges. Their entire
+exposed banks were stabilized by growing vegetation. Where they existed,
+a large boulder usually existed either on the downstreams side to
+support them, as in the rapids section, or on the upstream side,
+protecting them from the highest velocity portion of the channel (Fig.
+@ref(fig:island)).</p>
+<div class="figure" style="text-align: center">
+<img src="images/FinalProject/RS2_cascades.jpg" alt="A section of rapids appearing as boulders and bedrock form channel-spanning ridges for the water to spill over. " width="70%" />
+<p class="caption">
+A section of rapids appearing as boulders and bedrock form
+channel-spanning ridges for the water to spill over.
+</p>
+</div>
+<div class="figure" style="text-align: center">
+<img src="images/FinalProject/RS2_Island.jpg" alt="This island highlighted in purple is protected from erosion by the bedrock or very large boulder embedded in the stream upstream of it. This island also has several large boulders downstream. It's stable enough that old conifers have been able to thrive on the island. " width="70%" />
+<p class="caption">
+This island highlighted in purple is protected from erosion by the
+bedrock or very large boulder embedded in the stream upstream of it.
+This island also has several large boulders downstream. It’s stable
+enough that old conifers have been able to thrive on the island.
+</p>
+</div>
+<p>Out of curiosity, I did put together a quick profile for Granite
+Creek (Fig. @ref(fig:GraniteProfile)). Where I looked at the stream, the
+channel had just come out of a relatively flat section. With the
+similarity to my first stop, I’m curious what it would have looked like
+a little higher, where the slope is higher, and the jumps in elevation
+come out more strongly. In general, one pattern that stands out to me is
+that high in the profile, there are a long series of flat sections
+followed by big jumps and then flat, and then another jump. I wish I had
+gone up here, but I’m guessing this pattern demonstrates random sudden
+erosional events in particular areas, producing a series of jumps along
+the profile. This also might make sense for this watershed, given it’s
+granite lithology. Granite tends to break up slowly, and even then only
+in larger chunks.</p>
+<div class="figure" style="text-align: center">
+<img src="images/FinalProject/GraniteCreekProfile.png" alt="A longitudinal profile of Granite Creek. The redlines in the graph show where my reach occured in this profile. " width="70%" />
+<p class="caption">
+A longitudinal profile of Granite Creek. The redlines in the graph show
+where my reach occured in this profile.
+</p>
+</div>
+<p>This river is a steep headwater stream (though it would have been
+more so higher up in the profile). It has one, occasionally two
+channels, with low sinuosity. Bed material size was boulder dominated
+with some sections of cobble. In highflow events, it adjusts vertically,
+with very little ability to adjust laterally. It generally seems quite
+stable, though it probably leans towards being erosion dominated, which
+erosional events requiring very high flow to move the very coarse bed
+material, and very few inputs from upstream.</p>
+</div>
+<div
+id="unconfined-riverscape-west-lolo-creek-at-travelers-rest-state-park"
+class="section level1">
+<h1>Unconfined Riverscape: West Lolo Creek at Traveler’s Rest State
+Park</h1>
+<p>I was not able to complete a third site visit for this project, due
+to limited time availability. However, my reach from <a
+href="Module5.html">Module 5</a> is in an unconfined valley setting at
+the bottom of Lolo Creek Watershed. I will use the observations and
+cross sections I drew for that module to make a few observations about
+this laterally unconfined stretch of river. Here are a few key
+notes:</p>
+<ul>
+<li>That reach had dramatically smaller bed material, with most of the
+bed being a fine cobble with some zones of gravel.</li>
+<li>Islands were made up of the same material, with little vegetation
+growing on them. They look to be regularly reworked as they accumulate
+material from higher in the watershed. This stretch of stream seems to
+have more regular pockets of erosion and deposition along the channel -
+a bank-attached bar developing in one area, as a curve in the channel
+carves into the bank upstream.</li>
+<li>There was significantly less coarse woody debris, and it tended to
+be deposited/concentrated in piles. It seems likely that the majority of
+the time, the stream power is not enough to move them. But high flow
+events will push them to particular points all at once.</li>
+<li>Geomorphic units were made up of riffles and pools, with some runs
+as well. Bank-attached bars and mid channel bars were also
+observed.</li>
+<li>This reach adjusts laterally - there were many bends in the river.
+On the floodplain were side channels that either mark historic channels,
+or provide a place for overflow during high flow events.</li>
+<li>Floodplain was available above the channel itself. Hillslopes can be
+seen in some background photos, but around the river is flat floodplain
+and terrace.</li>
+<li>Cross sections show a much higher width to depth ratio and</li>
+</ul>
+<p>Another spot I briefly stopped was at Earl Tennant Campground. Here’s
+it’s clear a major re-routing project is underway, because the imagery
+on google maps shows a stream that is no longer matching its current
+state.</p>
+<div class="figure" style="text-align: center">
+<img src="images/FinalProject/Earl%20Tennant%20Imagery.jpg" alt="This is the area for my last quick stop. The purple shows the course of the river I visited. The imagery shows channel reworking underway. " width="70%" />
+<p class="caption">
+This is the area for my last quick stop. The purple shows the course of
+the river I visited. The imagery shows channel reworking underway.
+</p>
+</div>
+<p>This section also had some more similar characteristics to Traveler’s
+Rest, with a wide floodplain, bank-attached bars, and a series of
+riffles and pools (Fig @ref(fig:EarlTennantQuickStop)). This was also a
+spot where I saw the finest sediment, and the clearest sediment sorting,
+with coarser materials developing in riffles and coarse sand and fine
+gravel depositing downstream of them. I didn’t have time to do a full
+read here, but the stop was worth the time to just see a different
+example of a less confined section of Lolo Creek.</p>
+<div class="figure" style="text-align: center">
+<img src="images/FinalProject/EarlTennantUpstream.jpg" alt="A couple photos looking upstream (left) and downstream (right) at Earl Tennant Campground.This was just a quick stop, but it had some of the finest sediments of any of my visits as well as clear sediment sorting. " width="45%" /><img src="images/FinalProject/EarlTennantDownstream.jpg" alt="A couple photos looking upstream (left) and downstream (right) at Earl Tennant Campground.This was just a quick stop, but it had some of the finest sediments of any of my visits as well as clear sediment sorting. " width="45%" />
+<p class="caption">
+A couple photos looking upstream (left) and downstream (right) at Earl
+Tennant Campground.This was just a quick stop, but it had some of the
+finest sediments of any of my visits as well as clear sediment sorting.
+</p>
+</div>
+</div>
+<div id="bringing-it-all-together" class="section level1">
+<h1>Bringing it all together</h1>
+<p>In looking at these reaches together, along with the information I
+was able to summarize about the catchment overall, I can see a couple
+major defining factors in determining how this catchment works. First is
+it’s lithology - extremely hard, impermeable rock make up the majority
+of the watershed, leading to steep profiles with sediment that doesn’t
+fine into sand over the course of is 63 kilometers. These steep slopes
+keep the river highly connected to the surrounding hillslopes, without
+historic terraces and inactive floodplains to separate them.</p>
+<p>This may also have to do with the low degree of human disturbance in
+this watershed compared with others across the west. While the Lolo
+Creek Valley has intermittent pockets where some people have settled or
+had cattle, the majority of the watershed is on forest service land,
+with logging roads and road building being the main disturbance
+otherwise. These roads likely are a big source of sediment, particularly
+considering that the naturally available parent material of the
+watershed is fairly resistant to weathering.</p>
+<p>In the three reaches I was able to visit, I could see the classic
+pattern of river diversity as I moved down the longitudinal profile. I
+saw a source zone in Granite Creek, where boulders and cobbles must
+(very) slowly break into the material that moves downstream. In East
+Fork Lolo Creek, I saw a transfer zone, where slightly finer cobbles
+were both eroding and depositing to create intermittent floodplains on
+alternating sides of the river. Finally, I’ve been looking at an
+accumulation zone, where cobble from upstream stretches is deposited to
+form bank-attached and mid island bars. The classic riffle and pool
+pattern also showed strongly here.</p>
+<p>In this catchment, looking for spots along the mainstem Lolo Creek, I
+was struck by the regular pattern of steep confined section followed by
+open meanering valley, followed by another strictly confined section.
+looking at the profiles, I had expected to see this pattern come out
+really obviously. Instead, the pattern of opening valleys and confined
+stretches is so regular that the whole profile has few knickpoints that
+stand out. After completing this assignment, I think this is because of
+the lithology of this watershed - Just as I saw a step pattern high in
+Granite Creek, so to is happening at a much larger spatial and temporal
+scale across this whole catchment - with the decades and centuries of
+river carving only intermittent and relatively narrow pockets of
+unconfined meandering river.</p>
+<div class="figure" style="text-align: center">
+<img src="images/FinalProject/LoloCreekMeander1.jpg" alt="Two photos from Google Earth showing one meandering section (left) just downstream from a more confined section (right). " width="45%" /><img src="images/FinalProject/LoloCreekConfined1.jpg" alt="Two photos from Google Earth showing one meandering section (left) just downstream from a more confined section (right). " width="45%" />
+<p class="caption">
+Two photos from Google Earth showing one meandering section (left) just
+downstream from a more confined section (right).
+</p>
+</div>
+<div class="figure" style="text-align: center">
+<img src="images/FinalProject/LoloCreekMeander2.jpg" alt="Another example of the pattern of opening floodplain into confined section of the mainstem Lolo Creek along Highway 12. Two photos from Google Earth showing one meandering section (left) just downstream from a more confined section (right). " width="45%" /><img src="images/FinalProject/LoloCreekConfined2.jpg" alt="Another example of the pattern of opening floodplain into confined section of the mainstem Lolo Creek along Highway 12. Two photos from Google Earth showing one meandering section (left) just downstream from a more confined section (right). " width="45%" />
+<p class="caption">
+Another example of the pattern of opening floodplain into confined
+section of the mainstem Lolo Creek along Highway 12. Two photos from
+Google Earth showing one meandering section (left) just downstream from
+a more confined section (right).
+</p>
 </div>
 </div>
 
 
 
-</div>
-</div>
 
 </div>
 
@@ -605,35 +910,6 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
-<script>
-$(document).ready(function ()  {
-
-    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
-    $('.unlisted.unnumbered').addClass('toc-ignore')
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = true;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
